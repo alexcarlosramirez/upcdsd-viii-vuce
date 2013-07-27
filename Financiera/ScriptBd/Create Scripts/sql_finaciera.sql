@@ -1,5 +1,5 @@
 if exists (select * from sys.databases where name='sce_financiera_db')
-	alter database sce_financiera_db set single_user with rollback immediate
+	alter database sce_financiera_db set single_user with rollback immediate;
 	drop database sce_financiera_db;
 go
 
