@@ -1,0 +1,70 @@
+﻿html, body 
+{
+    height: 100%;
+    margin: 0px 0px 0px 50px;
+    padding: 0px 50px 0px 0px;
+}
+
+body 
+{
+    height: 100%;
+    font-family: Arial;
+}
+
+#PrincipalDiv, #PrincipalCabecera
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.CabeceraTexto 
+{
+    font-weight: bold;
+    font-size: 18px;
+    color: #010737;
+}
+
+.Principal 
+{
+    width: 100%;
+    text-align: left !important;
+}
+
+.Principal.Cabecera
+{
+    height: 50px;
+}
+
+.Principal.Linea1
+{
+    height: 15px;
+    line-height: 15px;
+    background-color: #C1D3DE;
+}
+
+.Principal.Linea2
+{
+    height: 15px;
+    line-height: 15px;
+    background-color: #007BA4;
+}
+
+.Principal.LineaBlanca
+{
+    height: 5px;
+    line-height: 5px;
+}
+
+.Principal.Formulario
+{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.CabeceraTexto
+{
+    line-height: 50px;
+}

@@ -1,0 +1,16 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/SitePagoElectronico.Master" AutoEventWireup="true" CodeBehind="NestedMasterPageCuenta.master.cs" Inherits="Financiera.WebApp.asp_cuenta.NestedMasterPageCuenta" %>
+
+<asp:Content ID="HeadCuentaCon" ContentPlaceHolderID="HeadCph" runat="server">
+    <link rel="Stylesheet" type="text/css" href="../css/SiteCuenta.css" />
+    <asp:ContentPlaceHolder ID="HeadCuentaChp" runat="server"> </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="PanelCuentaCon" ContentPlaceHolderID="PanelCph" runat="server">
+    <div class="Principal LineaBlanca">
+        <asp:Label ID="PanelCuentaLbl" runat="server" Text="Consulta &gt; " CssClass="Navegador Elemento"></asp:Label>
+        <asp:Label ID="PanelPagoLbl" runat="server" Text="Modalidad de Pago &gt; " CssClass="Navegador Elemento"></asp:Label>
+        <asp:Label ID="PanelConfirmacion" runat="server" Text="Confirmación • " CssClass="Navegador Elemento"></asp:Label>
+    </div>
+    <div class="Principal Formulario">
+        <asp:ContentPlaceHolder ID="PanelCuentaCph" runat="server"> </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>

@@ -1,0 +1,13 @@
+﻿.Navegador.Elemento
+{
+    color: rgb(220,220,220);
+}
+.Navegador.Seleccionado
+{
+    color: Blue;
+    font-weight: bold;
+}
+.Navegador.Terminado
+{
+    color: Green;
+}

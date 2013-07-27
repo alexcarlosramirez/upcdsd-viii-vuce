@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://sce.dsd.net/TransmitirDigesaRequest" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sce.dsd.net/TransmitirDigesaRequest" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="ServicioCe?xsd=Cabecera.xsd" />
+  <include schemaLocation="ServicioCe?xsd=Usuario.xsd" />
+  <include schemaLocation="ServicioCe?xsd=Dgs015.xsd" />
+  <include schemaLocation="ServicioCe?xsd=Dgs016.xsd" />
+  <element name="TransmitirOrdenRequest">
+    <complexType>
+      <sequence>
+        <element name="mensaje" type="tns:MensajeType" />
+        <choice>
+          <element name="formatoDgs015" type="tns:Dgs015Type" />
+          <element name="formatoDgs016" type="tns:Dgs016Type" />
+        </choice>
+        <element name="adjunto" nillable="true" type="base64Binary" />
+        <element name="usuario" type="tns:UsuarioType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="TransmitirNroExpedienteRequest">
+    <complexType>
+      <sequence>
+        <element name="mensaje" type="tns:MensajeType" />
+        <element name="usuario" type="tns:UsuarioType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="TransmitirPagoRequest">
+    <complexType>
+      <sequence>
+        <element name="cda" type="string" />
+        <element name="monto" type="double" />
+        <element name="fechaPago" type="dateTime" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

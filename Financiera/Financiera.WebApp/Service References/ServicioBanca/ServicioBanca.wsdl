@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://financiera.dsd.net/banca/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://financiera.dsd.net/banca/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://financiera.dsd.net/banca/">
+      <s:element name="autenticar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="claveweb" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autenticarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="usuario" nillable="true" type="tns:UsuarioType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="usuarioId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="listarBancosPorUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="usuarioId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarBancosPorUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarBancosPorUsuarioResult" type="tns:ArrayOfBancoType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBancoType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BancoType" nillable="true" type="tns:BancoType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BancoType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="bancoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="listarCuentasPorUsuarioBanco">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="usuarioId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bancoId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarCuentasPorUsuarioBancoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarCuentasPorUsuarioBancoResult" type="tns:ArrayOfCuentaType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCuentaType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CuentaType" nillable="true" type="tns:CuentaType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CuentaType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="cuentaId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="autenticarSoapIn">
+    <wsdl:part name="parameters" element="tns:autenticar" />
+  </wsdl:message>
+  <wsdl:message name="autenticarSoapOut">
+    <wsdl:part name="parameters" element="tns:autenticarResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarBancosPorUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:listarBancosPorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="listarBancosPorUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:listarBancosPorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarCuentasPorUsuarioBancoSoapIn">
+    <wsdl:part name="parameters" element="tns:listarCuentasPorUsuarioBanco" />
+  </wsdl:message>
+  <wsdl:message name="listarCuentasPorUsuarioBancoSoapOut">
+    <wsdl:part name="parameters" element="tns:listarCuentasPorUsuarioBancoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioBancaSoap">
+    <wsdl:operation name="autenticar">
+      <wsdl:input message="tns:autenticarSoapIn" />
+      <wsdl:output message="tns:autenticarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarBancosPorUsuario">
+      <wsdl:input message="tns:listarBancosPorUsuarioSoapIn" />
+      <wsdl:output message="tns:listarBancosPorUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCuentasPorUsuarioBanco">
+      <wsdl:input message="tns:listarCuentasPorUsuarioBancoSoapIn" />
+      <wsdl:output message="tns:listarCuentasPorUsuarioBancoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioBancaSoap" type="tns:ServicioBancaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="autenticar">
+      <soap:operation soapAction="http://financiera.dsd.net/banca/autenticar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarBancosPorUsuario">
+      <soap:operation soapAction="http://financiera.dsd.net/banca/listarBancosPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCuentasPorUsuarioBanco">
+      <soap:operation soapAction="http://financiera.dsd.net/banca/listarCuentasPorUsuarioBanco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioBancaSoap12" type="tns:ServicioBancaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="autenticar">
+      <soap12:operation soapAction="http://financiera.dsd.net/banca/autenticar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarBancosPorUsuario">
+      <soap12:operation soapAction="http://financiera.dsd.net/banca/listarBancosPorUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCuentasPorUsuarioBanco">
+      <soap12:operation soapAction="http://financiera.dsd.net/banca/listarCuentasPorUsuarioBanco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioBanca">
+    <wsdl:port name="ServicioBancaSoap" binding="tns:ServicioBancaSoap">
+      <soap:address location="http://localhost:59737/ServicioBanca.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioBancaSoap12" binding="tns:ServicioBancaSoap12">
+      <soap12:address location="http://localhost:59737/ServicioBanca.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://financiera.dsd.net/cda/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://financiera.dsd.net/cda/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://financiera.dsd.net/cda/">
+      <s:element name="GenerarCda">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="montopago" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarCdaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cda" nillable="true" type="tns:CdaType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CdaType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="montoPago" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaGeneracion" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaPago" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PagarCda">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagarCdaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cda" nillable="true" type="tns:CdaType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarCda">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarCdaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarCdaResult" type="tns:ArrayOfCdaType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCdaType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CdaType" nillable="true" type="tns:CdaType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarCda">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCdaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cda" nillable="true" type="tns:CdaType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerarCdaSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarCda" />
+  </wsdl:message>
+  <wsdl:message name="GenerarCdaSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarCdaResponse" />
+  </wsdl:message>
+  <wsdl:message name="PagarCdaSoapIn">
+    <wsdl:part name="parameters" element="tns:PagarCda" />
+  </wsdl:message>
+  <wsdl:message name="PagarCdaSoapOut">
+    <wsdl:part name="parameters" element="tns:PagarCdaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarCdaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarCda" />
+  </wsdl:message>
+  <wsdl:message name="ListarCdaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarCdaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCdaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarCda" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCdaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarCdaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioCdaSoap">
+    <wsdl:operation name="generarCda">
+      <wsdl:input name="GenerarCda" message="tns:GenerarCdaSoapIn" />
+      <wsdl:output name="GenerarCda" message="tns:GenerarCdaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pagarCda">
+      <wsdl:input name="PagarCda" message="tns:PagarCdaSoapIn" />
+      <wsdl:output name="PagarCda" message="tns:PagarCdaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCda">
+      <wsdl:input name="ListarCda" message="tns:ListarCdaSoapIn" />
+      <wsdl:output name="ListarCda" message="tns:ListarCdaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarCda">
+      <wsdl:input name="ConsultarCda" message="tns:ConsultarCdaSoapIn" />
+      <wsdl:output name="ConsultarCda" message="tns:ConsultarCdaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioCdaSoap" type="tns:ServicioCdaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="generarCda">
+      <soap:operation soapAction="http://financiera.dsd.net/cda/GenerarCda" style="document" />
+      <wsdl:input name="GenerarCda">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GenerarCda">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pagarCda">
+      <soap:operation soapAction="http://financiera.dsd.net/cda/PagarCda" style="document" />
+      <wsdl:input name="PagarCda">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PagarCda">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCda">
+      <soap:operation soapAction="http://financiera.dsd.net/cda/ListarCda" style="document" />
+      <wsdl:input name="ListarCda">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListarCda">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarCda">
+      <soap:operation soapAction="http://financiera.dsd.net/cda/ConsultarCda" style="document" />
+      <wsdl:input name="ConsultarCda">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultarCda">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioCdaSoap12" type="tns:ServicioCdaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="generarCda">
+      <soap12:operation soapAction="http://financiera.dsd.net/cda/GenerarCda" style="document" />
+      <wsdl:input name="GenerarCda">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GenerarCda">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pagarCda">
+      <soap12:operation soapAction="http://financiera.dsd.net/cda/PagarCda" style="document" />
+      <wsdl:input name="PagarCda">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PagarCda">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCda">
+      <soap12:operation soapAction="http://financiera.dsd.net/cda/ListarCda" style="document" />
+      <wsdl:input name="ListarCda">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListarCda">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarCda">
+      <soap12:operation soapAction="http://financiera.dsd.net/cda/ConsultarCda" style="document" />
+      <wsdl:input name="ConsultarCda">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultarCda">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioCda">
+    <wsdl:port name="ServicioCdaSoap" binding="tns:ServicioCdaSoap">
+      <soap:address location="http://localhost:59737/ServicioCda.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioCdaSoap12" binding="tns:ServicioCdaSoap12">
+      <soap12:address location="http://localhost:59737/ServicioCda.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

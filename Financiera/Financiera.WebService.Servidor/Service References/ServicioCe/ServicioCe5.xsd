@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://sce.dsd.net/TransmitirResponse" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sce.dsd.net/TransmitirResponse" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="TransmitirResponse">
+    <complexType>
+      <sequence>
+        <element name="codigo" type="string" />
+        <element name="texto" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://sce.dsd.net/TransmitirDigesaRequest" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sce.dsd.net/TransmitirDigesaRequest" xmlns="http://www.w3.org/2001/XMLSchema">
+  <complexType name="MensajeType">
+    <sequence>
+      <element name="formato" type="string" />
+      <element name="orden" nillable="true" type="long" />
+      <element name="suce" nillable="true" type="long" />
+      <element name="numeroExpediente" nillable="true" type="string" />
+      <element name="dr" nillable="true" type="long" />
+      <element name="estado" nillable="true" type="string" />
+    </sequence>
+  </complexType>
+</schema>

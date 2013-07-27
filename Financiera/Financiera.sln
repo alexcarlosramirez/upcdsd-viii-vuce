@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financiera.WebService.Servidor", "Financiera.WebService.Servidor\Financiera.WebService.Servidor.csproj", "{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financiera.WebApp", "Financiera.WebApp\Financiera.WebApp.csproj", "{9A46A6F3-4ED0-4EA1-819A-5B410D4D7E64}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084} = {EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A46A6F3-4ED0-4EA1-819A-5B410D4D7E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A46A6F3-4ED0-4EA1-819A-5B410D4D7E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A46A6F3-4ED0-4EA1-819A-5B410D4D7E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A46A6F3-4ED0-4EA1-819A-5B410D4D7E64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
