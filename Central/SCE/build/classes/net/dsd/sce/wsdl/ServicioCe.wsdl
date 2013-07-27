@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://sce.dsd.net/ServicioCe/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="ServicioCe"
+	targetNamespace="http://sce.dsd.net/ServicioCe/"
+	xmlns:xsd0="http://sce.dsd.net/TransmitirResponse"
+	xmlns:xsd1="http://sce.dsd.net/TransmitirDigesaRequest">
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://sce.dsd.net/TransmitirResponse" schemaLocation="../xsd/TransmitirResponse.xsd">
+			</xsd:import>
+			<xsd:import namespace="http://sce.dsd.net/TransmitirDigesaRequest" schemaLocation="../xsd/TransmitirDigesaRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="TransmitirResponse">
+		<wsdl:part element="xsd0:TransmitirResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="TransmitirOrdenRequest">
+		<wsdl:part element="xsd1:TransmitirOrdenRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="TransmitirNroExpedienteRequest">
+		<wsdl:part element="xsd1:TransmitirNroExpedienteRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="TransmitirPagoRequest">
+		<wsdl:part element="xsd1:TransmitirPagoRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="ServicioCe">
+		<wsdl:operation name="TransmitirOrden">
+			<wsdl:input message="tns:TransmitirOrdenRequest" />
+			<wsdl:output message="tns:TransmitirResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="TransmitirNroExpediente">
+			<wsdl:input message="tns:TransmitirNroExpedienteRequest" />
+			<wsdl:output message="tns:TransmitirResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="TransmitirPago">
+			<wsdl:input message="tns:TransmitirPagoRequest" />
+			<wsdl:output message="tns:TransmitirResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ServicioCeSOAP" type="tns:ServicioCe">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="TransmitirOrden">
+			<soap:operation soapAction="http://sce.dsd.net/ServicioCe/transmitirOrden" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="TransmitirPago">
+			<soap:operation soapAction="http://sce.dsd.net/ServicioCe/transmitirPago" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="TransmitirNroExpediente">
+			<soap:operation soapAction="http://sce.dsd.net/ServicioCe/transmitirNroExpediente" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ServicioCe">
+		<wsdl:port binding="tns:ServicioCeSOAP" name="ServicioCeSOAP">
+			<soap:address location="http://sce.dsd.net/ServicioCe/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

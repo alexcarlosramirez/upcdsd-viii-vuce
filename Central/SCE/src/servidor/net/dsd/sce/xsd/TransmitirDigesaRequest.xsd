@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sce.dsd.net/TransmitirDigesaRequest"
+	xmlns:tns="http://sce.dsd.net/TransmitirDigesaRequest" elementFormDefault="qualified">
+
+	<include schemaLocation="./objetos/Cabecera.xsd"></include>
+	<include schemaLocation="./objetos/Usuario.xsd"></include>
+	<include schemaLocation="./formato/Dgs015.xsd"></include>
+	<include schemaLocation="./formato/Dgs016.xsd"></include>
+
+	<!-- Orden -->
+
+	<element name="TransmitirOrdenRequest">
+		<complexType>
+			<sequence>
+				<element name="mensaje" type="tns:MensajeType"></element>
+				<choice>
+					<element name="formatoDgs015" type="tns:Dgs015Type"></element>
+					<element name="formatoDgs016" type="tns:Dgs016Type"></element>
+				</choice>
+				<element name="adjunto" type="base64Binary" nillable="true"></element>
+				<element name="usuario" type="tns:UsuarioType"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="TransmitirNroExpedienteRequest">
+		<complexType>
+			<sequence>
+				<element name="mensaje" type="tns:MensajeType"></element>
+				<element name="usuario" type="tns:UsuarioType"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<!-- Pago -->
+
+	<element name="TransmitirPagoRequest">
+		<complexType>
+			<sequence>
+				<element name="cda" type="string"></element>
+				<element name="monto" type="double"></element>
+				<element name="fechaPago" type="dateTime"></element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://sce.dsd.net/TransmitirDigesaRequest"
+	xmlns:tns="http://sce.dsd.net/TransmitirDigesaRequest"
+	elementFormDefault="qualified">
+
+	<complexType name="UsuarioType">
+		<sequence>
+			<element name="ruc" type="string"></element>
+			<element name="usuarioSol" type="string"></element>
+		</sequence>
+	</complexType>
+
+</schema>
