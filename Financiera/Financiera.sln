@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financiera.WebApp", "Financ
 		{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084} = {EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}
 	EndProjectSection
 EndProject
+Project("{4F174C21-8C12-11D0-8340-0000F80270F8}") = "ScriptBd", "ScriptBd\ScriptBd.dbp", "{424366BB-FFDD-4299-AEB8-524F825C7AF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

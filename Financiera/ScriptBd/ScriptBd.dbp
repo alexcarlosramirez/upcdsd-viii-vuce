@@ -1,0 +1,13 @@
+# Archivo de proyecto de Microsoft Developer Studio - Proyecto de base de datos
+Begin DataProject = "ScriptBd"
+   MSDTVersion = "80"
+   Begin Folder = "Change Scripts"
+   End
+   Begin Folder = "Create Scripts"
+      Script = "sql_finaciera.sql"
+   End
+   Begin DBRefFolder = "Database References"
+   End
+   Begin Folder = "Queries"
+   End
+End
