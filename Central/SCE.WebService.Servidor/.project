@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SCE</name>
+	<name>SCE.WebService.Servidor</name>
 	<comment></comment>
 	<projects>
 		<project>SCE.Servicio</project>
