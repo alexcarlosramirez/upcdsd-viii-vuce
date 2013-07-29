@@ -133,14 +133,7 @@
     <None Include="Service References\ServicioBanca\Financiera.WebApp.ServicioBanca.UsuarioType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioBanca\ServicioBanca.disco" />
     <None Include="Service References\ServicioBanca\ServicioBanca.wsdl" />
-    <None Include="Service References\ServicioBanca\configuration91.svcinfo" />
-    <None Include="Service References\ServicioBanca\configuration.svcinfo" />
-    <None Include="Service References\ServicioBanca\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\ServicioCda\Financiera.WebApp.ServicioCda.CdaType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -149,6 +142,13 @@
     <None Include="Service References\ServicioCda\configuration91.svcinfo" />
     <None Include="Service References\ServicioCda\configuration.svcinfo" />
     <None Include="Service References\ServicioCda\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServicioBanca\ServicioBanca.disco" />
+    <None Include="Service References\ServicioBanca\configuration91.svcinfo" />
+    <None Include="Service References\ServicioBanca\configuration.svcinfo" />
+    <None Include="Service References\ServicioBanca\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -21,7 +21,7 @@ namespace Financiera.WebApp
 
             if (UsuarioType == null)
             {
-                MensajeLbl.Text = "Su usuario y/o contraseña son icorrectas";
+                MensajeLbl.Text = "Su usuario y/o contraseña son incorrectas";
             } else
             {
                 Session["UsuarioId"] = UsuarioType.usuarioId;

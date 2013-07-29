@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="64e44ac0-3032-4b0e-ae58-9bb010ff4d8b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="735cbca6-aee8-4ecf-affd-c76b8383aa99" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,8 +20,8 @@
     <MetadataSource Address="http://localhost:59737/ServicioBanca.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServicioBanca.disco" MetadataType="Disco" ID="2da27abd-2c1d-4306-aa94-72a1ce72c899" SourceId="1" SourceUrl="http://localhost:59737/ServicioBanca.asmx?disco" />
-    <MetadataFile FileName="ServicioBanca.wsdl" MetadataType="Wsdl" ID="812a1214-c1d2-4113-8add-79cec120e824" SourceId="1" SourceUrl="http://localhost:59737/ServicioBanca.asmx?wsdl" />
+    <MetadataFile FileName="ServicioBanca.disco" MetadataType="Disco" ID="ba1a6755-880d-447b-9fb8-bdd04754a329" SourceId="1" SourceUrl="http://localhost:59737/ServicioBanca.asmx?disco" />
+    <MetadataFile FileName="ServicioBanca.wsdl" MetadataType="Wsdl" ID="ea38a1ae-816c-4e45-95fc-c5165f8644f4" SourceId="1" SourceUrl="http://localhost:59737/ServicioBanca.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
