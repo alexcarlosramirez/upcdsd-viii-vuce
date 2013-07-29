@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financiera.WebService.Servidor", "Financiera.WebService.Servidor\Financiera.WebService.Servidor.csproj", "{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financiera.WebService", "Financiera.WebService.Servidor\Financiera.WebService.csproj", "{EA9D6C67-2B81-41C3-BD7E-8D6E0B391084}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financiera.WebApp", "Financiera.WebApp\Financiera.WebApp.csproj", "{9A46A6F3-4ED0-4EA1-819A-5B410D4D7E64}"
 	ProjectSection(ProjectDependencies) = postProject
