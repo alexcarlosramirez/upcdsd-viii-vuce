@@ -1,0 +1,49 @@
+= Requerimientos =
+----
+
+*Para el Nodo Central:*
+    * Entorno de Desarrollo Integrado Eclipse
+    * Plugin para soporte de SVN (Preferible Subclipse)
+
+*Para el Nodo Financiero:*
+    * Entorno de Desarrollo Visual Studio 2008 (Financiera_2008)
+    * Entorno de Desarrollo Visual Studio 2012 (Financiera_2012)
+    * Herramienta para el soporte de control de versiones por SVN (obligatorio [http://www.visualsvn.com/visualsvn/download/tortoisesvn/ TortoiseSVN])
+    * Herramienta para Visual Studio para el soporte de control de versiones por SVN con Tortoise (recomendable [http://www.visualsvn.com/visualsvn/download/ VisualSVN])
+
+* Para el Nodo Entidad:*
+    * Herramienta para el soporte de control de versiones por SVN (obligatorio [http://www.visualsvn.com/visualsvn/download/tortoisesvn/ TortoiseSVN])
+
+* Para el Nodo Usuario:*
+    * Entorno de Desarrollo Visual Studio 2010
+    * Herramienta para el soporte de control de versiones por SVN (obligatorio [http://www.visualsvn.com/visualsvn/download/tortoisesvn/ TortoiseSVN])
+    * Herramienta para Visual Studio para el soporte de control de versiones por SVN con Tortoise (recomendable [http://www.visualsvn.com/visualsvn/download/ VisualSVN])
+
+= Instalación =
+----
+
+*Para el Nodo Central:*
+    # Abrir el entorno de desarrollo Eclipse
+    # Abrir la perspectiva SVN Repository Exploring
+    # Hacer clic derecho en la vista "SVN Repositories"
+    # En el menú desplegable, seleccionar "New > Repository Location"
+    # En el campo "Url", agregar la dirección: [https://upcdsd-viii-vuce.googlecode.com/svn] y hacer clic en "Aceptar"
+    # Desplegar el contenido del repositorio agregado
+    # Abrir la carpeta "Central"
+    # Seleccionar las 4 subcarpetas SCE.RestService, SCE.Servicio, SCE.WebService y ScripBd
+    # Hacer clic derecho en la vista "SVN Repositories" sin dejar de tener seleccionado las carpetas
+    # En el menú desplegable, seleccionar "Checkout"
+    # En la ventana emergente, hacer clic en el botón "Finish"
+
+
+
+*Para el Nodo Financiero:*
+    # Abrir el entorno de desarrollo a trabajar: Visual Studio 2008 o 2012
+    # En la barra de menú, ubicar y seleccionar "VisualSVN"
+    # En el menú desplegable, seleccionar Repo-Browser
+    # En el campo URL agregar la dirección: [https://upcdsd-viii-vuce.googlecode.com/svn] y hacer enter
+    # Hacer clic derecho en la carpeta Finaciera_2008 o Financiera_2012, según el proyecto a importar
+    # En el menú desplegable, elegir "Checkout"
+    # Elegir una carpeta de destino en el campo "Checkout directory" _(Se recomienda cambiar el que aparece por defecto, puesto es la ruta a la carpeta donde está instalado el IDE)_
+    # Hacer click en "Ok"
+    # Abrir la solución donde se guardó los archivos descargados por el repositorio
