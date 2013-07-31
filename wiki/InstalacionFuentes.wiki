@@ -30,7 +30,7 @@
     # En el campo "Url", agregar la dirección: [https://upcdsd-viii-vuce.googlecode.com/svn] y hacer clic en "Aceptar"
     # Desplegar el contenido del repositorio agregado
     # Abrir la carpeta "Central"
-    # Seleccionar las 4 subcarpetas SCE.RestService, SCE.Servicio, SCE.WebService y ScripBd
+    # Seleccionar las 4 subcarpetas `SCE.RestService`, `SCE.Servicio`, `SCE.WebService` y `ScripBd`
     # Hacer clic derecho en la vista "SVN Repositories" sin dejar de tener seleccionado las carpetas
     # En el menú desplegable, seleccionar "Checkout"
     # En la ventana emergente, hacer clic en el botón "Finish"
@@ -42,7 +42,7 @@
     # En la barra de menú, ubicar y seleccionar "VisualSVN"
     # En el menú desplegable, seleccionar Repo-Browser
     # En el campo URL agregar la dirección: [https://upcdsd-viii-vuce.googlecode.com/svn] y hacer enter
-    # Hacer clic derecho en la carpeta Finaciera_2008 o Financiera_2012, según el proyecto a importar
+    # Hacer clic derecho en la carpeta `Finaciera_2008` o `Financiera_2012`, según el proyecto a importar
     # En el menú desplegable, elegir "Checkout"
     # Elegir una carpeta de destino en el campo "Checkout directory" _(Se recomienda cambiar el que aparece por defecto, puesto es la ruta a la carpeta donde está instalado el IDE)_
     # Hacer click en "Ok"
