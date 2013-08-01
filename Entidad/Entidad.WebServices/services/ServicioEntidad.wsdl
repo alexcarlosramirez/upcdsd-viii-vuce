@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<definitions name="ExpedienteServicio"
+    targetNamespace="urn:Expediente"
+     xmlns:tns="urn:Expediente"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns="http://schemas.xmlsoap.org/wsdl/">
+ 
+  <message name="ExpedientePeticion">
+    <part name="operando1" type="xsd:string" />
+  </message> 
+
+  <message name="ExpedienteRespuesta">
+    <part name="respuesta" type="xsd:string" />
+  </message>
+  <portType name="ExpedientePort">
+    <operation name="insertaExpediente">
+      <input message="tns:ExpedientePeticion" />
+      <output message="tns:ExpedienteRespuesta" />
+    </operation>
+  </portType> 
+  <binding name="ExpedienteBinding" type="tns:ExpedientePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertaExpediente">
+        <soap:operation soapAction="urn:Expediente#insertaExpediente" />
+        <input>
+          <soap:body use="encoded" namespace="urn:Expediente"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:Expediente"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        </output>
+    </operation>
+  </binding>
+  <service name="ExpedienteServicio">
+  <port name="ExpedientePort" binding="tns:ExpedienteBinding">
+    <soap:address location="http://localhost:8089/Entidad.WebServices/ServicioEntidad.php" />
+  </port>
+</service>
+</definitions>
