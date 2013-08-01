@@ -1,6 +1,8 @@
-ï»¿-- --------------------------------------------------------------------------------
+DROP FUNCTION IF EXISTS `sce_central_db`.`generar_numero`;
+
+-- --------------------------------------------------------------------------------
 -- Routine DDL
--- Note: No llamado desde el sistema, genera un nÃºmero secuencial ya sea ORDEN (1), SUCE (2) Ã³ DR (3)
+-- Note: No llamado desde el sistema, genera un número secuencial ya sea ORDEN (1), SUCE (2) ó DR (3)
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 

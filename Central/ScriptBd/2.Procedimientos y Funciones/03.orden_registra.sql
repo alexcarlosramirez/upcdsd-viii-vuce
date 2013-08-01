@@ -1,6 +1,8 @@
-﻿-- --------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `sce_central_db`.`orden_registra`;
+
+-- --------------------------------------------------------------------------------
 -- Routine DDL
--- Note: Crea la orden, su mto (versión) inicial, registra en la tabla tce, calcula la tasa a pagar e inicia los registros del formato
+-- Note: Crea la orden, su mto (versi�n) inicial, registra en la tabla tce, calcula la tasa a pagar e inicia los registros del formato
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
@@ -10,8 +12,7 @@ CREATE PROCEDURE `sce_central_db`.`orden_registra`(
     out p_mto int,
     out p_orden long,
     out p_formatoentidad_id int,
-    out p_tce_id int,
-    out p_monto_pago double
+    out p_tce_id int
 )
 BEGIN
     -- Declaraciones
@@ -19,8 +20,6 @@ BEGIN
     declare v_Sql varchar(2000);
     declare v_TupaId int;
     declare v_FormatoId int;
-	declare v_CdaId int;
-	declare v_Cda varchar(20);
 
     set @v_FechaHoy = now();
     select @v_TupaId:=tupa_id,
@@ -37,14 +36,13 @@ BEGIN
 
     -- obteniendo el siguiente mto e insertar mto
     BEGIN
-        select (ifnull(max(mto),0)+1) mto into p_mto from mto where orden_id = p_orden;
-        insert into mto values (p_orden_id, p_mto, @v_FechaHoy, 'S');
+        call mto_registra(p_orden_id, @v_FechaHoy, 1, p_mto);
     END;
 
     -- Insertar en la tabla del tce
     BEGIN
         insert into tce (tupa_id, formato_id, orden_id, fecha_registro, estado)
-                 values (@v_TupaId, @v_FormatoId, p_orden_id, @v_FechaHoy, 'B');
+                 values (@v_TupaId, @v_FormatoId, p_orden_id, @v_FechaHoy, 'A');
         select tce_id into p_tce_id from tce where orden_id = p_orden_id;
     END;
 
@@ -63,15 +61,5 @@ BEGIN
         execute stmt2 using @orden_id, @mto;
         deallocate prepare stmt2;
         select @v_FormatoEntidadId into p_formatoentidad_id;
-    END;
-
-    -- Calcular tasa
-    BEGIN
-        set @v_FormatoEntidadId = p_formatoentidad_id;
-        set @v_Sql = concat("select ", lower(p_formato), "_calcula_tasa(?)", "into @v_Tasa");
-        prepare stmt3 from @v_Sql;
-        execute stmt3 using @v_FormatoEntidadId;
-        deallocate prepare stmt3;
-        select @v_Tasa into p_monto_pago;
     END;
 END
