@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS t_expediente (
   id_expediente int(6) NOT NULL AUTO_INCREMENT,
   nu_orden int(10) NOT NULL,
   nu_suce int(10) NOT NULL,
-  nu_dr int(10) NOT NULL,
+  nu_dr int(10),
   l_estado_pago varchar(1),
   nu_expediente varchar(12),
   PRIMARY KEY (id_expediente)
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `t_dgs015` (
 );
 
 CREATE TABLE IF NOT EXISTS `t_dgs015_producto` (
-  id_dgs015 int(6) NOT NULL AUTO_INCREMENT,
+  id_dgs015 int(6) NOT NULL,
   secuencia_producto int NOT NULL,
   no_producto varchar(100) NOT NULL,
   partida_arancelaria varchar(10) NOT NULL,
