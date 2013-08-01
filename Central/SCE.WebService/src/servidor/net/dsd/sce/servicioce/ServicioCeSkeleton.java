@@ -6,16 +6,26 @@
  */
 package net.dsd.sce.servicioce;
 
+import java.util.ArrayList;
+
+import net.dsd.sce.bean.BeanFormato;
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanSuce;
 import net.dsd.sce.bean.BeanTasa;
+import net.dsd.sce.bean.BeanUsuario;
+import net.dsd.sce.bean.digesa.BeanDgs015;
+import net.dsd.sce.bean.digesa.BeanDgs015Producto;
 import net.dsd.sce.servicioce.servicio.ServicioOrden;
 import net.dsd.sce.servicioce.servicio.ServicioSuce;
 import net.dsd.sce.servicioce.servicio.ServicioTasa;
+import net.dsd.sce.transmitirdigesarequest.Dgs015ProductoType;
+import net.dsd.sce.transmitirdigesarequest.Dgs015Type;
 import net.dsd.sce.transmitirdigesarequest.MensajeType;
 import net.dsd.sce.transmitirdigesarequest.TransmitirNroExpedienteRequest;
 import net.dsd.sce.transmitirdigesarequest.TransmitirOrdenRequest;
+import net.dsd.sce.transmitirdigesarequest.TransmitirOrdenRequestChoice_type0;
 import net.dsd.sce.transmitirdigesarequest.TransmitirPagoRequest;
+import net.dsd.sce.transmitirdigesarequest.UsuarioType;
 import net.dsd.sce.transmitirresponse.TransmitirResponse;
 
 /**
@@ -34,18 +44,16 @@ public class ServicioCeSkeleton {
 		System.out.println("======================");
 		System.out.println("Inicio: transmitirOrden");
 
-		MensajeType mensajeType = tramiteOrdenRequest.getMensaje();
-		String formato = mensajeType.getFormato();
-
 		// 1: Registro de la Orden
+		BeanOrden orden = ConvertirdorBean.convertirMensajeTypeEnBeanOrden(tramiteOrdenRequest.getMensaje());
+		BeanUsuario usuario = ConvertirdorBean.convertirUsuarioTypeEnBeanUsuario(tramiteOrdenRequest.getUsuario());
 		ServicioOrden servicioOrden = new ServicioOrden();
-		BeanOrden orden = servicioOrden.registrarOrden(formato);
+		orden = servicioOrden.registrarOrden(orden.getFormato());
 
 		// 2: Registro del formato
-		if (formato.equals("DGS015")) {
-			servicioOrden.actualizarDgs015(orden, tramiteOrdenRequest.getTransmitirOrdenRequestChoice_type0().getFormatoDgs015());
-		} else {
-			servicioOrden.actualizarDgs016(orden, tramiteOrdenRequest.getTransmitirOrdenRequestChoice_type0().getFormatoDgs016());
+		BeanFormato formatoEntidad = ConvertirdorBean.convertirFormatoTypeEnBeanFormato(orden, tramiteOrdenRequest.getTransmitirOrdenRequestChoice_type0());
+		if (orden.getFormato().equals("DGS015")) {
+			servicioOrden.actualizarDgs015(orden, (BeanDgs015) formatoEntidad);
 		}
 
 		// 3: Flujo Alterno 1
@@ -64,7 +72,7 @@ public class ServicioCeSkeleton {
 			//3.2.1: Generar SUCE
 			BeanSuce suce = servicioSuce.registrarSuce(orden);
 			//3.2.2: Transmitir SUCE a Entidad
-			servicioSuce.transmitirSuceHaciaEntidad(suce);
+			servicioSuce.transmitirSuceHaciaEntidad(orden, suce, formatoEntidad, usuario.getRuc());
 			//3.2.3: Transmitir SUCE a Usuario
 			//TODO Transmitir SUCE a Usuario
 		}
@@ -107,9 +115,13 @@ public class ServicioCeSkeleton {
 		ServicioSuce servicioSuce = new ServicioSuce();
 		//3.2.1: Generar SUCE
 		BeanSuce suce = servicioSuce.registrarSuce(orden);
-		//3.2.2: Transmitir SUCE a Entidad
-		//servicioSuce.transmitirSuceHaciaEntidad(suce);
-		//3.2.3: Transmitir SUCE a Usuario
+		//3.2.2 Buscar datos de la orden, formato y el usuario solicitante
+		orden = servicioOrden.buscarOrdenPorOrdenId(orden.getOrdenId());
+		BeanFormato formatoEntidad = servicioOrden.buscarFormatoEntidadPorOrdenId(orden.getOrdenId());
+		BeanUsuario usuarioSolicitante = servicioOrden.buscarUsuarioSolicitantePorOrdenId(orden.getOrdenId());
+		//3.2.3: Transmitir SUCE a Entidad
+		servicioSuce.transmitirSuceHaciaEntidad(orden, suce, formatoEntidad, usuarioSolicitante.getRuc());
+		//3.2.4: Transmitir SUCE a Usuario
 		//TODO Transmitir SUCE a Usuario
 
 		System.out.println("Fin");
@@ -153,5 +165,47 @@ public class ServicioCeSkeleton {
 		res.setCodigo("001");
 		res.setTexto("Exito");
 		return res;
+	}
+}
+
+
+class ConvertirdorBean {
+
+	public static BeanOrden convertirMensajeTypeEnBeanOrden(MensajeType mensajeType) {
+		BeanOrden orden = new BeanOrden();
+		orden.setFormato(mensajeType.getFormato());
+		orden.setOrden(mensajeType.getOrden());
+		return orden;
+	}
+
+	public static BeanFormato convertirFormatoTypeEnBeanFormato(BeanOrden orden, TransmitirOrdenRequestChoice_type0 formatoEntidadOriden) {
+		if (orden.getFormato() == "DGS015") {
+			Dgs015Type dgs015Type = formatoEntidadOriden.getFormatoDgs015();
+			Dgs015ProductoType[] listaDgs015ProductoType = dgs015Type.getListaProducto();
+
+			BeanDgs015 dgs015 = new BeanDgs015();
+			dgs015.setDgs015Id(orden.getFormatoEntidadId());
+			dgs015.setDgsTipoProducto(dgs015Type.getTipoProducto());
+			ArrayList<BeanDgs015Producto> listaDgs015Producto = new ArrayList<BeanDgs015Producto>();
+			for (Dgs015ProductoType dgs015ProductoType : listaDgs015ProductoType) {
+				BeanDgs015Producto dgs015Producto = new BeanDgs015Producto();
+				dgs015Producto.setDgs015Id(orden.getFormatoEntidadId());
+				dgs015Producto.setNombre(dgs015ProductoType.getNombre());
+				dgs015Producto.setPartidaArancelaria(dgs015ProductoType.getPartidaArancelaria());
+				dgs015Producto.setCantidad(dgs015ProductoType.getCantidad());
+				dgs015Producto.setEnvase(dgs015ProductoType.getEnvase());
+				listaDgs015Producto.add(dgs015Producto);
+			}
+			return dgs015;
+		} else {
+			return null;
+		}
+	}
+
+	public static BeanUsuario convertirUsuarioTypeEnBeanUsuario(UsuarioType usuarioType) {
+		BeanUsuario usuario = new BeanUsuario();
+		usuario.setRuc(usuarioType.getRuc());
+		usuario.setUsuarioSol(usuarioType.getUsuarioSol());
+		return usuario;
 	}
 }
