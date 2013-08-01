@@ -4,7 +4,7 @@ include_once('clases/cEntidad.php');
 
 $id_expediente=$_POST['id_expediente'];
 $nu_suce=$_POST['nu_suce'];
-$no_producto=$_POST['no_producto'];
+$nu_orden=$_POST['nu_orden'];
 $l_estado_pago=$_POST['l_estado_pago'];
 $nu_expediente=$_POST['nu_expediente'];
 

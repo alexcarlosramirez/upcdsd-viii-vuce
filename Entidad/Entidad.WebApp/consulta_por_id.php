@@ -19,7 +19,7 @@
 		//$co_registro=$row['co_registro'];
 		$id_expediente=$row['id_expediente'];
 		$nu_suce=$row['nu_suce'];
-		$no_producto=$row['no_producto'];
+		$nu_orden=$row['nu_orden'];
 		$l_estado_pago=$row['l_estado_pago'];
 		$nu_expediente=$row['nu_expediente'];
 
@@ -37,14 +37,14 @@
 						<td style="width: 44%"><input name="id_expediente1" type="text" disabled value="<?php echo $id_expediente; ?>" /></td>                
 					</tr>
 					<tr>
+						<td style="width: 54%">ORDEN</th>
+						<td style="width: 2%">:</td>
+						<td style="width: 44%"><input name="nu_orden" type="text" value="<?php echo $nu_orden; ?>" /></td>
+					</tr>
+					<tr>
 						<td style="width: 54%">SUCE</th>
 						<td style="width: 2%">:</td>
 						<td style="width: 44%"><input name="nu_suce" type="text" value="<?php echo $nu_suce; ?>" /></td>
-					</tr>
-					<tr>
-						<td style="width: 54%">PRODUCTO</td>
-						<td style="width: 2%">:</td>
-						<td style="width: 44%"><input name="no_producto" type="text" value="<?php echo $no_producto; ?>" /></td>
 					</tr>
 					<tr>
 						<td style="width: 54%">ESTADO</td>
