@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://entidad.dsd.net/EntidadFormatoRequest"
+	xmlns:tns="http://entidad.dsd.net/EntidadFormatoRequest"
+	elementFormDefault="qualified">
+
+	<complexType name="Dgs015ProductoType">
+		<sequence>
+			<element name="secuenciaProducto" type="int"></element>
+			<element name="nombre" type="string"></element>
+			<element name="partidaArancelaria" type="string"></element>
+			<element name="cantidad" type="int"></element>
+			<element name="envase" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Dgs015Type">
+		<sequence>
+			<element name="tipoProducto" type="int"></element>
+			<element name="listaProducto" type="tns:Dgs015ProductoType" maxOccurs="unbounded" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+</schema>
