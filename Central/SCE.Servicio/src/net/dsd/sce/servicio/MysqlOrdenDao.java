@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import net.dsd.sce.bean.BeanOrden;
+import net.dsd.sce.bean.BeanUsuario;
 import net.dsd.sce.bean.digesa.BeanDgs015;
 import net.dsd.sce.bean.digesa.BeanDgs015Producto;
 
@@ -111,6 +112,56 @@ public class MysqlOrdenDao {
 			}
 		}
 		return orden;
+	}
+
+	public BeanOrden buscarOrdenPorOrdenId(int ordenId) {
+		PreparedStatement st1 = null;
+		ResultSet rs = null;
+		BeanOrden orden = null;
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			//Registra la tasa
+			con = DriverManager.getConnection(url, user, password);
+			con.setAutoCommit(false);
+			st1 = con.prepareStatement("select orden_id, orden, fecha_registro, bloqueada, cerrada from orden o where orden_id = ?");
+			st1.setInt(1, ordenId);
+			rs = st1.executeQuery();
+			if (rs.next()) {
+				orden = new BeanOrden();
+				orden.setOrdenId(rs.getInt(1));
+				orden.setOrden(rs.getLong(2));
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (st1 != null) {
+					st1.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+		}
+		return orden;
+	}
+
+	public BeanUsuario buscarUsuarioSolicitantePorOrdenId(int ordenId) {
+		return null;
+	}
+
+	//digesa
+
+	public BeanDgs015 buscarDgs015PorOrdenId(int ordenId) {
+		return null;
 	}
 
 	public void registrarDgs015(BeanDgs015 dgs015, ArrayList<BeanDgs015Producto> listaDgs015Producto) {
