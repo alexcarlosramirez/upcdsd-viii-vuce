@@ -1,0 +1,17 @@
+SET SQL_SAFE_UPDATES=0;
+delete from  adjunto;
+delete from  dgs015_dr_producto;
+delete from  dgs015_dr;
+delete from  sdr;
+delete from  dr;
+delete from  dgs015_producto;
+delete from  dgs015;
+delete from  usuario_formato;
+delete from  traza;
+delete from  tce_tasa;
+delete from  tasa;
+delete from  tce;
+delete from  suce;
+delete from  mto;
+delete from  orden;
+SET SQL_SAFE_UPDATES=1;

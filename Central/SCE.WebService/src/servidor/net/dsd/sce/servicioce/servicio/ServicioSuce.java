@@ -33,6 +33,7 @@ public class ServicioSuce {
 			request.setOrden(orden.getOrden());
 			request.setSuce(suce.getSuce());
 			request.setEntidadFormatoRequestChoice_type0(formatoType);
+			request.setEstadoPago("S");
 			request.setRucUsuarioSolicitante(rucUsuarioSolicitante);
 
 			EntidadResponse response = expedienteStub.registrarSuce(request);
@@ -53,17 +54,18 @@ public class ServicioSuce {
 
 	private EntidadFormatoRequestChoice_type0 convertirFormatoSceEnEntidad(String formato, BeanFormato formatoEntidadOrigen) {
 		EntidadFormatoRequestChoice_type0 formatoEntidad = new EntidadFormatoRequestChoice_type0();
-		if (formato == "DGS015") {
+		if (formato.equals("DGS015")) {
 			BeanDgs015 dgs015 = (BeanDgs015) formatoEntidadOrigen;
 			ArrayList<BeanDgs015Producto> listaDgs015Producto = dgs015.getListaDgs015Producto();
 			//llenando detalle del producto
 			Dgs015Type dgs015Type = new Dgs015Type();
-			dgs015Type.setTipoProducto(formatoEntidad.getFormatoDgs015().getTipoProducto());
+			dgs015Type.setTipoProducto(dgs015.getDgsTipoProducto());
 			//llenando lista de productos
 			Dgs015ProductoType[] dgs015ProductoTypeArray = new Dgs015ProductoType[listaDgs015Producto.size()];
 			int i = 0;
 			for (BeanDgs015Producto dgs015Producto : listaDgs015Producto) {
 				Dgs015ProductoType dgs015ProductoType = new Dgs015ProductoType();
+				dgs015ProductoType.setSecuenciaProducto(dgs015Producto.getSecProducto());
 				dgs015ProductoType.setCantidad(dgs015Producto.getCantidad());
 				dgs015ProductoType.setEnvase(dgs015Producto.getEnvase());
 				dgs015ProductoType.setNombre(dgs015Producto.getNombre());

@@ -1,4 +1,6 @@
-﻿-- --------------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `sce_central_db`.`suce_registra`;
+
+-- --------------------------------------------------------------------------------
 -- Routine DDL
 -- Note: Registra la SUCE de una determinada Orden
 -- --------------------------------------------------------------------------------
@@ -10,12 +12,10 @@ CREATE PROCEDURE `sce_central_db`.`suce_registra` (
     out p_suce long
 )
 BEGIN
-    -- Declaraciones
-    declare v_TceId int;
     declare v_FechaHoy date;
     set @v_FechaHoy = now();
 
-    -- obteniendo el siguiente orden e insertar en orden y 
+    -- obteniendo el siguiente orden e insertar en orden
     BEGIN
         select generar_numero(2) into p_suce;
         insert into suce (suce, fecha_registro, bloqueada, cerrada) values (p_suce, v_FechaHoy, 'N', 'N');
@@ -26,4 +26,9 @@ BEGIN
     BEGIN
         update tce set suce_id = p_suce_id, estado = 'C' where orden_id = p_orden_id;
     END;
+
+	-- Cerrar orden
+	BEGIN
+		update orden set cerrada = 'S' where orden_id = p_orden_id;
+	END;
 END

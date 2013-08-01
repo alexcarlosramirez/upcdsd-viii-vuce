@@ -17,6 +17,14 @@ public class ServicioOrden {
 		return mysqlOrdenDao.registrarOrden(formato);
 	}
 
+	public void transmitirOrden(BeanOrden orden) {
+		mysqlOrdenDao.transmitirOrden(orden);
+	}
+
+	public void registrarUsuarioFormato(BeanOrden orden, BeanUsuario usuario) {
+		mysqlOrdenDao.registrarUsuarioFormatoSolicitante(orden, usuario);
+	}
+
 	public BeanOrden buscarOrdenPorCda(String cda) {
 		return mysqlOrdenDao.buscarOrdenPorCda(cda);
 	}
@@ -25,8 +33,12 @@ public class ServicioOrden {
 		return mysqlOrdenDao.buscarOrdenPorOrdenId(ordenId);
 	}
 
-	public BeanFormato buscarFormatoEntidadPorOrdenId(int ordenId) {
-		return null;
+	public BeanFormato buscarFormatoEntidadPorOrden(int ordenId, String formato) {
+		if (formato.equals("DGS015")) {
+			return buscarDgs015PorOrdenId(ordenId);
+		} else {
+			return null;
+		}
 	}
 
 	public BeanUsuario buscarUsuarioSolicitantePorOrdenId(int ordenId) {

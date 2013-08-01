@@ -9,7 +9,7 @@ import net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequestChoice_type0;
 import net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse;
 import net.dsd.sce.servicioce.ServicioCeStub.UsuarioType;
 
-public class MiPrueba {
+public class PruebaCe {
 
 	public static void main(String[] args) {
 		try {
