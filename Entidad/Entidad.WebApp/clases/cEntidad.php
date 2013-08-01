@@ -18,7 +18,7 @@ class cEntidad
 		//usamos el metodo conectar para realizar la conexion
 		if($con->conectar()==true)
 		{
-			$query = "select * from t_expediente  order by id_expediente desc";
+			$query = "select * from t_expediente order by id_expediente desc";
 			$result = @mysql_query($query);
 			if (!$result)
 				return false;

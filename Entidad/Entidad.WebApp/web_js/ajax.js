@@ -24,7 +24,7 @@ function enviarDatosFormato() {
 	// valores de las cajas de texto
 	id_expediente = document.frmempleado.id_expediente.value;
 	nu_suce = document.frmempleado.nu_suce.value;
-	no_producto = document.frmempleado.no_producto.value;
+	nu_orden = document.frmempleado.nu_orden.value;
 	l_estado_pago = document.frmempleado.l_estado_pago.value;
 	nu_expediente = document.frmempleado.nu_expediente.value;
 
@@ -49,7 +49,7 @@ function enviarDatosFormato() {
 	// enviando los valores
 
 	ajax.send("id_expediente=" + id_expediente + "&nu_suce=" + nu_suce
-			+ "&no_producto=" + no_producto + "&l_estado_pago=" + l_estado_pago
+			+ "&nu_orden=" + nu_orden + "&l_estado_pago=" + l_estado_pago
 			+ "&nu_expediente=" + nu_expediente)
 }
 

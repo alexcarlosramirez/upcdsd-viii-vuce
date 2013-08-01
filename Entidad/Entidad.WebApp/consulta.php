@@ -27,8 +27,8 @@ $consulta = $objentidad->consultar();
 			//mediante el evento onclick llamaremos a la funcion PedirDatos(), la cual tiene como parametro
 			//de entrada el ID del procesado
 			echo "<th><a onclick=\"pedirDatos('".$row['id_expediente']."')\">".$row['id_expediente']."</a></th>";
+			echo "<td>".$row['nu_orden']."</td>";
 			echo "<td>".$row['nu_suce']."</td>";
-			echo "<td>".$row['no_producto']."</td>";
 			echo "<td>".$row['l_estado_pago']."</td>";
 			echo "<td>".$row['nu_expediente']."</td>";
 			echo "</tr>";
