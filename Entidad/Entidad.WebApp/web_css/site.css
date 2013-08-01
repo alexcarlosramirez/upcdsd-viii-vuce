@@ -1,0 +1,53 @@
+.centro {
+	text-align: center;
+	width: 100%;
+}
+
+.Estilo1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #333333;
+	background-color: #999999;
+}
+
+.Estilo5 {
+	color: #000066;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.Estilo8 {
+	font-size: 25px;
+	color: #990000;
+}
+
+table {
+	border:1px solid #990000;
+	color:#000000;
+	width:400px;
+}
+
+table thead tr {
+	background:#666666;
+}
+
+table thead tr th {
+	width: 3%;
+	text-align: center;
+	color: #E8E8E8;
+	font-family: Arial,Helvetica;
+}
+
+table tbody tr th {
+	background-color: #999998;
+	text-align: center;
+	color: #E8E8E8;
+}
+
+table tbody tr td {
+	background-color: #CCCCCC;
+}
+
+a {
+	text-decoration: underline;
+	cursor: pointer;
+}
