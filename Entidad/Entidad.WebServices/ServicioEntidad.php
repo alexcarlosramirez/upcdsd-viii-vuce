@@ -1,5 +1,6 @@
 <?php
-include('conexion/DBManager.php');
+include_once('conexion/DBManager.php');
+include_once("clases/cFormato.php");
 
 if(!extension_loaded("soap"))
 {
@@ -9,33 +10,27 @@ if(!extension_loaded("soap"))
 ini_set("soap.wsdl_cache_enabled","0");
 $server = new SoapServer("services/ServicioEntidad.wsdl");
  
-function insertaExpediente($operando1)
+function RegistrarSuce($params)
 {
-	try
-	{
-		$db = new ConSQL();
-		$db->Conectar();
-		$msj="Probando";
-		$consulta = $db->Consulta("INSERT INTO t_expediente (nu_suce) VALUES('451')");
-		/*$consulta1 = $db->Consulta("SELECT * FROM t_expediente");
-		$cuenta= mysql_num_rows($consulta1);
+	$db = new ConSQL;
+	$db->connect();
 
-		if (!$consulta)
-		{
-			$msj="error de query:";
-		}
-		else
-		{
-			$msj="query ok:";
-		}*/
-		return $msj;
+	$objFormato = new cFormato;
+	$objFormato->llenar($params);
+	$db->beginTransacction();
+	$res = $objFormato->insertar($db);
+	if ($res != null) {
+		$db->commit();
+		$msj = array("codigo"=>"OK", "texto"=>"Exito");
+	} else {
+		error_log("Entidad.WebServices ServicioEntidad->RegistrarSuce failed");
+	  $db->rollback();
+		$msj = array("codigo"=>"ERROR", "texto"=>"No se pudo insertar: ");
 	}
-	catch(Exception $e)
-	{
-		return "Exception".$e;
-	}
+	return $msj;
 }
 //	mysqli_close($con);
-$server->AddFunction("insertaExpediente");
+$server->AddFunction("RegistrarSuce");
 $server->handle();
+$server->addFunction(SOAP_FUNCTIONS_ALL);
 ?>

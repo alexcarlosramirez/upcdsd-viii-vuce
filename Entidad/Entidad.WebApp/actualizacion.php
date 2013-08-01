@@ -13,10 +13,12 @@ $nu_expediente=$_POST['nu_expediente'];
 sleep(2);
 //actualiza los datos del registro
 $objempleado = new cEntidad;
-if ($objempleado->actualizar($id_expediente,$nu_expediente)==true){
+if ($objempleado->actualizar($id_expediente,$nu_expediente)==true)
+{
 	echo "<div class=\"centro\"><p class=\".Estilo8\">Registro Nro. <span class=\"Estilo5\">".$id_expediente."</span> ACTUALIZADO</div>";
 }
-else{
+else
+{
 	echo "No se pudo actualizar";
 }
 include('consulta.php');
