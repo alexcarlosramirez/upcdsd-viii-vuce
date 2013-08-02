@@ -18,6 +18,7 @@
 					<element name="formatoDgs015" type="tns:Dgs015Type"></element>
 					<element name="formatoDgs016" type="tns:Dgs016Type"></element>
 				</choice>
+				<element name="nombreArchivoAdjunto" type="string" nillable="true"></element>
 				<element name="adjunto" type="base64Binary" nillable="true"></element>
 				<element name="usuario" type="tns:UsuarioType"></element>
 			</sequence>
