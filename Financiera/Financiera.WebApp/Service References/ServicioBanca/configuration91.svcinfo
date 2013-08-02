@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nrxGQQHFYBlTeNKs1pQI9TrpAf0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="rUYJLO4UVTkf+Vu9O7Xk5IhU9FE=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ServicioBancaSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ServicioBancaSoap" contract="ServicioBanca.ServicioBancaSoap" bindingType="basicHttpBinding" address="http://localhost:59737/ServicioBanca.asmx" bindingConfiguration="ServicioBancaSoap">
+    <endpoint name="ServicioBancaSoap" contract="ServicioBanca.ServicioBancaSoap" bindingType="basicHttpBinding" address="http://localhost:59737/financiera/services/ServicioBanca.asmx" bindingConfiguration="ServicioBancaSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:59737/ServicioBanca.asmx</serializedValue>
+          <serializedValue>http://localhost:59737/financiera/services/ServicioBanca.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
