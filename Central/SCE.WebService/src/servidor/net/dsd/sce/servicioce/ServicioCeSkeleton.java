@@ -6,6 +6,7 @@
  */
 package net.dsd.sce.servicioce;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
 import net.dsd.sce.bean.BeanAdjunto;
@@ -59,8 +60,10 @@ public class ServicioCeSkeleton {
 			if (tramiteOrdenRequest.getAdjunto() != null) {
 				BeanAdjunto adjunto = new BeanAdjunto();
 				adjunto.setNombreArchivo(tramiteOrdenRequest.getNombreArchivoAdjunto());
-				adjunto.setArchivo(tramiteOrdenRequest.getAdjunto().getInputStream());
-				adjunto.setTamano(IOUtils.toByteArray(adjunto.getArchivo()).length);
+				byte[] b = IOUtils.toByteArray(tramiteOrdenRequest.getAdjunto().getInputStream());
+				ByteArrayInputStream bis = new ByteArrayInputStream(b);
+				adjunto.setArchivo(bis);
+				adjunto.setTamano(b.length);
 				servicioOrden.registrarAdjunto(orden, adjunto);
 			}
 
