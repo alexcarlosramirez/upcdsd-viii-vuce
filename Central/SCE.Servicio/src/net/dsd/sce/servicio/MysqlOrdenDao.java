@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import net.dsd.sce.bean.BeanAdjunto;
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanUsuario;
 import net.dsd.sce.bean.digesa.BeanDgs015;
@@ -90,6 +91,46 @@ public class MysqlOrdenDao {
 			con.commit();
 
 			orden.setMontoPago(st1.getDouble(4));
+		} catch (Exception ex) {
+			if (con != null) {
+				try {
+					con.rollback();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (st1 != null) {
+					st1.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+		}
+	}
+
+	public void registrarAdjunto(BeanOrden orden, BeanAdjunto adjunto) {
+		CallableStatement st1 = null;
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			//Registra la tasa
+			con = DriverManager.getConnection(url, user, password);
+			con.setAutoCommit(false);
+			st1 = con.prepareCall("CALL adjunto_registra_x_orden(?,?,?,?)");
+			st1.setInt(1, orden.getOrdenId());
+			st1.setInt(2, orden.getMto());
+			st1.setString(3, adjunto.getNombreArchivo());
+			st1.setBinaryStream(4, adjunto.getArchivo(), adjunto.getTamano());
+			st1.executeUpdate();
+			con.commit();
 		} catch (Exception ex) {
 			if (con != null) {
 				try {

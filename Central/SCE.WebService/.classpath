@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SCE.Servicio"/>
+	<classpathentry kind="lib" path="resources"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
