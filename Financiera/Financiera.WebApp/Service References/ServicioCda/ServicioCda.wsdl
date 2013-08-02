@@ -191,10 +191,10 @@
   </wsdl:binding>
   <wsdl:service name="ServicioCda">
     <wsdl:port name="ServicioCdaSoap" binding="tns:ServicioCdaSoap">
-      <soap:address location="http://localhost:59737/ServicioCda.asmx" />
+      <soap:address location="http://localhost:59737/financiera/services/ServicioCda.asmx" />
     </wsdl:port>
     <wsdl:port name="ServicioCdaSoap12" binding="tns:ServicioCdaSoap12">
-      <soap12:address location="http://localhost:59737/ServicioCda.asmx" />
+      <soap12:address location="http://localhost:59737/financiera/services/ServicioCda.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

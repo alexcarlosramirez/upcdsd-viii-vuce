@@ -124,6 +124,30 @@
     <Content Include="css\SiteCuenta.css" />
     <Content Include="Default.aspx" />
     <Content Include="asp_cuenta\NestedMasterPageCuenta.master" />
+    <None Include="Service References\ServicioBanca\ServicioBanca.disco" />
+    <None Include="Service References\ServicioBanca\configuration91.svcinfo" />
+    <None Include="Service References\ServicioBanca\configuration.svcinfo" />
+    <None Include="Service References\ServicioBanca\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServicioCda\ServicioCda.disco" />
+    <None Include="Service References\ServicioCda\configuration91.svcinfo" />
+    <None Include="Service References\ServicioCda\configuration.svcinfo" />
+    <None Include="Service References\ServicioCda\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SitePagoElectronico.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicioBanca\" />
+    <WCFMetadataStorage Include="Service References\ServicioCda\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\ServicioBanca\Financiera.WebApp.ServicioBanca.BancoType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -137,29 +161,7 @@
     <None Include="Service References\ServicioCda\Financiera.WebApp.ServicioCda.CdaType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioCda\ServicioCda.disco" />
     <None Include="Service References\ServicioCda\ServicioCda.wsdl" />
-    <None Include="Service References\ServicioCda\configuration91.svcinfo" />
-    <None Include="Service References\ServicioCda\configuration.svcinfo" />
-    <None Include="Service References\ServicioCda\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServicioBanca\ServicioBanca.disco" />
-    <None Include="Service References\ServicioBanca\configuration91.svcinfo" />
-    <None Include="Service References\ServicioBanca\configuration.svcinfo" />
-    <None Include="Service References\ServicioBanca\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="SitePagoElectronico.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServicioBanca\" />
-    <WCFMetadataStorage Include="Service References\ServicioCda\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -179,9 +181,9 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>60524</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <DevelopmentServerVPath>/financiera/webapp/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

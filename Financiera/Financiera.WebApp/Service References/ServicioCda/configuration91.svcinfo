@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="VfE//NXT+/AfVPEox24n2RX2XVI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="NICK/qlTBqG1QUuUuhy89s5a/Hw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ServicioCdaSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ServicioCdaSoap" contract="ServicioCda.ServicioCdaSoap" bindingType="basicHttpBinding" address="http://localhost:59737/ServicioCda.asmx" bindingConfiguration="ServicioCdaSoap">
+    <endpoint name="ServicioCdaSoap" contract="ServicioCda.ServicioCdaSoap" bindingType="basicHttpBinding" address="http://localhost:59737/financiera/services/ServicioCda.asmx" bindingConfiguration="ServicioCdaSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:59737/ServicioCda.asmx</serializedValue>
+          <serializedValue>http://localhost:59737/financiera/services/ServicioCda.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

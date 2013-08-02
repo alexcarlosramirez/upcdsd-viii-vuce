@@ -1,3 +1,6 @@
+use sce_financiera_db;
+go
+
 if exists (select * from sys.objects where type = 'P' and name = 'usp_PagaCda')
 	drop procedure usp_PagaCda
 go

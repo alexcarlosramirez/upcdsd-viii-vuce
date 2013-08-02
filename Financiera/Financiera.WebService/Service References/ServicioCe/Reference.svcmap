@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c6508f73-4407-4304-86cb-c1fd7f24e804" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d89cc307-abf9-4923-b029-2dd99eb87614" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,13 +20,13 @@
     <MetadataSource Address="http://localhost:8888/SCE/services/ServicioCe?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServicioCe.wsdl" MetadataType="Wsdl" ID="f2388b89-cd0c-4668-9178-0f283a93a72e" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?wsdl" />
-    <MetadataFile FileName="ServicioCe.xsd" MetadataType="Schema" ID="c45c4401-36b8-4da3-a69e-9ed560f0950c" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Dgs015.xsd" />
-    <MetadataFile FileName="ServicioCe1.xsd" MetadataType="Schema" ID="07a04f45-e188-4cf5-9fd8-0fcf18c04289" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Cabecera.xsd" />
-    <MetadataFile FileName="ServicioCe2.xsd" MetadataType="Schema" ID="6e5c37a8-133a-4148-a121-4057d24b5ba0" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Usuario.xsd" />
-    <MetadataFile FileName="ServicioCe3.xsd" MetadataType="Schema" ID="4b7d3db6-e59a-4587-a7e1-29dde7cdcf77" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Dgs016.xsd" />
-    <MetadataFile FileName="ServicioCe4.xsd" MetadataType="Schema" ID="c12fe6c6-f05a-492c-b2f9-088e42a4cfc5" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=TransmitirDigesaRequest.xsd" />
-    <MetadataFile FileName="ServicioCe5.xsd" MetadataType="Schema" ID="c00d81a0-0b68-40a6-bb32-fa32e01551b0" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=TransmitirResponse.xsd" />
+    <MetadataFile FileName="ServicioCe.wsdl" MetadataType="Wsdl" ID="128e9625-b626-4126-943b-12b6cf70a6e6" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?wsdl" />
+    <MetadataFile FileName="ServicioCe.xsd" MetadataType="Schema" ID="474cbe30-ca05-4eff-a26b-f55f66a35d48" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Dgs015.xsd" />
+    <MetadataFile FileName="ServicioCe1.xsd" MetadataType="Schema" ID="799584bb-d63e-49f4-bb8a-914c12a5a0d3" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Cabecera.xsd" />
+    <MetadataFile FileName="ServicioCe2.xsd" MetadataType="Schema" ID="71e144e7-95cd-43d8-bdd3-81a55446b852" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Usuario.xsd" />
+    <MetadataFile FileName="ServicioCe3.xsd" MetadataType="Schema" ID="48394bc0-c192-44f6-9be9-a72e320cdb77" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=Dgs016.xsd" />
+    <MetadataFile FileName="ServicioCe4.xsd" MetadataType="Schema" ID="a7cf2604-303f-4a89-a073-a1250a8a5034" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=TransmitirDigesaRequest.xsd" />
+    <MetadataFile FileName="ServicioCe5.xsd" MetadataType="Schema" ID="a5ed7e24-9818-4f3f-be23-35ed0fbc6dc4" SourceId="1" SourceUrl="http://localhost:8888/SCE/services/ServicioCe?xsd=TransmitirResponse.xsd" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

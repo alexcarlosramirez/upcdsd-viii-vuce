@@ -170,10 +170,10 @@
   </wsdl:binding>
   <wsdl:service name="ServicioBanca">
     <wsdl:port name="ServicioBancaSoap" binding="tns:ServicioBancaSoap">
-      <soap:address location="http://localhost:59737/ServicioBanca.asmx" />
+      <soap:address location="http://localhost:59737/financiera/services/ServicioBanca.asmx" />
     </wsdl:port>
     <wsdl:port name="ServicioBancaSoap12" binding="tns:ServicioBancaSoap12">
-      <soap12:address location="http://localhost:59737/ServicioBanca.asmx" />
+      <soap12:address location="http://localhost:59737/financiera/services/ServicioBanca.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
