@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sce.dsd.net/TransmitirDigesaRequest" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sce.dsd.net/TransmitirDigesaRequest">
+    <complexType name="Dgs016ProductoType">
+        <sequence>
+            <element name="nombre" type="string"/>
+            <element name="partidaArancelaria" type="string"/>
+            <element name="cantidad" type="int"/>
+            <element name="envase" type="string"/>
+            <element name="lugarFabricacion" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Dgs016Type">
+        <sequence>
+            <element name="tipoProducto" type="int"/>
+            <element name="paisProcedencia" type="string"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="listaProducto" type="tns:Dgs016ProductoType"/>
+        </sequence>
+    </complexType>
+</schema>

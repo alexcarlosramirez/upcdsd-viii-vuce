@@ -1,7 +1,6 @@
 package net.dsd.sce.servicioce.servicio;
 
-import java.io.InputStream;
-
+import net.dsd.sce.bean.BeanAdjunto;
 import net.dsd.sce.bean.BeanFormato;
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanUsuario;
@@ -23,8 +22,8 @@ public class ServicioOrden {
 		mysqlOrdenDao.transmitirOrden(orden);
 	}
 
-	public void registrarAdjunto(BeanOrden orden, String nombreArchivo, InputStream fis) {
-		mysqlOrdenDao.registrarAdjunto(orden, nombreArchivo, fis);
+	public void registrarAdjunto(BeanOrden orden, BeanAdjunto adjunto) {
+		mysqlOrdenDao.registrarAdjunto(orden, adjunto);
 	}
 
 	public void registrarUsuarioFormato(BeanOrden orden, BeanUsuario usuario) {
