@@ -1,5 +1,10 @@
 package net.dsd.sce.test;
 
+import java.io.File;
+
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+
 import net.dsd.sce.servicioce.ServicioCeStub;
 import net.dsd.sce.servicioce.ServicioCeStub.Dgs015ProductoType;
 import net.dsd.sce.servicioce.ServicioCeStub.Dgs015Type;
@@ -13,6 +18,11 @@ public class PruebaCe {
 
 	public static void main(String[] args) {
 		try {
+			//carga del binario
+			File file = new File("c:/archivo.png");
+			DataHandler dh = new DataHandler(new FileDataSource(file));
+			//
+
 			MensajeType mensaje = new MensajeType();
 			mensaje.setFormato("DGS015");
 
@@ -47,6 +57,8 @@ public class PruebaCe {
 			transmitirOrdenRequest.setMensaje(mensaje);
 			transmitirOrdenRequest.setTransmitirOrdenRequestChoice_type0(x);
 			transmitirOrdenRequest.setUsuario(usuarioType);
+			transmitirOrdenRequest.setNombreArchivoAdjunto("archivo.pptx");
+			transmitirOrdenRequest.setAdjunto(dh);
 
 			ServicioCeStub stup = new ServicioCeStub();
 			TransmitirResponse res = stup.transmitirOrden(transmitirOrdenRequest);
