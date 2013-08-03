@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://entidad.dsd.net/EntidadFormatoRequest"
-	xmlns:tns="http://entidad.dsd.net/EntidadFormatoRequest" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+        targetNamespace="http://entidad.dsd.net/EntidadFormatoRequest"
+        xmlns:tns="http://entidad.dsd.net/EntidadFormatoRequest"
+        elementFormDefault="qualified">
 
-	<include schemaLocation="./formatos/Dgs015.xsd"></include>
+  <include schemaLocation="./formatos/Dgs015.xsd"></include>
 
-	<element name="EntidadFormatoRequest">
-		<complexType>
-			<sequence>
-				<element name="formato" type="string"></element>
-				<element name="orden" type="long"></element>
-				<element name="suce" type="long"></element>
-				<element name="estadoPago" type="string"></element>
-				<choice>
-					<element name="formatoDgs015" type="tns:Dgs015Type"></element>
-				</choice>
-				<element name="adjunto" type="base64Binary" nillable="true"></element>
-				<element name="rucUsuarioSolicitante" type="string"></element>
-			</sequence>
-		</complexType>
-	</element>
+  <complexType name="AdjuntoType">
+    <sequence>
+      <element name="nombreArchivo" type="string" />
+      <element name="adjunto" type="base64Binary" xmime:expectedContentTypes="*/*"/>
+    </sequence>
+  </complexType>
+
+  <element name="EntidadFormatoRequest">
+    <complexType>
+      <sequence>
+        <element name="formato" type="string" />
+        <element name="orden" type="long" />
+        <element name="suce" type="long" />
+        <element name="estadoPago" type="string" />
+        <choice>
+          <element name="formatoDgs015" type="tns:Dgs015Type" />
+        </choice>
+        <element name="adjunto" type="tns:AdjuntoType" nillable="true" />
+        <element name="rucUsuarioSolicitante" type="string" />
+      </sequence>
+    </complexType>
+  </element>
 </schema>

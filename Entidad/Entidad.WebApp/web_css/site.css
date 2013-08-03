@@ -23,7 +23,6 @@
 table {
 	border:1px solid #990000;
 	color:#000000;
-	width:400px;
 }
 
 table thead tr {
@@ -31,7 +30,6 @@ table thead tr {
 }
 
 table thead tr th {
-	width: 3%;
 	text-align: center;
 	color: #E8E8E8;
 	font-family: Arial,Helvetica;
