@@ -53,7 +53,14 @@ namespace Financiera.WebApp.asp_cuenta
             else
             {
                 MensajeLbl.Text = "Su pago se cargó correctamente.";
+                ConfirmarBtn.Visible = false;
+                RegresarBtn.Visible = true;
             }
+        }
+
+        protected void RegresarBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/asp_cuenta/Consulta.aspx");
         }
     }
 }
