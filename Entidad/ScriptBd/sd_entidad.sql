@@ -49,3 +49,12 @@ CREATE TABLE IF NOT EXISTS `t_dgs015_producto` (
   envase varchar(150) NOT NULL,
   PRIMARY KEY (id_dgs015, secuencia_producto)
 );
+
+CREATE TABLE IF NOT EXISTS `t_adjunto` (
+  id_adjunto int(6) NOT NULL AUTO_INCREMENT,
+  id_expediente int(6) NOT NULL,
+  tipo int(1) NOT NULL,
+  no_archivo varchar(100) NOT NULL,
+  archivo LONGBLOB NOT NULL,
+  PRIMARY KEY (id_adjunto)
+);
