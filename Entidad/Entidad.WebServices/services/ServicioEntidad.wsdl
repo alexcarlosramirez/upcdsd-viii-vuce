@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://entidad.dsd.net/ServicioEntidad/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	name="ServicioEntidad"
-	targetNamespace="http://entidad.dsd.net/ServicioEntidad/"
-	xmlns:xsd0="http://entidad.dsd.net/EntidadResponse"
-	xmlns:xsd1="http://entidad.dsd.net/EntidadFormatoRequest">
-	<wsdl:types>
-		<xsd:schema>
-			<xsd:import namespace="http://entidad.dsd.net/EntidadFormatoRequest" schemaLocation="./xsd/EntidadFormatoRequest.xsd">
-			</xsd:import>
-			<xsd:import namespace="http://entidad.dsd.net/EntidadResponse" schemaLocation="./xsd/EntidadResponse.xsd">
-			</xsd:import>
-		</xsd:schema>
-	</wsdl:types>
-	<wsdl:message name="RegistrarSuceRequest">
-		<wsdl:part element="xsd1:EntidadFormatoRequest" name="parameters"/>
-	</wsdl:message>
-	<wsdl:message name="EntidadResponse">
-		<wsdl:part element="xsd0:EntidadResponse" name="parameters"/>
-	</wsdl:message>
-	<wsdl:portType name="ServicioEntidadPort">
-		<wsdl:operation name="RegistrarSuce">
-			<wsdl:input message="tns:RegistrarSuceRequest" />
-			<wsdl:output message="tns:EntidadResponse" />
-		</wsdl:operation>
-	</wsdl:portType>
-	<wsdl:binding name="ServicioEntidadBinding" type="tns:ServicioEntidadPort">
-		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
-		<wsdl:operation name="RegistrarSuce">
-			<soap:operation soapAction="http://entidad.dsd.net/ServicioEntidad/registrarSuce" />
-			<wsdl:input>
-				<soap:body use="literal"/>
-			</wsdl:input>
-			<wsdl:output>
-				<soap:body use="literal"/>
-			</wsdl:output>
-		</wsdl:operation>
-	</wsdl:binding>
-	<wsdl:service name="ServicioEntidad">
-		<wsdl:port name="ServicioEntidadSOAP" binding="tns:ServicioEntidadBinding">
-			<soap:address location="http://localhost:8980/Entidad.WebServices/ServicioEntidad.php" />
-		</wsdl:port>
-	</wsdl:service>
+  xmlns:tns="http://entidad.dsd.net/ServicioEntidad/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  name="ServicioEntidad"
+  targetNamespace="http://entidad.dsd.net/ServicioEntidad/"
+  xmlns:xsd0="http://entidad.dsd.net/EntidadResponse"
+  xmlns:xsd1="http://entidad.dsd.net/EntidadFormatoRequest">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://entidad.dsd.net/EntidadFormatoRequest" schemaLocation="./xsd/EntidadFormatoRequest.xsd">
+      </xsd:import>
+      <xsd:import namespace="http://entidad.dsd.net/EntidadResponse" schemaLocation="./xsd/EntidadResponse.xsd">
+      </xsd:import>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistrarSuceRequest">
+    <wsdl:part element="xsd1:EntidadFormatoRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="EntidadResponse">
+    <wsdl:part element="xsd0:EntidadResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ServicioEntidadPort">
+    <wsdl:operation name="RegistrarSuce">
+      <wsdl:input message="tns:RegistrarSuceRequest" />
+      <wsdl:output message="tns:EntidadResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioEntidadBinding" type="tns:ServicioEntidadPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarSuce">
+      <soap:operation soapAction="http://entidad.dsd.net/ServicioEntidad/registrarSuce" />
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioEntidad">
+    <wsdl:port name="ServicioEntidadSOAP" binding="tns:ServicioEntidadBinding">
+      <soap:address location="http://localhost:8980/Entidad.WebServices/ServicioEntidad.php" />
+    </wsdl:port>
+  </wsdl:service>
 </wsdl:definitions>

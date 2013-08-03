@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-   targetNamespace="http://entidad.dsd.net/EntidadResponse"
-   xmlns:tns="http://entidad.dsd.net/EntidadResponse"
-   elementFormDefault="qualified">
+        targetNamespace="http://entidad.dsd.net/EntidadResponse"
+        xmlns:tns="http://entidad.dsd.net/EntidadResponse"
+        elementFormDefault="qualified">
 
    <element name="EntidadResponse">
       <complexType>

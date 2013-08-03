@@ -27,6 +27,8 @@ function enviarDatosFormato() {
 	nu_orden = document.frmempleado.nu_orden.value;
 	l_estado_pago = document.frmempleado.l_estado_pago.value;
 	nu_expediente = document.frmempleado.nu_expediente.value;
+	nu_dr = document.frmempleado.nu_dr.value;
+	nu_operacion = document.frmempleado.nu_operacion.value;
 
 	// suel=document.frmempleado.sueldo.value;
 
@@ -48,12 +50,17 @@ function enviarDatosFormato() {
 	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// enviando los valores
 
-	ajax.send("id_expediente=" + id_expediente + "&nu_suce=" + nu_suce
-			+ "&nu_orden=" + nu_orden + "&l_estado_pago=" + l_estado_pago
-			+ "&nu_expediente=" + nu_expediente)
+	ajax.send(
+    "id_expediente=" + id_expediente +
+    "&nu_suce=" + nu_suce +
+    "&nu_orden=" + nu_orden +
+    "&l_estado_pago=" + l_estado_pago +
+    "&nu_expediente=" + nu_expediente +
+    "&nu_dr=" + nu_dr +
+    "&nu_operacion=" + nu_operacion)
 }
 
-function pedirDatos(id_expediente) {
+function pedirDatos(id_expediente, nu_operacion) {
 	// donde se mostrará el formulario con los datos
 	divFormulario = document.getElementById('formulario');
 
@@ -72,8 +79,9 @@ function pedirDatos(id_expediente) {
 	// como hacemos uso del metodo POST
 	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// enviando el codigo del empleado
-	ajax.send("id_expediente=" + id_expediente)
+	ajax.send("id_expediente=" + id_expediente + "&nu_operacion=" + nu_operacion)
 }
+
 function pedirDatosAgregar() {
 	// donde se mostrará el formulario con los datos
 	divFormulario = document.getElementById('f_agregar');
@@ -94,6 +102,7 @@ function pedirDatosAgregar() {
 	// enviando el codigo del empleado
 	ajax.send()
 }
+
 function enviarDatosProcesado() {
 	// donde se mostrará lo resultados
 	divResultado = document.getElementById('resultado');
@@ -137,6 +146,7 @@ function enviarDatosProcesado() {
 			+ fe_ho_resolucion + "&tx_delito=" + tx_delito + "&l_activo="
 			+ l_activo + "&no_juez=" + no_juez)
 }
+
 function pedirDatosJuez() {
 	// donde se mostrará el formulario con los datos
 	divFormulario = document.getElementById('f_juez');
@@ -157,6 +167,7 @@ function pedirDatosJuez() {
 	// enviando el codigo del empleado
 	ajax.send()
 }
+
 function enviarDatosJuez() {
 	// donde se mostrará lo resultados
 	divResultado = document.getElementById('resultado');
