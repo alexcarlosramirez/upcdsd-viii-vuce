@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PanelCuentaCph" runat="server">
     <table align="center">
         <tr>
-            <td align="center"><asp:Label ID="MensajeLbl" runat="server" Text=""></asp:Label></td>
+            <td align="center" colspan="2"><asp:Label ID="MensajeLbl" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <th align="right" style="width: 120px; height: 30px;" valign="middle">
@@ -31,8 +31,11 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="center"><asp:Button ID="ConfirmarBtn" runat="server" 
-                    Text="Confirmar Pago" onclick="ConfirmarBtn_Click"/></td>
+            <td colspan="2" align="center">
+                <asp:Button ID="ConfirmarBtn" runat="server" Text="Confirmar Pago" onclick="ConfirmarBtn_Click"/>
+                <asp:Button ID="RegresarBtn" runat="server" Text="Regresar" Visible="false" 
+                    onclick="RegresarBtn_Click"/>
+            </td>
         </tr>
     </table>
 </asp:Content>
