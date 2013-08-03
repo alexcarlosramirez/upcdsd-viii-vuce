@@ -1,6 +1,47 @@
 package net.dsd.sce.bean;
 
+import java.util.GregorianCalendar;
+
 public class BeanOrden {
+
+	private int ordenId;
+	private long orden;
+	private GregorianCalendar fechaRegistro;
+	private String bloqueada;
+	private String cerrada;
+
+	public int getOrdenId() {
+		return ordenId;
+	}
+	public void setOrdenId(int ordenId) {
+		this.ordenId = ordenId;
+	}
+	public long getOrden() {
+		return orden;
+	}
+	public void setOrden(long orden) {
+		this.orden = orden;
+	}
+	public GregorianCalendar getFechaRegistro() {
+		return fechaRegistro;
+	}
+	public void setFechaRegistro(GregorianCalendar fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+	public String getBloqueada() {
+		return bloqueada;
+	}
+	public void setBloqueada(String bloqueada) {
+		this.bloqueada = bloqueada;
+	}
+	public String getCerrada() {
+		return cerrada;
+	}
+	public void setCerrada(String cerrada) {
+		this.cerrada = cerrada;
+	}
+
+	/*
 	private String formato;
 	private int ordenId;
 	private int mto;
@@ -50,5 +91,5 @@ public class BeanOrden {
 	}
 	public void setMontoPago(double montoPago) {
 		this.montoPago = montoPago;
-	}
+	}*/
 }

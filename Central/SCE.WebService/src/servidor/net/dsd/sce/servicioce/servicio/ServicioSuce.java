@@ -1,14 +1,23 @@
 package net.dsd.sce.servicioce.servicio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.activation.DataHandler;
+
+import org.apache.axiom.attachments.ByteArrayDataSource;
+import org.apache.commons.io.IOUtils;
+
 import net.dsd.entidad.servicioentidad.ServicioEntidadStub;
+import net.dsd.entidad.servicioentidad.ServicioEntidadStub.AdjuntoType;
 import net.dsd.entidad.servicioentidad.ServicioEntidadStub.Dgs015ProductoType;
 import net.dsd.entidad.servicioentidad.ServicioEntidadStub.Dgs015Type;
 import net.dsd.entidad.servicioentidad.ServicioEntidadStub.EntidadFormatoRequest;
 import net.dsd.entidad.servicioentidad.ServicioEntidadStub.EntidadFormatoRequestChoice_type0;
 import net.dsd.entidad.servicioentidad.ServicioEntidadStub.EntidadResponse;
+import net.dsd.sce.bean.BeanAdjunto;
 import net.dsd.sce.bean.BeanFormato;
+import net.dsd.sce.bean.BeanFormatoEntidad;
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanSuce;
 import net.dsd.sce.bean.digesa.BeanDgs015;
@@ -22,19 +31,23 @@ public class ServicioSuce {
 		mysqlSuceDao = new MysqlSuceDao();
 	}
 
-	public void transmitirSuceHaciaEntidad(BeanOrden orden, BeanSuce suce, BeanFormato formatoEntidadOrigen, String rucUsuarioSolicitante) {
+	public void transmitirSuceHaciaEntidad(BeanFormato formato, BeanOrden orden, BeanSuce suce, BeanFormatoEntidad formatoEntidad, BeanAdjunto adjunto, String ruc) {
 		try {
 			ServicioEntidadStub expedienteStub = new ServicioEntidadStub();
 
-			EntidadFormatoRequestChoice_type0 formatoType = convertirFormatoSceEnEntidad(orden.getFormato(), formatoEntidadOrigen);
+			EntidadFormatoRequestChoice_type0 formatoType = convertirFormatoSceEnEntidad(formato.getFormato(), formatoEntidad);
 
 			EntidadFormatoRequest request = new EntidadFormatoRequest();
-			request.setFormato(orden.getFormato());
+			request.setFormato(formato.getFormato());
 			request.setOrden(orden.getOrden());
 			request.setSuce(suce.getSuce());
 			request.setEntidadFormatoRequestChoice_type0(formatoType);
 			request.setEstadoPago("S");
-			request.setRucUsuarioSolicitante(rucUsuarioSolicitante);
+			if (adjunto != null) {
+				AdjuntoType adjuntoType = convertirAdjuntoSceEnAdjunto(adjunto);
+				request.setAdjunto(adjuntoType);
+			}
+			request.setRucUsuarioSolicitante(ruc);
 
 			EntidadResponse response = expedienteStub.registrarSuce(request);
 			System.out.println(response.getCodigo());
@@ -44,15 +57,15 @@ public class ServicioSuce {
 		}
 	}
 
-	public BeanSuce registrarSuce(BeanOrden orden) {
-		return mysqlSuceDao.registrarSuce(orden);
+	public BeanSuce generarSuce(BeanOrden orden) {
+		return mysqlSuceDao.generarSuce(orden);
 	}
 
 	public void modificarSuce(BeanSuce suce) {
 		mysqlSuceDao.modificarSuce(suce);
 	}
 
-	private EntidadFormatoRequestChoice_type0 convertirFormatoSceEnEntidad(String formato, BeanFormato formatoEntidadOrigen) {
+	private EntidadFormatoRequestChoice_type0 convertirFormatoSceEnEntidad(String formato, BeanFormatoEntidad formatoEntidadOrigen) {
 		EntidadFormatoRequestChoice_type0 formatoEntidad = new EntidadFormatoRequestChoice_type0();
 		if (formato.equals("DGS015")) {
 			BeanDgs015 dgs015 = (BeanDgs015) formatoEntidadOrigen;
@@ -79,5 +92,18 @@ public class ServicioSuce {
 			formatoEntidad = null;
 		}
 		return formatoEntidad;
+	}
+
+	private AdjuntoType convertirAdjuntoSceEnAdjunto(BeanAdjunto adjunto) {
+		try {
+			AdjuntoType adjuntoType = new AdjuntoType();
+			adjuntoType.setNombreArchivo(adjunto.getNombreArchivo());
+			ByteArrayDataSource ds = new ByteArrayDataSource(IOUtils.toByteArray(adjunto.getArchivo()));
+			adjuntoType.setAdjunto(new DataHandler(ds));
+			return adjuntoType;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

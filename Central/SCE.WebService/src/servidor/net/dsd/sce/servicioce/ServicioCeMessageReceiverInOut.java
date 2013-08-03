@@ -39,58 +39,77 @@
 
             if("transmitirNroExpediente".equals(methodName)){
                 
-                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse3 = null;
+                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse4 = null;
 	                        net.dsd.sce.transmitirdigesarequest.TransmitirNroExpedienteRequest wrappedParam =
                                                              (net.dsd.sce.transmitirdigesarequest.TransmitirNroExpedienteRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     net.dsd.sce.transmitirdigesarequest.TransmitirNroExpedienteRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               transmitirResponse3 =
+                                               transmitirResponse4 =
                                                    
                                                    
                                                          skel.transmitirNroExpediente(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse3, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse4, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirNroExpediente"));
                                     } else 
 
             if("transmitirPago".equals(methodName)){
                 
-                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse5 = null;
+                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse6 = null;
 	                        net.dsd.sce.transmitirdigesarequest.TransmitirPagoRequest wrappedParam =
                                                              (net.dsd.sce.transmitirdigesarequest.TransmitirPagoRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     net.dsd.sce.transmitirdigesarequest.TransmitirPagoRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               transmitirResponse5 =
+                                               transmitirResponse6 =
                                                    
                                                    
                                                          skel.transmitirPago(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse5, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse6, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirPago"));
+                                    } else 
+
+            if("transmitirDr".equals(methodName)){
+                
+                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse8 = null;
+	                        net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest wrappedParam =
+                                                             (net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               transmitirResponse8 =
+                                                   
+                                                   
+                                                         skel.transmitirDr(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse8, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                                    "transmitirDr"));
                                     } else 
 
             if("transmitirOrden".equals(methodName)){
                 
-                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse7 = null;
+                net.dsd.sce.transmitirresponse.TransmitirResponse transmitirResponse10 = null;
 	                        net.dsd.sce.transmitirdigesarequest.TransmitirOrdenRequest wrappedParam =
                                                              (net.dsd.sce.transmitirdigesarequest.TransmitirOrdenRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     net.dsd.sce.transmitirdigesarequest.TransmitirOrdenRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               transmitirResponse7 =
+                                               transmitirResponse10 =
                                                    
                                                    
                                                          skel.transmitirOrden(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse7, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), transmitirResponse10, false, new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirOrden"));
                                     
             } else {
@@ -149,6 +168,20 @@
 
             }
         
+            private  org.apache.axiom.om.OMElement  toOM(net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
             private  org.apache.axiom.om.OMElement  toOM(net.dsd.sce.transmitirdigesarequest.TransmitirOrdenRequest param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -183,6 +216,11 @@
                          }
                     
                          private net.dsd.sce.transmitirresponse.TransmitirResponse wrapTransmitirPago(){
+                                net.dsd.sce.transmitirresponse.TransmitirResponse wrappedElement = new net.dsd.sce.transmitirresponse.TransmitirResponse();
+                                return wrappedElement;
+                         }
+                    
+                         private net.dsd.sce.transmitirresponse.TransmitirResponse wrapTransmitirDr(){
                                 net.dsd.sce.transmitirresponse.TransmitirResponse wrappedElement = new net.dsd.sce.transmitirresponse.TransmitirResponse();
                                 return wrappedElement;
                          }
@@ -226,6 +264,20 @@
                 if (net.dsd.sce.transmitirdigesarequest.TransmitirPagoRequest.class.equals(type)){
                 
                            return net.dsd.sce.transmitirdigesarequest.TransmitirPagoRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (net.dsd.sce.transmitirresponse.TransmitirResponse.class.equals(type)){
+                
+                           return net.dsd.sce.transmitirresponse.TransmitirResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest.class.equals(type)){
+                
+                           return net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

@@ -19,10 +19,10 @@ public class ServicioTasa {
 		mysqlTasaDao = new MysqlTasaDao();
 	}
 
-	public BeanTasa solicitarTasaHaciaFinanciera(double montoPago) {
+	public BeanTasa solicitarTasaHaciaFinanciera(BeanTasa tasa) {
 		try {
 			GenerarCda generarCda = new GenerarCda();
-			generarCda.setMontopago(montoPago);
+			generarCda.setMontopago(tasa.getMontoPago());
 			ServicioCdaStub servicioCda = new ServicioCdaStub();
 
 			Options options = servicioCda._getServiceClient().getOptions();
@@ -31,8 +31,6 @@ public class ServicioTasa {
 			CdaType cdaType = response.getCda();
 
 			//Registrar la tasa
-			BeanTasa tasa = new BeanTasa();
-			tasa.setMontoPago(montoPago);
 			tasa.setCda(cdaType.getCda());
 			tasa.setFechaGeneracion(cdaType.getFechaGeneracion());
 

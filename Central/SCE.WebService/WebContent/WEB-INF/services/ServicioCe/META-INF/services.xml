@@ -14,6 +14,10 @@
             <actionMapping>http://sce.dsd.net/ServicioCe/transmitirPago</actionMapping>
             <outputActionMapping>http://sce.dsd.net/ServicioCe/ServicioCe/TransmitirPagoResponse</outputActionMapping>
         </operation>
+        <operation name="TransmitirDr" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sce.dsd.net/ServicioCe/">
+            <actionMapping>http://sce.dsd.net/ServicioCe/transmitirDr</actionMapping>
+            <outputActionMapping>http://sce.dsd.net/ServicioCe/ServicioCe/TransmitirDrResponse</outputActionMapping>
+        </operation>
         <operation name="TransmitirOrden" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://sce.dsd.net/ServicioCe/">
             <actionMapping>http://sce.dsd.net/ServicioCe/transmitirOrden</actionMapping>
             <outputActionMapping>http://sce.dsd.net/ServicioCe/ServicioCe/TransmitirOrdenResponse</outputActionMapping>

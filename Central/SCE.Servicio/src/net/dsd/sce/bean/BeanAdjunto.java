@@ -1,12 +1,11 @@
 package net.dsd.sce.bean;
 
-import java.io.InputStream;
+import java.io.ByteArrayInputStream;
 
 public class BeanAdjunto {
 
 	private String nombreArchivo;
-	private InputStream archivo;
-	private int tamano;
+	private ByteArrayInputStream archivo;
 
 	public String getNombreArchivo() {
 		return nombreArchivo;
@@ -14,16 +13,13 @@ public class BeanAdjunto {
 	public void setNombreArchivo(String nombreArchivo) {
 		this.nombreArchivo = nombreArchivo;
 	}
-	public InputStream getArchivo() {
+	public ByteArrayInputStream getArchivo() {
 		return archivo;
 	}
-	public void setArchivo(InputStream archivo) {
+	public void setArchivo(ByteArrayInputStream archivo) {
 		this.archivo = archivo;
 	}
 	public int getTamano() {
-		return tamano;
-	}
-	public void setTamano(int tamano) {
-		this.tamano = tamano;
+		return archivo.available();
 	}
 }
