@@ -21,7 +21,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://sce.dsd.net/TransmitirDigesaRequest",
                 "TransmitirPagoRequest",
-                "ns7");
+                "ns4");
 
             
 
@@ -230,7 +230,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }

@@ -186,13 +186,14 @@ create table if not exists usuario (
 -- drop table if exists traza;
 create table if not exists traza (
 	traza_id int not null auto_increment,
+	estado_traza int COMMENT 'Valores: 1: Solicitud registrada, 2: Solicitud transmitida, 3: Tasa Generada, 4: Pago Recibido, 5: Suce generada, 6: Respuesta de la entidad con Nro de Expediente, 7: Emisión de DR de aprobación, 8: Emisión de DR de denegación',
 	tce_id int,
 	orden_id int,
 	mto int,
 	dr_id int,
 	sdr int,
-	de int,
-	para int,
+	de int COMMENT 'Valores: 1 Usuario, 2: Entidad, 3: SCE, 4: Financiera',
+	para int COMMENT 'Valores: 1 Usuario, 2: Entidad, 3: SCE,  4: Financiera',
 	usuario_id int,
 	fecha_registro datetime,
 	constraint pk_traza primary key (traza_id)
@@ -245,7 +246,7 @@ references mto(orden_id, mto);
 create table if not exists adjunto (
 	adjunto_id int auto_increment,
 	nombre_archivo varchar(256),
-	archivo blob,
+	archivo LONGBLOB,
 	orden_id int,
 	mto int,
 	dr_id int,

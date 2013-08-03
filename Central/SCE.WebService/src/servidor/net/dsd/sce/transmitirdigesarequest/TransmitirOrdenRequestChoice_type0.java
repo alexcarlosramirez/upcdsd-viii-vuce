@@ -20,7 +20,7 @@
         /* This type was generated from the piece of schema that had
                 name = TransmitirOrdenRequestChoice_type0
                 Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
+                Namespace Prefix = ns4
                 */
             
             /** Whenever a new property is set ensure all others are unset
@@ -194,7 +194,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns4";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }

@@ -433,7 +433,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://entidad.dsd.net/EntidadResponse",
                 "EntidadResponse",
-                "ns3");
+                "ns2");
 
             
 
@@ -599,7 +599,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://entidad.dsd.net/EntidadResponse")){
-                return "ns3";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -949,7 +949,7 @@
         /* This type was generated from the piece of schema that had
                 name = EntidadFormatoRequestChoice_type0
                 Namespace URI = http://entidad.dsd.net/EntidadFormatoRequest
-                Namespace Prefix = ns2
+                Namespace Prefix = ns1
                 */
             
             /** Whenever a new property is set ensure all others are unset
@@ -1071,7 +1071,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://entidad.dsd.net/EntidadFormatoRequest")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -1356,6 +1356,16 @@
                   }
 
               
+                  if (
+                  "http://entidad.dsd.net/EntidadFormatoRequest".equals(namespaceURI) &&
+                  "AdjuntoType".equals(typeName)){
+                   
+                            return  AdjuntoType.Factory.parse(reader);
+                        
+
+                  }
+
+              
              throw new org.apache.axis2.databinding.ADBException("Unsupported type " + namespaceURI + " " + typeName);
           }
 
@@ -1367,7 +1377,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://entidad.dsd.net/EntidadFormatoRequest",
                 "EntidadFormatoRequest",
-                "ns2");
+                "ns1");
 
             
 
@@ -1526,14 +1536,14 @@
                         */
 
                         
-                                    protected javax.activation.DataHandler localAdjunto ;
+                                    protected AdjuntoType localAdjunto ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return javax.activation.DataHandler
+                           * @return AdjuntoType
                            */
-                           public  javax.activation.DataHandler getAdjunto(){
+                           public  AdjuntoType getAdjunto(){
                                return localAdjunto;
                            }
 
@@ -1543,7 +1553,7 @@
                                * Auto generated setter method
                                * @param param Adjunto
                                */
-                               public void setAdjunto(javax.activation.DataHandler param){
+                               public void setAdjunto(AdjuntoType param){
                             
                                             this.localAdjunto=param;
                                     
@@ -1707,24 +1717,18 @@
                                             }
                                            localEntidadFormatoRequestChoice_type0.serialize(null,xmlWriter);
                                         
-                                    namespace = "http://entidad.dsd.net/EntidadFormatoRequest";
-                                    writeStartElement(null, namespace, "adjunto", xmlWriter);
-                             
-                                        
-                                    if (localAdjunto!=null)  {
-                                       try {
-                                           org.apache.axiom.util.stax.XMLStreamWriterUtils.writeDataHandler(xmlWriter, localAdjunto, null, true);
-                                       } catch (java.io.IOException ex) {
-                                           throw new javax.xml.stream.XMLStreamException("Unable to read data handler for adjunto", ex);
-                                       }
-                                    } else {
-                                         
-                                             writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                         
+                                    if (localAdjunto==null){
+
+                                        writeStartElement(null, "http://entidad.dsd.net/EntidadFormatoRequest", "adjunto", xmlWriter);
+
+                                       // write the nil attribute
+                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                      xmlWriter.writeEndElement();
+                                    }else{
+                                     localAdjunto.serialize(new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest","adjunto"),
+                                        xmlWriter);
                                     }
-                                 
-                                   xmlWriter.writeEndElement();
-                             
+                                
                                     namespace = "http://entidad.dsd.net/EntidadFormatoRequest";
                                     writeStartElement(null, namespace, "rucUsuarioSolicitante", xmlWriter);
                              
@@ -1750,7 +1754,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://entidad.dsd.net/EntidadFormatoRequest")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -1967,11 +1971,13 @@
                                     }
                                     elementList.add(localEntidadFormatoRequestChoice_type0);
                                 
-                                      elementList.add(new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest",
-                                        "adjunto"));
+                            elementList.add(new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest",
+                                                                      "adjunto"));
+                            
+                            
+                                    elementList.add(localAdjunto==null?null:
+                                    localAdjunto);
                                 
-                            elementList.add(localAdjunto);
-                        
                                       elementList.add(new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest",
                                                                       "rucUsuarioSolicitante"));
                                  
@@ -2170,18 +2176,19 @@
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest","adjunto").equals(reader.getName())){
                                 
-                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                        if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                             object.setAdjunto(null);
-                                             reader.next();
-                                        } else {
+                                      nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                      if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                          object.setAdjunto(null);
+                                          reader.next();
+                                            
+                                            reader.next();
+                                          
+                                      }else{
                                     
-                                            object.setAdjunto(org.apache.axiom.util.stax.XMLStreamReaderUtils.getDataHandlerFromElement(reader));
-                                    
-                                        }
-                                      
+                                                object.setAdjunto(AdjuntoType.Factory.parse(reader));
+                                              
                                         reader.next();
-                                    
+                                    }
                               }  // End of if for expected property start element
                                 
                                 else{
@@ -2243,7 +2250,7 @@
         /* This type was generated from the piece of schema that had
                 name = Dgs015Type
                 Namespace URI = http://entidad.dsd.net/EntidadFormatoRequest
-                Namespace Prefix = ns2
+                Namespace Prefix = ns1
                 */
             
 
@@ -2454,7 +2461,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://entidad.dsd.net/EntidadFormatoRequest")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2836,7 +2843,7 @@
         /* This type was generated from the piece of schema that had
                 name = Dgs015ProductoType
                 Namespace URI = http://entidad.dsd.net/EntidadFormatoRequest
-                Namespace Prefix = ns2
+                Namespace Prefix = ns1
                 */
             
 
@@ -3136,7 +3143,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://entidad.dsd.net/EntidadFormatoRequest")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -3544,6 +3551,507 @@
                                               object.setEnvase(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
+                            while (!reader.isStartElement() && !reader.isEndElement())
+                                reader.next();
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
+
+
+
+            } catch (javax.xml.stream.XMLStreamException e) {
+                throw new java.lang.Exception(e);
+            }
+
+            return object;
+        }
+
+        }//end of factory class
+
+        
+
+        }
+           
+    
+        public static class AdjuntoType
+        implements org.apache.axis2.databinding.ADBBean{
+        /* This type was generated from the piece of schema that had
+                name = AdjuntoType
+                Namespace URI = http://entidad.dsd.net/EntidadFormatoRequest
+                Namespace Prefix = ns1
+                */
+            
+
+                        /**
+                        * field for NombreArchivo
+                        */
+
+                        
+                                    protected java.lang.String localNombreArchivo ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getNombreArchivo(){
+                               return localNombreArchivo;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param NombreArchivo
+                               */
+                               public void setNombreArchivo(java.lang.String param){
+                            
+                                            this.localNombreArchivo=param;
+                                    
+
+                               }
+                            
+
+                        /**
+                        * field for Adjunto
+                        */
+
+                        
+                                    protected javax.activation.DataHandler localAdjunto ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return javax.activation.DataHandler
+                           */
+                           public  javax.activation.DataHandler getAdjunto(){
+                               return localAdjunto;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Adjunto
+                               */
+                               public void setAdjunto(javax.activation.DataHandler param){
+                            
+                                            this.localAdjunto=param;
+                                    
+
+                               }
+                            
+
+     
+     
+        /**
+        *
+        * @param parentQName
+        * @param factory
+        * @return org.apache.axiom.om.OMElement
+        */
+       public org.apache.axiom.om.OMElement getOMElement (
+               final javax.xml.namespace.QName parentQName,
+               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+
+
+        
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
+               return factory.createOMElement(dataSource,parentQName);
+            
+        }
+
+         public void serialize(final javax.xml.namespace.QName parentQName,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter)
+                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
+                           serialize(parentQName,xmlWriter,false);
+         }
+
+         public void serialize(final javax.xml.namespace.QName parentQName,
+                               javax.xml.stream.XMLStreamWriter xmlWriter,
+                               boolean serializeType)
+            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
+            
+                
+
+
+                java.lang.String prefix = null;
+                java.lang.String namespace = null;
+                
+
+                    prefix = parentQName.getPrefix();
+                    namespace = parentQName.getNamespaceURI();
+                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+                
+                  if (serializeType){
+               
+
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://entidad.dsd.net/EntidadFormatoRequest");
+                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
+                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                           namespacePrefix+":AdjuntoType",
+                           xmlWriter);
+                   } else {
+                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                           "AdjuntoType",
+                           xmlWriter);
+                   }
+
+               
+                   }
+               
+                                    namespace = "http://entidad.dsd.net/EntidadFormatoRequest";
+                                    writeStartElement(null, namespace, "nombreArchivo", xmlWriter);
+                             
+
+                                          if (localNombreArchivo==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("nombreArchivo cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localNombreArchivo);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "http://entidad.dsd.net/EntidadFormatoRequest";
+                                    writeStartElement(null, namespace, "adjunto", xmlWriter);
+                             
+                                        
+                                    if (localAdjunto!=null)  {
+                                       try {
+                                           org.apache.axiom.util.stax.XMLStreamWriterUtils.writeDataHandler(xmlWriter, localAdjunto, null, true);
+                                       } catch (java.io.IOException ex) {
+                                           throw new javax.xml.stream.XMLStreamException("Unable to read data handler for adjunto", ex);
+                                       }
+                                    } else {
+                                         
+                                    }
+                                 
+                                   xmlWriter.writeEndElement();
+                             
+                    xmlWriter.writeEndElement();
+               
+
+        }
+
+        private static java.lang.String generatePrefix(java.lang.String namespace) {
+            if(namespace.equals("http://entidad.dsd.net/EntidadFormatoRequest")){
+                return "ns1";
+            }
+            return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
+        }
+
+        /**
+         * Utility method to write an element start tag.
+         */
+        private void writeStartElement(java.lang.String prefix, java.lang.String namespace, java.lang.String localPart,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+            if (writerPrefix != null) {
+                xmlWriter.writeStartElement(namespace, localPart);
+            } else {
+                if (namespace.length() == 0) {
+                    prefix = "";
+                } else if (prefix == null) {
+                    prefix = generatePrefix(namespace);
+                }
+
+                xmlWriter.writeStartElement(prefix, localPart, namespace);
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+        }
+        
+        /**
+         * Util method to write an attribute with the ns prefix
+         */
+        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
+                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+            if (xmlWriter.getPrefix(namespace) == null) {
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
+        }
+
+        /**
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
+                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName,attValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
+            }
+        }
+
+
+           /**
+             * Util method to write an attribute without the ns prefix
+             */
+            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+                java.lang.String attributeNamespace = qname.getNamespaceURI();
+                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+                if (attributePrefix == null) {
+                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+                }
+                java.lang.String attributeValue;
+                if (attributePrefix.trim().length() > 0) {
+                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
+                } else {
+                    attributeValue = qname.getLocalPart();
+                }
+
+                if (namespace.equals("")) {
+                    xmlWriter.writeAttribute(attName, attributeValue);
+                } else {
+                    registerPrefix(xmlWriter, namespace);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
+                }
+            }
+        /**
+         *  method to handle Qnames
+         */
+
+        private void writeQName(javax.xml.namespace.QName qname,
+                                javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+            java.lang.String namespaceURI = qname.getNamespaceURI();
+            if (namespaceURI != null) {
+                java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
+                if (prefix == null) {
+                    prefix = generatePrefix(namespaceURI);
+                    xmlWriter.writeNamespace(prefix, namespaceURI);
+                    xmlWriter.setPrefix(prefix,namespaceURI);
+                }
+
+                if (prefix.trim().length() > 0){
+                    xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+                } else {
+                    // i.e this is the default namespace
+                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+                }
+
+            } else {
+                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+            }
+        }
+
+        private void writeQNames(javax.xml.namespace.QName[] qnames,
+                                 javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            if (qnames != null) {
+                // we have to store this data until last moment since it is not possible to write any
+                // namespace data after writing the charactor data
+                java.lang.StringBuffer stringToWrite = new java.lang.StringBuffer();
+                java.lang.String namespaceURI = null;
+                java.lang.String prefix = null;
+
+                for (int i = 0; i < qnames.length; i++) {
+                    if (i > 0) {
+                        stringToWrite.append(" ");
+                    }
+                    namespaceURI = qnames[i].getNamespaceURI();
+                    if (namespaceURI != null) {
+                        prefix = xmlWriter.getPrefix(namespaceURI);
+                        if ((prefix == null) || (prefix.length() == 0)) {
+                            prefix = generatePrefix(namespaceURI);
+                            xmlWriter.writeNamespace(prefix, namespaceURI);
+                            xmlWriter.setPrefix(prefix,namespaceURI);
+                        }
+
+                        if (prefix.trim().length() > 0){
+                            stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                        } else {
+                            stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                        }
+                    } else {
+                        stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                    }
+                }
+                xmlWriter.writeCharacters(stringToWrite.toString());
+            }
+
+        }
+
+
+        /**
+         * Register a namespace prefix
+         */
+        private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter, java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+            java.lang.String prefix = xmlWriter.getPrefix(namespace);
+            if (prefix == null) {
+                prefix = generatePrefix(namespace);
+                javax.xml.namespace.NamespaceContext nsContext = xmlWriter.getNamespaceContext();
+                while (true) {
+                    java.lang.String uri = nsContext.getNamespaceURI(prefix);
+                    if (uri == null || uri.length() == 0) {
+                        break;
+                    }
+                    prefix = org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
+                }
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+            return prefix;
+        }
+
+
+  
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                 java.util.ArrayList elementList = new java.util.ArrayList();
+                 java.util.ArrayList attribList = new java.util.ArrayList();
+
+                
+                                      elementList.add(new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest",
+                                                                      "nombreArchivo"));
+                                 
+                                        if (localNombreArchivo != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localNombreArchivo));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("nombreArchivo cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest",
+                                        "adjunto"));
+                                
+                            elementList.add(localAdjunto);
+                        
+
+                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+            
+            
+
+        }
+
+  
+
+     /**
+      *  Factory class that keeps the parse method
+      */
+    public static class Factory{
+
+        
+        
+
+        /**
+        * static method to create the object
+        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+        * Postcondition: If this object is an element, the reader is positioned at its end element
+        *                If this object is a complex type, the reader is positioned at the end element of its outer element
+        */
+        public static AdjuntoType parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            AdjuntoType object =
+                new AdjuntoType();
+
+            int event;
+            java.lang.String nillableValue = null;
+            java.lang.String prefix ="";
+            java.lang.String namespaceuri ="";
+            try {
+                
+                while (!reader.isStartElement() && !reader.isEndElement())
+                    reader.next();
+
+                
+                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
+                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                        "type");
+                  if (fullTypeName!=null){
+                    java.lang.String nsPrefix = null;
+                    if (fullTypeName.indexOf(":") > -1){
+                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
+                    }
+                    nsPrefix = nsPrefix==null?"":nsPrefix;
+
+                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
+                    
+                            if (!"AdjuntoType".equals(type)){
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (AdjuntoType)ExtensionMapper.getTypeObject(
+                                     nsUri,type,reader);
+                              }
+                        
+
+                  }
+                
+
+                }
+
+                
+
+                
+                // Note all attributes that were handled. Used to differ normal attributes
+                // from anyAttributes.
+                java.util.Vector handledAttributes = new java.util.Vector();
+                
+
+                
+                    
+                    reader.next();
+                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest","nombreArchivo").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"nombreArchivo" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setNombreArchivo(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://entidad.dsd.net/EntidadFormatoRequest","adjunto").equals(reader.getName())){
+                                
+                                            object.setAdjunto(org.apache.axiom.util.stax.XMLStreamReaderUtils.getDataHandlerFromElement(reader));
+                                      
                                         reader.next();
                                     
                               }  // End of if for expected property start element

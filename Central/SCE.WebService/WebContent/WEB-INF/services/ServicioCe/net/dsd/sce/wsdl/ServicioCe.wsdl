@@ -25,6 +25,9 @@
 	<wsdl:message name="TransmitirNroExpedienteRequest">
 		<wsdl:part element="xsd1:TransmitirNroExpedienteRequest" name="parameters" />
 	</wsdl:message>
+	<wsdl:message name="TransmitirDrRequest">
+		<wsdl:part element="xsd1:TransmitirDrRequest" name="parameters" />
+	</wsdl:message>
 	<wsdl:message name="TransmitirPagoRequest">
 		<wsdl:part element="xsd1:TransmitirPagoRequest" name="parameters" />
 	</wsdl:message>
@@ -39,6 +42,10 @@
 		</wsdl:operation>
 		<wsdl:operation name="TransmitirPago">
 			<wsdl:input message="tns:TransmitirPagoRequest" />
+			<wsdl:output message="tns:TransmitirResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="TransmitirDr">
+			<wsdl:input message="tns:TransmitirDrRequest" />
 			<wsdl:output message="tns:TransmitirResponse" />
 		</wsdl:operation>
 	</wsdl:portType>
@@ -64,6 +71,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="TransmitirNroExpediente">
 			<soap:operation soapAction="http://sce.dsd.net/ServicioCe/transmitirNroExpediente" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="TransmitirDr">
+			<soap:operation soapAction="http://sce.dsd.net/ServicioCe/transmitirDr" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>

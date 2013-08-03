@@ -19,7 +19,7 @@ public class PruebaCe {
 	public static void main(String[] args) {
 		try {
 			//carga del binario
-			File file = new File("c:/archivo.png");
+			File file = new File("c:/archivo.pptx");
 			DataHandler dh = new DataHandler(new FileDataSource(file));
 			//
 
@@ -57,7 +57,7 @@ public class PruebaCe {
 			transmitirOrdenRequest.setMensaje(mensaje);
 			transmitirOrdenRequest.setTransmitirOrdenRequestChoice_type0(x);
 			transmitirOrdenRequest.setUsuario(usuarioType);
-			transmitirOrdenRequest.setNombreArchivoAdjunto("archivo.pptx");
+			transmitirOrdenRequest.setNombreArchivoAdjunto(file.getName());
 			transmitirOrdenRequest.setAdjunto(dh);
 
 			ServicioCeStub stup = new ServicioCeStub();

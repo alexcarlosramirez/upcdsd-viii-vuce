@@ -16,7 +16,7 @@ public class MysqlSuceDao {
 	private String user = "root";
 	private String password = "root";
 
-	public BeanSuce registrarSuce(BeanOrden orden) {
+	public BeanSuce generarSuce(BeanOrden orden) {
 		CallableStatement st1 = null;
 		BeanSuce suce = null;
 
@@ -68,7 +68,7 @@ public class MysqlSuceDao {
 			//Registra la tasa
 			con = DriverManager.getConnection(url, user, password);
 			con.setAutoCommit(false);
-			st1 = con.prepareCall("CALL suce_modifica(?,?,?)");
+			st1 = con.prepareCall("CALL suce_modifica(?,?)");
 			st1.setLong(1, suce.getSuce());
 			st1.setString(2, suce.getNroExpediente());
 			st1.execute();

@@ -45,4 +45,18 @@
 			</sequence>
 		</complexType>
 	</element>
+
+	<!-- DR -->
+
+	<element name="TransmitirDrRequest">
+		<complexType>
+			<sequence>
+				<element name="mensaje" type="tns:MensajeType"></element>
+				<element name="tipoDr" type="int"></element>
+				<element name="nombreArchivoAdjunto" type="string" nillable="true"></element>
+				<element name="adjunto" type="base64Binary" nillable="true"></element>
+				<element name="usuario" type="tns:UsuarioType"></element>
+			</sequence>
+		</complexType>
+	</element>
 </schema>

@@ -10,7 +10,7 @@ CREATE PROCEDURE `sce_central_db`.`adjunto_registra_x_orden` (
     in p_orden_id int,
     in p_mto int,
     in p_nombre_archivo varchar(256),
-    in p_archivo blob
+    in p_archivo LONGBLOB
 )
 BEGIN
 	declare v_FormatoId int;
