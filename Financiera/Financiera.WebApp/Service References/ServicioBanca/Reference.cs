@@ -27,6 +27,12 @@ namespace Financiera.WebApp.ServicioBanca {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string codigoField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string codigoEmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string rucEmpresaField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -59,6 +65,32 @@ namespace Financiera.WebApp.ServicioBanca {
                 if ((object.ReferenceEquals(this.codigoField, value) != true)) {
                     this.codigoField = value;
                     this.RaisePropertyChanged("codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string codigoEmpresa {
+            get {
+                return this.codigoEmpresaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.codigoEmpresaField, value) != true)) {
+                    this.codigoEmpresaField = value;
+                    this.RaisePropertyChanged("codigoEmpresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string rucEmpresa {
+            get {
+                return this.rucEmpresaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.rucEmpresaField, value) != true)) {
+                    this.rucEmpresaField = value;
+                    this.RaisePropertyChanged("rucEmpresa");
                 }
             }
         }
@@ -201,11 +233,11 @@ namespace Financiera.WebApp.ServicioBanca {
         [System.ServiceModel.OperationContractAttribute(Action="http://financiera.dsd.net/banca/autenticar", ReplyAction="*")]
         Financiera.WebApp.ServicioBanca.autenticarResponse autenticar(Financiera.WebApp.ServicioBanca.autenticarRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento listarBancosPorUsuarioResult del espacio de nombres http://financiera.dsd.net/banca/ no está marcado para aceptar valores nil.
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento codigoEmpresa del espacio de nombres http://financiera.dsd.net/banca/ no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://financiera.dsd.net/banca/listarBancosPorUsuario", ReplyAction="*")]
         Financiera.WebApp.ServicioBanca.listarBancosPorUsuarioResponse listarBancosPorUsuario(Financiera.WebApp.ServicioBanca.listarBancosPorUsuarioRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento listarCuentasPorUsuarioBancoResult del espacio de nombres http://financiera.dsd.net/banca/ no está marcado para aceptar valores nil.
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento codigoEmpresa del espacio de nombres http://financiera.dsd.net/banca/ no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://financiera.dsd.net/banca/listarCuentasPorUsuarioBanco", ReplyAction="*")]
         Financiera.WebApp.ServicioBanca.listarCuentasPorUsuarioBancoResponse listarCuentasPorUsuarioBanco(Financiera.WebApp.ServicioBanca.listarCuentasPorUsuarioBancoRequest request);
     }
@@ -299,14 +331,14 @@ namespace Financiera.WebApp.ServicioBanca {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://financiera.dsd.net/banca/")]
     public partial class listarBancosPorUsuarioRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int usuarioId;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string codigoEmpresa;
         
         public listarBancosPorUsuarioRequestBody() {
         }
         
-        public listarBancosPorUsuarioRequestBody(int usuarioId) {
-            this.usuarioId = usuarioId;
+        public listarBancosPorUsuarioRequestBody(string codigoEmpresa) {
+            this.codigoEmpresa = codigoEmpresa;
         }
     }
     
@@ -363,8 +395,8 @@ namespace Financiera.WebApp.ServicioBanca {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://financiera.dsd.net/banca/")]
     public partial class listarCuentasPorUsuarioBancoRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int usuarioId;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string codigoEmpresa;
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public int bancoId;
@@ -372,8 +404,8 @@ namespace Financiera.WebApp.ServicioBanca {
         public listarCuentasPorUsuarioBancoRequestBody() {
         }
         
-        public listarCuentasPorUsuarioBancoRequestBody(int usuarioId, int bancoId) {
-            this.usuarioId = usuarioId;
+        public listarCuentasPorUsuarioBancoRequestBody(string codigoEmpresa, int bancoId) {
+            this.codigoEmpresa = codigoEmpresa;
             this.bancoId = bancoId;
         }
     }
@@ -456,10 +488,10 @@ namespace Financiera.WebApp.ServicioBanca {
             return base.Channel.listarBancosPorUsuario(request);
         }
         
-        public Financiera.WebApp.ServicioBanca.BancoType[] listarBancosPorUsuario(int usuarioId) {
+        public Financiera.WebApp.ServicioBanca.BancoType[] listarBancosPorUsuario(string codigoEmpresa) {
             Financiera.WebApp.ServicioBanca.listarBancosPorUsuarioRequest inValue = new Financiera.WebApp.ServicioBanca.listarBancosPorUsuarioRequest();
             inValue.Body = new Financiera.WebApp.ServicioBanca.listarBancosPorUsuarioRequestBody();
-            inValue.Body.usuarioId = usuarioId;
+            inValue.Body.codigoEmpresa = codigoEmpresa;
             Financiera.WebApp.ServicioBanca.listarBancosPorUsuarioResponse retVal = ((Financiera.WebApp.ServicioBanca.ServicioBancaSoap)(this)).listarBancosPorUsuario(inValue);
             return retVal.Body.listarBancosPorUsuarioResult;
         }
@@ -469,10 +501,10 @@ namespace Financiera.WebApp.ServicioBanca {
             return base.Channel.listarCuentasPorUsuarioBanco(request);
         }
         
-        public Financiera.WebApp.ServicioBanca.CuentaType[] listarCuentasPorUsuarioBanco(int usuarioId, int bancoId) {
+        public Financiera.WebApp.ServicioBanca.CuentaType[] listarCuentasPorUsuarioBanco(string codigoEmpresa, int bancoId) {
             Financiera.WebApp.ServicioBanca.listarCuentasPorUsuarioBancoRequest inValue = new Financiera.WebApp.ServicioBanca.listarCuentasPorUsuarioBancoRequest();
             inValue.Body = new Financiera.WebApp.ServicioBanca.listarCuentasPorUsuarioBancoRequestBody();
-            inValue.Body.usuarioId = usuarioId;
+            inValue.Body.codigoEmpresa = codigoEmpresa;
             inValue.Body.bancoId = bancoId;
             Financiera.WebApp.ServicioBanca.listarCuentasPorUsuarioBancoResponse retVal = ((Financiera.WebApp.ServicioBanca.ServicioBancaSoap)(this)).listarCuentasPorUsuarioBanco(inValue);
             return retVal.Body.listarCuentasPorUsuarioBancoResult;

@@ -29,6 +29,8 @@ namespace Financiera.WebService.Servidor
                 UsuarioType usuarioType = new UsuarioType();
                 usuarioType.usuarioId = Int32.Parse(UsuarioDt.Rows[0]["usuario_id"].ToString());
                 usuarioType.codigo = UsuarioDt.Rows[0]["codigo"].ToString();
+                usuarioType.codigoEmpresa = UsuarioDt.Rows[0]["codigo_empresa"].ToString();
+                usuarioType.rucEmpresa = UsuarioDt.Rows[0]["ruc_empresa"].ToString();
                 return usuarioType;
             }
             else
@@ -38,11 +40,10 @@ namespace Financiera.WebService.Servidor
         }
 
         [WebMethod]
-        public BancoType[] listarBancosPorUsuario(int usuarioId)
+        public BancoType[] listarBancosPorUsuario(string codigoEmpresa)
         {
-            System.Diagnostics.Debug.WriteLine(usuarioId);
             BancoTableAdapter BancoTa = new BancoTableAdapter();
-            DataSetBanca.BancoDataTable BancoDt = BancoTa.ConsultarBancosPorUsuario(usuarioId);
+            DataSetBanca.BancoDataTable BancoDt = BancoTa.ConsultarBancosPorUsuario(codigoEmpresa);
             if (BancoDt.Rows.Count > 0)
             {
                 List<BancoType> BancoList = new List<BancoType>();
@@ -62,10 +63,10 @@ namespace Financiera.WebService.Servidor
         }
 
         [WebMethod]
-        public CuentaType[] listarCuentasPorUsuarioBanco(int usuarioId, int bancoId)
+        public CuentaType[] listarCuentasPorUsuarioBanco(string codigoEmpresa, int bancoId)
         {
             CuentaTableAdapter CuentaTa = new CuentaTableAdapter();
-            DataSetBanca.CuentaDataTable CuentaDt = CuentaTa.ConsultarCuentasPorUsuarioBanco(usuarioId, bancoId);
+            DataSetBanca.CuentaDataTable CuentaDt = CuentaTa.ConsultarCuentasPorUsuarioBanco(codigoEmpresa, bancoId);
             if (CuentaDt.Rows.Count > 0)
             {
                 List<CuentaType> CuentaList = new List<CuentaType>();
@@ -89,7 +90,9 @@ namespace Financiera.WebService.Servidor
     public class UsuarioType
     {
         private int usuarioIdVal;
-        private String codigoVal;
+        private string codigoVal;
+        private string codigoEmpresaVal;
+        private string rucEmpresaVal;
 
         public UsuarioType()
         {
@@ -105,6 +108,18 @@ namespace Financiera.WebService.Servidor
         {
             get { return codigoVal; }
             set { codigoVal = value; }
+        }
+
+        public string codigoEmpresa
+        {
+            get { return codigoEmpresaVal; }
+            set { codigoEmpresaVal = value; }
+        }
+
+        public string rucEmpresa
+        {
+            get { return rucEmpresaVal; }
+            set { rucEmpresaVal = value; }
         }
     }
 

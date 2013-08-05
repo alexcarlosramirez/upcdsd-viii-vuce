@@ -130,12 +130,16 @@ namespace Financiera.WebApp.ServicioCda {
     public partial class GenerarCda {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://financiera.dsd.net/cda/", Order=0)]
+        public string codigoEmpresa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://financiera.dsd.net/cda/", Order=1)]
         public double montopago;
         
         public GenerarCda() {
         }
         
-        public GenerarCda(double montopago) {
+        public GenerarCda(string codigoEmpresa, double montopago) {
+            this.codigoEmpresa = codigoEmpresa;
             this.montopago = montopago;
         }
     }
@@ -193,7 +197,14 @@ namespace Financiera.WebApp.ServicioCda {
     [System.ServiceModel.MessageContractAttribute(WrapperName="ListarCda", WrapperNamespace="http://financiera.dsd.net/cda/", IsWrapped=true)]
     public partial class ListarCda {
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://financiera.dsd.net/cda/", Order=0)]
+        public string codigoEmpresa;
+        
         public ListarCda() {
+        }
+        
+        public ListarCda(string codigoEmpresa) {
+            this.codigoEmpresa = codigoEmpresa;
         }
     }
     
@@ -277,8 +288,9 @@ namespace Financiera.WebApp.ServicioCda {
             return base.Channel.generarCda(request);
         }
         
-        public Financiera.WebApp.ServicioCda.CdaType generarCda(double montopago) {
+        public Financiera.WebApp.ServicioCda.CdaType generarCda(string codigoEmpresa, double montopago) {
             Financiera.WebApp.ServicioCda.GenerarCda inValue = new Financiera.WebApp.ServicioCda.GenerarCda();
+            inValue.codigoEmpresa = codigoEmpresa;
             inValue.montopago = montopago;
             Financiera.WebApp.ServicioCda.GenerarCda1 retVal = ((Financiera.WebApp.ServicioCda.ServicioCdaSoap)(this)).generarCda(inValue);
             return retVal.cda;
@@ -301,8 +313,9 @@ namespace Financiera.WebApp.ServicioCda {
             return base.Channel.listarCda(request);
         }
         
-        public Financiera.WebApp.ServicioCda.CdaType[] listarCda() {
+        public Financiera.WebApp.ServicioCda.CdaType[] listarCda(string codigoEmpresa) {
             Financiera.WebApp.ServicioCda.ListarCda inValue = new Financiera.WebApp.ServicioCda.ListarCda();
+            inValue.codigoEmpresa = codigoEmpresa;
             Financiera.WebApp.ServicioCda.ListarCda1 retVal = ((Financiera.WebApp.ServicioCda.ServicioCdaSoap)(this)).listarCda(inValue);
             return retVal.ListarCdaResult;
         }

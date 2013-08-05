@@ -2500,8 +2500,8 @@ namespace Financiera.WebService.Servidor.DataSetBancaTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        usuario_id, codigo\r\nFROM            usuario\r\nWHERE        (codigo =" +
-                " @codigo) AND (claveweb = @claveweb)";
+            this._commandCollection[1].CommandText = "SELECT        usuario_id, codigo, ruc_empresa, codigo_empresa\r\nFROM            us" +
+                "uario\r\nWHERE        (codigo = @codigo) AND (claveweb = @claveweb)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@claveweb", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "claveweb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2723,11 +2723,13 @@ namespace Financiera.WebService.Servidor.DataSetBancaTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        b.banco_id, b.nombre\r\nFROM            banco AS b INNER JOIN\r\n      " +
-                "                   usuario_banco AS ub ON b.banco_id = ub.banco_id\r\nWHERE       " +
-                " (ub.usuario_id = @usuarioId) AND (b.estado = 1)";
+            this._commandCollection[1].CommandText = @"SELECT        b.banco_id, b.nombre
+FROM            banco AS b INNER JOIN
+                         usuario_banco AS ub ON b.banco_id = ub.banco_id INNER JOIN
+                         usuario AS u ON ub.usuario_id = u.usuario_id
+WHERE        (b.estado = 1) AND (u.codigo_empresa = @codigoEmpresa)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "usuario_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigoEmpresa", global::System.Data.SqlDbType.VarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2743,9 +2745,14 @@ namespace Financiera.WebService.Servidor.DataSetBancaTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetBanca.BancoDataTable ConsultarBancosPorUsuario(int usuarioId) {
+        public virtual DataSetBanca.BancoDataTable ConsultarBancosPorUsuario(string codigoEmpresa) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(usuarioId));
+            if ((codigoEmpresa == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigoEmpresa));
+            }
             DataSetBanca.BancoDataTable dataTable = new DataSetBanca.BancoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3133,12 +3140,13 @@ namespace Financiera.WebService.Servidor.DataSetBancaTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        c.cuenta_id, c.numero\r\nFROM            cuenta AS c INNER JOIN\r\n    " +
-                "                     usuario_cuenta AS uc ON c.cuenta_id = uc.cuenta_id\r\nWHERE  " +
-                "      (c.estado = 1) AND (uc.usuario_id = @usuarioId) AND (c.banco_id = @bancoId" +
-                ")";
+            this._commandCollection[1].CommandText = @"SELECT        c.cuenta_id, c.numero
+FROM            cuenta AS c INNER JOIN
+                         usuario_cuenta AS uc ON c.cuenta_id = uc.cuenta_id INNER JOIN
+                         usuario AS u ON uc.usuario_id = u.usuario_id
+WHERE        (c.estado = 1) AND (u.codigo_empresa = @codigoEmpresa) AND (c.banco_id = @bancoId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuarioId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "usuario_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigoEmpresa", global::System.Data.SqlDbType.VarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_empresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bancoId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "banco_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -3155,9 +3163,14 @@ namespace Financiera.WebService.Servidor.DataSetBancaTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetBanca.CuentaDataTable ConsultarCuentasPorUsuarioBanco(int usuarioId, global::System.Nullable<int> bancoId) {
+        public virtual DataSetBanca.CuentaDataTable ConsultarCuentasPorUsuarioBanco(string codigoEmpresa, global::System.Nullable<int> bancoId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(usuarioId));
+            if ((codigoEmpresa == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigoEmpresa));
+            }
             if ((bancoId.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(bancoId.Value));
             }

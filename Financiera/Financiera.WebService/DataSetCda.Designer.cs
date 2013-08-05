@@ -960,9 +960,11 @@ namespace Financiera.WebService.Servidor.DataSetCdaTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT cda, cda_id, estado, fecha_gerenacion, fecha_pago, hora_generacion, hora_p" +
-                "ago, monto_pago FROM cda WHERE (estado = 1)";
+            this._commandCollection[1].CommandText = "SELECT        cda, cda_id, estado, fecha_gerenacion, fecha_pago, hora_generacion," +
+                " hora_pago, monto_pago\r\nFROM            cda\r\nWHERE        (estado = 1) AND (SUBS" +
+                "TRING(cda, 3, 2) = @codigoEmpresa)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigoEmpresa", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        cda, monto_pago, fecha_gerenacion, hora_generacion\r\nFROM           " +
@@ -984,8 +986,14 @@ namespace Financiera.WebService.Servidor.DataSetCdaTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetCda.CdaDataTable ConsultarCdaPendientePago() {
+        public virtual DataSetCda.CdaDataTable ConsultarCdaPendientePago(string codigoEmpresa) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codigoEmpresa == null)) {
+                throw new global::System.ArgumentNullException("codigoEmpresa");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigoEmpresa));
+            }
             DataSetCda.CdaDataTable dataTable = new DataSetCda.CdaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1041,6 +1049,7 @@ namespace Financiera.WebService.Servidor.DataSetCdaTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@monto_pago", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_empresa", global::System.Data.SqlDbType.VarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cda", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Output, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_generacion", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Output, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hora_generacion", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Output, 16, 7, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1050,16 +1059,22 @@ namespace Financiera.WebService.Servidor.DataSetCdaTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cda", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@monto_pago", global::System.Data.SqlDbType.Float, 9, global::System.Data.ParameterDirection.Output, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@monto_pago", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Output, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_pago", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Output, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hora_pago", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Output, 16, 7, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int usp_GeneraCda(decimal monto_pago, out string cda, out System.DateTime fecha_generacion, out System.TimeSpan hora_generacion) {
+        public virtual int usp_GeneraCda(decimal monto_pago, string codigo_empresa, out string cda, out System.DateTime fecha_generacion, out System.TimeSpan hora_generacion) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
             command.Parameters[1].Value = ((decimal)(monto_pago));
+            if ((codigo_empresa == null)) {
+                throw new global::System.ArgumentNullException("codigo_empresa");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(codigo_empresa));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1074,33 +1089,33 @@ namespace Financiera.WebService.Servidor.DataSetCdaTableAdapters {
                     command.Connection.Close();
                 }
             }
-            if (((command.Parameters[2].Value == null) 
-                        || (command.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
+            if (((command.Parameters[3].Value == null) 
+                        || (command.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
                 cda = null;
             }
             else {
-                cda = ((string)(command.Parameters[2].Value));
-            }
-            if (((command.Parameters[3].Value == null) 
-                        || (command.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
-                throw new global::System.Data.StrongTypingException("El valor del parámetro \'fecha_generacion\' es DBNull.", null);
-            }
-            else {
-                fecha_generacion = ((global::System.DateTime)(command.Parameters[3].Value));
+                cda = ((string)(command.Parameters[3].Value));
             }
             if (((command.Parameters[4].Value == null) 
                         || (command.Parameters[4].Value.GetType() == typeof(global::System.DBNull)))) {
+                throw new global::System.Data.StrongTypingException("El valor del parámetro \'fecha_generacion\' es DBNull.", null);
+            }
+            else {
+                fecha_generacion = ((global::System.DateTime)(command.Parameters[4].Value));
+            }
+            if (((command.Parameters[5].Value == null) 
+                        || (command.Parameters[5].Value.GetType() == typeof(global::System.DBNull)))) {
                 throw new global::System.Data.StrongTypingException("El valor del parámetro \'hora_generacion\' es DBNull.", null);
             }
             else {
-                hora_generacion = ((global::System.TimeSpan)(command.Parameters[4].Value));
+                hora_generacion = ((global::System.TimeSpan)(command.Parameters[5].Value));
             }
             return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int usp_PagaCda(string cda, out double monto_pago, out System.DateTime fecha_pago, out System.TimeSpan hora_pago) {
+        public virtual int usp_PagaCda(string cda, out decimal monto_pago, out System.DateTime fecha_pago, out System.TimeSpan hora_pago) {
             global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
             if ((cda == null)) {
                 throw new global::System.ArgumentNullException("cda");
@@ -1127,7 +1142,7 @@ namespace Financiera.WebService.Servidor.DataSetCdaTableAdapters {
                 throw new global::System.Data.StrongTypingException("El valor del parámetro \'monto_pago\' es DBNull.", null);
             }
             else {
-                monto_pago = ((double)(command.Parameters[2].Value));
+                monto_pago = ((decimal)(command.Parameters[2].Value));
             }
             if (((command.Parameters[3].Value == null) 
                         || (command.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
