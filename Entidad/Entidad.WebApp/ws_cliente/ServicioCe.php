@@ -2,12 +2,12 @@
 class ServicioCeCliente
 {
 
-  private $cliente;
+  private $clienteSOAP;
 
   //constructor
   public function ServicioCeCliente()
   {
-    $cliente = new SoapClient("http://localhost:8888/SCE/services/ServicioCe?wsdl");
+    $this->clienteSOAP = new SoapClient("http://localhost:8888/SCE/services/ServicioCe?wsdl");
   }
 
   function enviarNroExpediente($formato, $nu_suce, $nu_expediente)
@@ -15,10 +15,10 @@ class ServicioCeCliente
     try
     {
       $request = array(
-                "mensaje" => array("formato"=>"$formato", "suce"=>$nu_suce, "numeroExpediente"=>$nu_expediente),
-                "usuario" => array("ruc"=>"EXTC001","usuarioSol"=>"-")
-                );
-      $resp = $cliente->transmitirNroExpediente($request);
+                   "mensaje" => array("formato"=>"$formato", "suce"=>$nu_suce, "numeroExpediente"=>"$nu_expediente"),
+                   "usuario" => array("ruc"=>"EXTC001","usuarioSol"=>"-")
+                 );
+      $resp = $this->clienteSOAP->transmitirNroExpediente($request);
       return $resp->codigo;
     }
     catch (Exception $e)
@@ -39,7 +39,7 @@ class ServicioCeCliente
                 "nombreArchivoAdjunto" => "$nombreArchivo",
                 "adjuntoArchivo" => $adjuntoArchivo
                 );
-      $resp = $cliente->transmitirDr($request);
+      $resp = $this->clienteSOAP->transmitirDr($request);
       return $resp->codigo;
     }
     catch (Exception $e)
@@ -60,7 +60,7 @@ class ServicioCeCliente
                 "nombreArchivoAdjunto" => "$nombreArchivo",
                 "adjuntoArchivo" => $adjuntoArchivo
                 );
-      $resp = $cliente->transmitirDr($request);
+      $resp = $this->clienteSOAP->transmitirDr($request);
       return $resp->codigo;
     }
     catch (Exception $e)

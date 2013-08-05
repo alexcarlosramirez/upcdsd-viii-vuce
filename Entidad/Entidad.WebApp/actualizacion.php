@@ -11,9 +11,9 @@ $nu_operacion=$_POST['nu_operacion'];
 // Variables para la operacion del número de expediente
 $nu_expediente=$_POST['nu_expediente'];
 // Variables para el número de expediente
-$nu_dr=null$_POST['nu_dr'];
-$nombreArchivo=null;
-$adjuntoArchivo=null;
+// $nu_dr=null$_POST['nu_dr'];
+// $nombreArchivo=null;
+// $adjuntoArchivo=null;
 
 sleep(2);
 //actualiza los datos del registro
