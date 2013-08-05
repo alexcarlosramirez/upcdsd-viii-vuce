@@ -20,11 +20,21 @@ create table if not exists constante (
 	constraint pk_constante primary key (constante_id)
 );
 
+-- drop table if exists entidad;
+create table if not exists entidad (
+	entidad_id int not null,
+	entidad varchar(50),
+	codigo_financiera varchar(2),
+	estado varchar(1),
+	constraint pk_entidad primary key (entidad_id)
+);
+
 -- drop table if exists tupa;
 create table if not exists tupa (
 	tupa_id int not null,
 	tupa varchar(10),
 	nombre varchar(150),
+	entidad_id int,
 	estado varchar(1),
 	constraint pk_tupa primary key (tupa_id)
 );
@@ -34,6 +44,7 @@ create table if not exists formato (
 	formato_id int not null,
 	formato varchar(6),
 	nombre varchar(150),
+	entidad_id int,
 	estado varchar(1),
 	constraint pk_formato primary key (formato_id)
 );
@@ -154,6 +165,7 @@ create table if not exists tce (
 	orden_id int,
 	suce_id int,
 	fecha_registro datetime,
+	entidad_id int,
 	estado varchar(1) COMMENT 'Valores: A=Pendiente Envío, B=Pendiente de Pago, C=Pendiente de Respuesta de la Entidad, D=Pendiente de evaluacion, E=Aprobado, F=Rechazado',
 	constraint pk_tce primary key (tce_id)
 );
@@ -381,19 +393,22 @@ insert into secuencia values (1,'ORDEN',0);
 insert into secuencia values (2,'SUCE',0);
 insert into secuencia values (3,'DR',0);
 
-insert into tupa values (1,'24','Autorización Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud pública (Nacional o Importado)','A');
-insert into tupa values (2,'25','Autorización Sanitaria para la importación de Desinfectantes y Plaguicidas de uso doméstico, industrial y en salud pública no destinados al comercio.','I');
+insert into entidad values (1,'DIGESA','01','A');
+insert into entidad values (2,'FICTICIA','02','A');
 
-insert into formato values (1,'DGS015','Autorización Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud pública (Nacional o Importado)','A');
-insert into formato values (2,'DGS016','Autorización Sanitaria para la importación de Desinfectantes y Plaguicidas de uso doméstico, industrial y en salud pública no destinados al comercio.','I');
+insert into tupa values (1,'24','Autorización Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud pública (Nacional o Importado)',1,'A');
+insert into tupa values (2,'25','Autorización de Exportación Productos Diversos',2,'I');
+
+insert into formato values (1,'DGS015','Autorización Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud pública (Nacional o Importado)',1,'A');
+insert into formato values (2,'FRM001','Autorización de Exportación Productos Diversos',2,'I');
 
 insert into tupa_formato values (1,1,'2','27.13% de la UIT');
-insert into tupa_formato values (2,2,'2','27.13% de la UIT');
+insert into tupa_formato values (2,2,'2','10.00% de la UIT');
 
 insert into constante values (1, 'UIT', 1000, '');
 
 insert into tupa_formato_constante values (1, 1, 1, 0.2713);
-insert into tupa_formato_constante values (2, 2, 2, 0.2713);
+insert into tupa_formato_constante values (2, 2, 2, 0.1000);
 
 insert into dgs_tipo_producto values (1,'Plaguicidas','A');
 insert into dgs_tipo_producto values (2,'Desinfectantes','A');

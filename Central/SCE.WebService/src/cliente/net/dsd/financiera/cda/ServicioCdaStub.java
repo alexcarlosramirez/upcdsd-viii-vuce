@@ -1279,7 +1279,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "GenerarCdaResponse",
-                "ns5");
+                "ns2");
 
             
 
@@ -1391,7 +1391,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -1706,7 +1706,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "ConsultarCda",
-                "ns5");
+                "ns2");
 
             
 
@@ -1836,7 +1836,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2152,7 +2152,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "PagarCda",
-                "ns5");
+                "ns2");
 
             
 
@@ -2282,7 +2282,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2598,9 +2598,51 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "ListarCda",
-                "ns5");
+                "ns2");
 
             
+
+                        /**
+                        * field for CodigoEmpresa
+                        */
+
+                        
+                                    protected java.lang.String localCodigoEmpresa ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localCodigoEmpresaTracker = false ;
+
+                           public boolean isCodigoEmpresaSpecified(){
+                               return localCodigoEmpresaTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getCodigoEmpresa(){
+                               return localCodigoEmpresa;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param CodigoEmpresa
+                               */
+                               public void setCodigoEmpresa(java.lang.String param){
+                            localCodigoEmpresaTracker = param != null;
+                                   
+                                            this.localCodigoEmpresa=param;
+                                    
+
+                               }
+                            
 
      
      
@@ -2660,7 +2702,25 @@
 
                
                    }
-               
+                if (localCodigoEmpresaTracker){
+                                    namespace = "http://financiera.dsd.net/cda/";
+                                    writeStartElement(null, namespace, "codigoEmpresa", xmlWriter);
+                             
+
+                                          if (localCodigoEmpresa==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("codigoEmpresa cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localCodigoEmpresa);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             }
                     xmlWriter.writeEndElement();
                
 
@@ -2668,7 +2728,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2845,7 +2905,16 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                
+                 if (localCodigoEmpresaTracker){
+                                      elementList.add(new javax.xml.namespace.QName("http://financiera.dsd.net/cda/",
+                                                                      "codigoEmpresa"));
+                                 
+                                        if (localCodigoEmpresa != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoEmpresa));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("codigoEmpresa cannot be null!!");
+                                        }
+                                    }
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -2921,6 +2990,37 @@
                     
                     reader.next();
                 
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://financiera.dsd.net/cda/","codigoEmpresa").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"codigoEmpresa" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setCodigoEmpresa(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                  
+                            while (!reader.isStartElement() && !reader.isEndElement())
+                                reader.next();
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
 
 
 
@@ -2975,7 +3075,7 @@
         /* This type was generated from the piece of schema that had
                 name = ArrayOfCdaType
                 Namespace URI = http://financiera.dsd.net/cda/
-                Namespace Prefix = ns5
+                Namespace Prefix = ns2
                 */
             
 
@@ -3151,7 +3251,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -3519,7 +3619,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "ConsultarCdaResponse",
-                "ns5");
+                "ns2");
 
             
 
@@ -3631,7 +3731,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -3945,7 +4045,7 @@
         /* This type was generated from the piece of schema that had
                 name = CdaType
                 Namespace URI = http://financiera.dsd.net/cda/
-                Namespace Prefix = ns5
+                Namespace Prefix = ns2
                 */
             
 
@@ -4214,7 +4314,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -4629,7 +4729,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "PagarCdaResponse",
-                "ns5");
+                "ns2");
 
             
 
@@ -4741,7 +4841,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -5056,9 +5156,93 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "GenerarCda",
-                "ns5");
+                "ns2");
 
             
+
+                        /**
+                        * field for CodigoEntidad
+                        */
+
+                        
+                                    protected java.lang.String localCodigoEntidad ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localCodigoEntidadTracker = false ;
+
+                           public boolean isCodigoEntidadSpecified(){
+                               return localCodigoEntidadTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getCodigoEntidad(){
+                               return localCodigoEntidad;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param CodigoEntidad
+                               */
+                               public void setCodigoEntidad(java.lang.String param){
+                            localCodigoEntidadTracker = param != null;
+                                   
+                                            this.localCodigoEntidad=param;
+                                    
+
+                               }
+                            
+
+                        /**
+                        * field for CodigoEmpresa
+                        */
+
+                        
+                                    protected java.lang.String localCodigoEmpresa ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localCodigoEmpresaTracker = false ;
+
+                           public boolean isCodigoEmpresaSpecified(){
+                               return localCodigoEmpresaTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getCodigoEmpresa(){
+                               return localCodigoEmpresa;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param CodigoEmpresa
+                               */
+                               public void setCodigoEmpresa(java.lang.String param){
+                            localCodigoEmpresaTracker = param != null;
+                                   
+                                            this.localCodigoEmpresa=param;
+                                    
+
+                               }
+                            
 
                         /**
                         * field for Montopago
@@ -5148,7 +5332,43 @@
 
                
                    }
-               
+                if (localCodigoEntidadTracker){
+                                    namespace = "http://financiera.dsd.net/cda/";
+                                    writeStartElement(null, namespace, "codigoEntidad", xmlWriter);
+                             
+
+                                          if (localCodigoEntidad==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("codigoEntidad cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localCodigoEntidad);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localCodigoEmpresaTracker){
+                                    namespace = "http://financiera.dsd.net/cda/";
+                                    writeStartElement(null, namespace, "codigoEmpresa", xmlWriter);
+                             
+
+                                          if (localCodigoEmpresa==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("codigoEmpresa cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localCodigoEmpresa);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             }
                                     namespace = "http://financiera.dsd.net/cda/";
                                     writeStartElement(null, namespace, "montopago", xmlWriter);
                              
@@ -5169,7 +5389,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -5346,7 +5566,25 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                
+                 if (localCodigoEntidadTracker){
+                                      elementList.add(new javax.xml.namespace.QName("http://financiera.dsd.net/cda/",
+                                                                      "codigoEntidad"));
+                                 
+                                        if (localCodigoEntidad != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoEntidad));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("codigoEntidad cannot be null!!");
+                                        }
+                                    } if (localCodigoEmpresaTracker){
+                                      elementList.add(new javax.xml.namespace.QName("http://financiera.dsd.net/cda/",
+                                                                      "codigoEmpresa"));
+                                 
+                                        if (localCodigoEmpresa != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoEmpresa));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("codigoEmpresa cannot be null!!");
+                                        }
+                                    }
                                       elementList.add(new javax.xml.namespace.QName("http://financiera.dsd.net/cda/",
                                                                       "montopago"));
                                  
@@ -5431,6 +5669,54 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://financiera.dsd.net/cda/","codigoEntidad").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"codigoEntidad" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setCodigoEntidad(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://financiera.dsd.net/cda/","codigoEmpresa").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"codigoEmpresa" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setCodigoEmpresa(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://financiera.dsd.net/cda/","montopago").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
@@ -5483,7 +5769,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://financiera.dsd.net/cda/",
                 "ListarCdaResponse",
-                "ns5");
+                "ns2");
 
             
 
@@ -5601,7 +5887,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://financiera.dsd.net/cda/")){
-                return "ns5";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
