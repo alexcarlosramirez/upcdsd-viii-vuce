@@ -21,14 +21,14 @@ namespace Financiera.WebService.Servidor
     public class ServicioCda : System.Web.Services.WebService
     {
         [WebMethod(MessageName = "GenerarCda")]
-        public CdaType generarCda(double montopago)
+        public CdaType generarCda(string codigoEmpresa, double montopago)
         {
             String outCda;
             DateTime outFechaGeneracion;
             TimeSpan outHoraGeneracion;
 
             CdaQueriesTableAdapter dsFQTA = new CdaQueriesTableAdapter();
-            int res = dsFQTA.usp_GeneraCda(new Decimal(montopago), out outCda, out outFechaGeneracion, out outHoraGeneracion);
+            dsFQTA.usp_GeneraCda(new Decimal(montopago), codigoEmpresa, out outCda, out outFechaGeneracion, out outHoraGeneracion);
             CdaType response = new CdaType();
             response.cda = outCda;
             response.fechaGeneracion = outFechaGeneracion.Add(outHoraGeneracion);
@@ -36,11 +36,11 @@ namespace Financiera.WebService.Servidor
         }
 
         [WebMethod(MessageName = "PagarCda")]
-        public CdaType pagarCda(String cda)
+        public CdaType pagarCda(string cda)
         {
             DateTime outFechaPago;
             TimeSpan outHoraPago;
-            double outMontoPago;
+            Decimal outMontoPago;
 
             CdaQueriesTableAdapter dsFQTA = new CdaQueriesTableAdapter();
             CdaType response = null;
@@ -48,7 +48,7 @@ namespace Financiera.WebService.Servidor
 
             response = new CdaType();
             response.cda = cda;
-            response.montoPago = outMontoPago;
+            response.montoPago = Decimal.ToDouble(outMontoPago);
             response.fechaPago = outFechaPago.Add(outHoraPago);
 
             ServicioCeClient ServicioCe = new ServicioCeClient();
@@ -59,10 +59,10 @@ namespace Financiera.WebService.Servidor
         }
 
         [WebMethod(MessageName = "ListarCda")]
-        public CdaType[] listarCda()
+        public CdaType[] listarCda(string codigoEmpresa)
         {
             CdaTableAdapter financieraQTA = new CdaTableAdapter();
-            DataSetCda.CdaDataTable CdaDt = financieraQTA.ConsultarCdaPendientePago();
+            DataSetCda.CdaDataTable CdaDt = financieraQTA.ConsultarCdaPendientePago(codigoEmpresa);
 
             List<CdaType> CdaTypeList = new List<CdaType>();
             foreach (DataRow row in CdaDt.Rows)
@@ -77,7 +77,7 @@ namespace Financiera.WebService.Servidor
         }
 
         [WebMethod(MessageName = "ConsultarCda")]
-        public CdaType consultarCda(String cda)
+        public CdaType consultarCda(string cda)
         {
             CdaTableAdapter financieraQTA = new CdaTableAdapter();
             DataSetCda.CdaDataTable CdaDt = financieraQTA.ConsultarCdaPorCodigo(cda);

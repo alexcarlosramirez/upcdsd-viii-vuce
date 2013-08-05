@@ -26,10 +26,10 @@ namespace Financiera.WebApp.asp_cuenta
 
         protected void SeleccionBancoDdl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int usuarioId = Int32.Parse(Session["UsuarioId"].ToString());
+            string codigoEmpresa = Session["CodigoEmpresa"].ToString();
             int bancoId = Int32.Parse(SeleccionBancoDdl.SelectedValue);
             ServicioBancaSoapClient ServicioBanca = new ServicioBancaSoapClient();
-            CuentaType[] CuentaTypeArray = ServicioBanca.listarCuentasPorUsuarioBanco(usuarioId, bancoId);
+            CuentaType[] CuentaTypeArray = ServicioBanca.listarCuentasPorUsuarioBanco(codigoEmpresa, bancoId);
             SeleccionCuentaDdl.DataSource = CuentaTypeArray;
             SeleccionCuentaDdl.DataTextField = "numero";
             SeleccionCuentaDdl.DataValueField = "cuentaId";
@@ -63,7 +63,7 @@ namespace Financiera.WebApp.asp_cuenta
         private void CargarBancos()
         {
             ServicioBancaSoapClient ServicioBanca = new ServicioBancaSoapClient();
-            BancoType[] BancoTypeArray = ServicioBanca.listarBancosPorUsuario(Int32.Parse(Session["UsuarioId"].ToString()));
+            BancoType[] BancoTypeArray = ServicioBanca.listarBancosPorUsuario(Session["CodigoEmpresa"].ToString());
             SeleccionBancoDdl.DataSource = BancoTypeArray;
             SeleccionBancoDdl.DataTextField = "nombre";
             SeleccionBancoDdl.DataValueField = "bancoId";

@@ -74,7 +74,7 @@ namespace Financiera.WebApp.asp_cuenta
         private void ConfigurarPagina()
         {
             ServicioCdaSoapClient ServicioCdaClient = new ServicioCdaSoapClient();
-            CdaType[] CdaTypeArray = ServicioCdaClient.listarCda();
+            CdaType[] CdaTypeArray = ServicioCdaClient.listarCda(Session["CodigoEmpresa"].ToString());
             if (CdaTypeArray.Length == 0)
             {
                 MensajeLbl.Text = "No hay CDA para consultar";
