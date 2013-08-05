@@ -1,3 +1,6 @@
+use master;
+go
+
 if exists (select * from sys.databases where name='sce_financiera_db')
 	alter database sce_financiera_db set single_user with rollback immediate;
 	drop database sce_financiera_db;
@@ -19,12 +22,11 @@ create table usuario (
 	usuario_id int not null,
 	codigo varchar(15),
 	claveweb varchar(15),
+	ruc_empresa varchar(11),
+	codigo_empresa varchar(2),
 	estado int,
 	constraint pk_usuario primary key (usuario_id)
 );
-go
-
-insert into usuario values (1,'usuban1','usuban1',1), (2,'usuban2','usuban2',1);
 go
 
 --==============================================
@@ -39,9 +41,6 @@ create table banco (
 	estado int,
 	constraint pk_banco primary key (banco_id)
 );
-go
-
-insert into banco values (1,'BANCO POPULAR',1), (2,'BANCO FAVORITO',1);
 go
 
 --==============================================
@@ -69,9 +68,6 @@ foreign key (banco_id)
 references banco (banco_id);
 go
 
-insert into usuario_banco values (1,1), (1,2), (2,2);
-go
-
 --==============================================
 
 if exists (select * from sys.objects where type = 'U' and name = 'cuenta')
@@ -91,9 +87,6 @@ alter table cuenta
 add constraint fk_cuenta_banco
 foreign key (banco_id)
 references banco (banco_id);
-go
-
-insert into cuenta values (1,'0511-0000-0000-012345',1,1), (2,'3422-0000-0000-678901',2,1), (3,'3422-0000-0000-012345',2,1);
 go
 
 --==============================================
@@ -121,9 +114,6 @@ foreign key (cuenta_id)
 references cuenta (cuenta_id);
 go
 
-insert into usuario_cuenta values (1, 1), (1,2), (2,3);
-go
-
 --==============================================
 
 if exists (select * from sys.objects where type = 'U' and name = 'secuencia')
@@ -138,8 +128,7 @@ create table secuencia (
 );
 go
 
-insert into secuencia values (1, 'CDA', 0);
-go
+--==============================================
 
 if exists (select * from sys.objects where type = 'U' and name = 'cda')
 	drop table cda;
@@ -156,4 +145,20 @@ create table cda (
 	estado int,
 	constraint pk_cda primary key (cda_id)
 );
+go
+
+insert into usuario values (1,'usuban1','usuban1','10451149411','01',1),
+                           (2,'usuban2','usuban2','20130801001','02',1);
+insert into banco values (1,'BANCO POPULAR',1),
+                         (2,'BANCO FAVORITO',1);
+insert into usuario_banco values (1,1),
+                                 (1,2),
+                                 (2,2);
+insert into cuenta values (1,'0511-0000-0000-012345',1,1),
+                          (2,'3422-0000-0000-678901',2,1),
+                          (3,'3422-0000-0000-012345',2,1);
+insert into usuario_cuenta values (1, 1),
+                                  (1,2),
+                                  (2,3);
+insert into secuencia values (1, 'CDA', 0);
 go
