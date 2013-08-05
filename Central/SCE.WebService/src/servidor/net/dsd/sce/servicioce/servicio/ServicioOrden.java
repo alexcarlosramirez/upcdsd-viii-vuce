@@ -3,6 +3,7 @@ package net.dsd.sce.servicioce.servicio;
 import java.util.ArrayList;
 
 import net.dsd.sce.bean.BeanAdjunto;
+import net.dsd.sce.bean.BeanEntidad;
 import net.dsd.sce.bean.BeanFormato;
 import net.dsd.sce.bean.BeanFormatoEntidad;
 import net.dsd.sce.bean.BeanMto;
@@ -77,6 +78,10 @@ public class ServicioOrden {
 		} else {
 			return null;
 		}
+	}
+
+	public BeanEntidad buscarEntidadPorFormato(String formato) {
+		return mysqlOrdenDao.buscarEntidadPorFormato(formato);
 	}
 
 	public BeanUsuario buscarUsuarioSolicitantePorOrdenId(BeanMto mto) {

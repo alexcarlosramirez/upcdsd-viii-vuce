@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.activation.DataHandler;
 
 import net.dsd.sce.bean.BeanAdjunto;
+import net.dsd.sce.bean.BeanEntidad;
 import net.dsd.sce.bean.BeanFormato;
 import net.dsd.sce.bean.BeanFormatoEntidad;
 import net.dsd.sce.bean.BeanMto;
@@ -103,8 +104,9 @@ public class ServicioCeSkeleton {
 			// 5: Flujo Alterno 1
 			if (tasa.getMontoPago() > 0) {
 				// 5.1.1: Solicitar Tasa a Financiera
+				BeanEntidad entidad = servicioOrden.buscarEntidadPorFormato(formato.getFormato());
 				ServicioTasa servicioTasa = new ServicioTasa();
-				servicioTasa.solicitarTasaHaciaFinanciera(tasa);
+				servicioTasa.solicitarTasaHaciaFinanciera(entidad, usuario, tasa);
 
 				// 5.1.2: Asignar Tasa a ORDEN
 				servicioTasa.asignarTasa(orden, tasa);

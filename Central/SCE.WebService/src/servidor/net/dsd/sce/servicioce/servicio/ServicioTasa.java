@@ -4,8 +4,10 @@ import net.dsd.financiera.cda.ServicioCdaStub;
 import net.dsd.financiera.cda.ServicioCdaStub.CdaType;
 import net.dsd.financiera.cda.ServicioCdaStub.GenerarCda;
 import net.dsd.financiera.cda.ServicioCdaStub.GenerarCdaResponse;
+import net.dsd.sce.bean.BeanEntidad;
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanTasa;
+import net.dsd.sce.bean.BeanUsuario;
 import net.dsd.sce.servicio.MysqlTasaDao;
 
 import org.apache.axis2.client.Options;
@@ -19,9 +21,11 @@ public class ServicioTasa {
 		mysqlTasaDao = new MysqlTasaDao();
 	}
 
-	public BeanTasa solicitarTasaHaciaFinanciera(BeanTasa tasa) {
+	public BeanTasa solicitarTasaHaciaFinanciera(BeanEntidad entidad, BeanUsuario usuario, BeanTasa tasa) {
 		try {
 			GenerarCda generarCda = new GenerarCda();
+			generarCda.setCodigoEntidad(entidad.getCodigoFinanciera());
+			generarCda.setCodigoEmpresa(usuario.getRuc());
 			generarCda.setMontopago(tasa.getMontoPago());
 			ServicioCdaStub servicioCda = new ServicioCdaStub();
 

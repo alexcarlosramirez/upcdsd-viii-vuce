@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import net.dsd.sce.bean.BeanAdjunto;
+import net.dsd.sce.bean.BeanEntidad;
 import net.dsd.sce.bean.BeanFormato;
 import net.dsd.sce.bean.BeanFormatoEntidad;
 import net.dsd.sce.bean.BeanMto;
@@ -525,6 +526,48 @@ public class MysqlOrdenDao {
 			}
 		}
 		return adjunto;
+	}
+
+	public BeanEntidad buscarEntidadPorFormato(String formato) {
+		PreparedStatement st1 = null;
+		ResultSet rs = null;
+		BeanEntidad entidad = null;
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			//Registra la tasa
+			con = DriverManager.getConnection(url, user, password);
+			con.setAutoCommit(false);
+			st1 = con.prepareStatement("select e.entidad_id, e.entidad, e.codigo_financiera, e.estado from entidad e, formato f where e.entidad_id = f.entidad_id and f.formato = ?");
+			st1.setString(1, formato);
+			rs = st1.executeQuery();
+			if (rs.next()) {
+				entidad = new BeanEntidad();
+				entidad.setEntidadId(rs.getInt(1));
+				entidad.setEntidad(rs.getString(2));
+				entidad.setCodigoFinanciera(rs.getString(3));
+				entidad.setEstado(rs.getString(4));
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (st1 != null) {
+					st1.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException ex) {
+				System.out.println(ex.getMessage());
+				ex.printStackTrace();
+			}
+		}
+		return entidad;
 	}
 
 	public BeanUsuario buscarUsuarioSolicitantePorMto(BeanMto mto) {

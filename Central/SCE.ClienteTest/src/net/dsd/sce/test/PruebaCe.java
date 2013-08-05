@@ -50,8 +50,10 @@ public class PruebaCe {
 			x.setFormatoDgs015(dgs015);
 
 			UsuarioType usuarioType = new UsuarioType();
-			usuarioType.setRuc("10451149411");
-			usuarioType.setUsuarioSol("45114941");
+			usuarioType.setRuc("20130801001");
+			usuarioType.setUsuarioSol("AMERICO");
+			//usuarioType.setRuc("10451149411");
+			//usuarioType.setUsuarioSol("45114941");
 
 			TransmitirOrdenRequest transmitirOrdenRequest = new TransmitirOrdenRequest();
 			transmitirOrdenRequest.setMensaje(mensaje);
