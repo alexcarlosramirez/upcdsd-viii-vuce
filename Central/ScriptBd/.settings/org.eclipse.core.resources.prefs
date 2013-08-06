@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//1.Inicial/01.sce_central_db_model.sql=UTF-8
+encoding//1.Inicial/02.limpiar\ tablas.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/01.mto_registra.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/02.generar_numero.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/03.orden_registra.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/04.asignar_tasa.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/05.pagar_tasa.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/06.suce_registra.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/07.suce_modifica.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/08.dgs015_calcula_tasa.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/09.dgs015_modifica.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/10.dgs015_producto_registra.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/11.usuario_formato_registra.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/12.orden_transmite.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/13.adjunto_registra_x_orden.sql=UTF-8
+encoding//2.Procedimientos\ y\ Funciones/14.traza_registra.sql=UTF-8
