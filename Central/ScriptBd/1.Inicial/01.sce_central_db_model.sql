@@ -166,7 +166,7 @@ create table if not exists tce (
 	suce_id int,
 	fecha_registro datetime,
 	entidad_id int,
-	estado varchar(1) COMMENT 'Valores: A=Pendiente Env韔, B=Pendiente de Pago, C=Pendiente de Respuesta de la Entidad, D=Pendiente de evaluacion, E=Aprobado, F=Rechazado',
+	estado varchar(1) COMMENT 'Valores: A=Pendiente Env锟給, B=Pendiente de Pago, C=Pendiente de Respuesta de la Entidad, D=Pendiente de evaluacion, E=Aprobado, F=Rechazado',
 	constraint pk_tce primary key (tce_id)
 );
 
@@ -198,7 +198,7 @@ create table if not exists usuario (
 -- drop table if exists traza;
 create table if not exists traza (
 	traza_id int not null auto_increment,
-	estado_traza int COMMENT 'Valores: 1: Solicitud registrada, 2: Solicitud transmitida, 3: Tasa Generada, 4: Pago Recibido, 5: Suce generada, 6: Respuesta de la entidad con Nro de Expediente, 7: Emisi髇 de DR de aprobaci髇, 8: Emisi髇 de DR de denegaci髇',
+	estado_traza int COMMENT 'Valores: 1: Solicitud registrada, 2: Solicitud transmitida, 3: Tasa Generada, 4: Pago Recibido, 5: Suce generada, 6: Respuesta de la entidad con Nro de Expediente, 7: Emisi锟絥 de DR de aprobaci锟絥, 8: Emisi锟絥 de DR de denegaci锟絥',
 	tce_id int,
 	orden_id int,
 	mto int,
@@ -396,11 +396,11 @@ insert into secuencia values (3,'DR',0);
 insert into entidad values (1,'DIGESA','01','A');
 insert into entidad values (2,'FICTICIA','02','A');
 
-insert into tupa values (1,'24','Autorizaci髇 Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud p鷅lica (Nacional o Importado)',1,'A');
-insert into tupa values (2,'25','Autorizaci髇 de Exportaci髇 Productos Diversos',2,'I');
+insert into tupa values (1,'24','Autorizaci贸n Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud p煤blica (Nacional o Importado)',1,'A');
+insert into tupa values (2,'25','Autorizaci贸n de Exportaci锟絥 Productos Diversos',2,'I');
 
-insert into formato values (1,'DGS015','Autorizaci髇 Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud p鷅lica (Nacional o Importado)',1,'A');
-insert into formato values (2,'FRM001','Autorizaci髇 de Exportaci髇 Productos Diversos',2,'I');
+insert into formato values (1,'DGS015','Autorizaci贸n Sanitaria de Desinfectantes y Plaguicidas de uso domestico, industrial y en salud p煤blica (Nacional o Importado)',1,'A');
+insert into formato values (2,'FRM001','Autorizaci贸n de Exportaci贸n Productos Diversos',2,'I');
 
 insert into tupa_formato values (1,1,'2','27.13% de la UIT');
 insert into tupa_formato values (2,2,'2','10.00% de la UIT');
