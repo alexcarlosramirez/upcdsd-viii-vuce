@@ -22,6 +22,7 @@ import net.dsd.sce.bean.BeanTraza;
 import net.dsd.sce.bean.BeanUsuario;
 import net.dsd.sce.bean.digesa.BeanDgs015;
 import net.dsd.sce.bean.digesa.BeanDgs015Producto;
+import net.dsd.sce.excepcion.DAOExcepcion;
 
 import org.apache.commons.io.IOUtils;
 
@@ -33,7 +34,7 @@ public class MysqlOrdenDao {
 	private String user = "root";
 	private String password = "root";
 
-	public BeanOrden registrarOrden(String formato, BeanMto outMto, BeanFormatoEntidad outFormatoEntidad, BeanTce outTce) {
+	public BeanOrden registrarOrden(String formato, BeanMto outMto, BeanFormatoEntidad outFormatoEntidad, BeanTce outTce) throws DAOExcepcion {
 		CallableStatement st1 = null;
 		BeanOrden returnOrden = null;
 
@@ -70,8 +71,8 @@ public class MysqlOrdenDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -81,7 +82,6 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -89,7 +89,7 @@ public class MysqlOrdenDao {
 		return returnOrden;
 	}
 
-	public void transmitirOrden(BeanOrden orden, BeanMto mto, BeanFormatoEntidad formatoEntidad, BeanTasa outTasa) {
+	public void transmitirOrden(BeanOrden orden, BeanMto mto, BeanFormatoEntidad formatoEntidad, BeanTasa outTasa) throws DAOExcepcion {
 		CallableStatement st1 = null;
 
 		try {
@@ -114,8 +114,8 @@ public class MysqlOrdenDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -125,13 +125,12 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 	}
 
-	public void registrarAdjuntoPorMto(BeanMto mto, BeanAdjunto adjunto) {
+	public void registrarAdjuntoPorMto(BeanMto mto, BeanAdjunto adjunto) throws DAOExcepcion {
 		CallableStatement st1 = null;
 
 		try {
@@ -154,8 +153,8 @@ public class MysqlOrdenDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -165,17 +164,16 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 	}
 
-	public void registrarUsuarioFormatoSolicitante(BeanMto mto, BeanUsuario usuario) {
+	public void registrarUsuarioFormatoSolicitante(BeanMto mto, BeanUsuario usuario) throws DAOExcepcion {
 		registrarUsuarioFormato(1, mto, usuario);
 	}
 
-	private void registrarUsuarioFormato(int usuarioFormatoTipo, BeanMto mto, BeanUsuario usuario) {
+	private void registrarUsuarioFormato(int usuarioFormatoTipo, BeanMto mto, BeanUsuario usuario) throws DAOExcepcion {
 		CallableStatement st1 = null;
 
 		try {
@@ -201,8 +199,8 @@ public class MysqlOrdenDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -212,13 +210,12 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 	}
 
-	public BeanTraza registrarTraza(BeanTce tce, BeanMto mto, BeanSdr sdr, BeanUsuario usuario, BeanTraza traza) {
+	public BeanTraza registrarTraza(BeanTce tce, BeanMto mto, BeanSdr sdr, BeanUsuario usuario, BeanTraza traza) throws DAOExcepcion {
 		CallableStatement st1 = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -265,8 +262,8 @@ public class MysqlOrdenDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -276,14 +273,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return traza;
 	}
 
-	public BeanOrden buscarOrdenPorCda(String cda) {
+	public BeanOrden buscarOrdenPorCda(String cda) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanOrden orden = null;
@@ -301,8 +297,8 @@ public class MysqlOrdenDao {
 				orden.setOrdenId(rs.getInt(1));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -315,14 +311,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return orden;
 	}
 
-	public BeanOrden buscarOrdenPorSuce(long suce) {
+	public BeanOrden buscarOrdenPorSuce(long suce) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanOrden orden = null;
@@ -340,8 +335,8 @@ public class MysqlOrdenDao {
 				orden.setOrdenId(rs.getInt(1));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -354,14 +349,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return orden;
 	}
 
-	public BeanOrden buscarOrdenPorOrdenId(int ordenId, BeanFormato outFormato) {
+	public BeanOrden buscarOrdenPorOrdenId(int ordenId, BeanFormato outFormato) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanOrden orden = null;
@@ -382,8 +376,8 @@ public class MysqlOrdenDao {
 				outFormato.setFormato(rs.getString(6));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -396,14 +390,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return orden;
 	}
 
-	public BeanTce buscarTcePorOrdenId(int ordenId) {
+	public BeanTce buscarTcePorOrdenId(int ordenId) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanTce tce = null;
@@ -426,8 +419,8 @@ public class MysqlOrdenDao {
 				tce.setEstado(rs.getString(7));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -440,14 +433,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return tce;
 	}
 
-	public BeanMto buscarMtoVigentePorOrdenId(int ordenId) {
+	public BeanMto buscarMtoVigentePorOrdenId(int ordenId) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanMto mto = null;
@@ -466,8 +458,8 @@ public class MysqlOrdenDao {
 				mto.setMto(rs.getInt(2));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -480,14 +472,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return mto;
 	}
 
-	public BeanAdjunto buscarAdjuntoPorMto(BeanMto mto) {
+	public BeanAdjunto buscarAdjuntoPorMto(BeanMto mto) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanAdjunto adjunto = null;
@@ -507,8 +498,8 @@ public class MysqlOrdenDao {
 				adjunto.setArchivo(new ByteArrayInputStream(IOUtils.toByteArray(rs.getBinaryStream(2))));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -521,14 +512,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return adjunto;
 	}
 
-	public BeanEntidad buscarEntidadPorFormato(String formato) {
+	public BeanEntidad buscarEntidadPorFormato(String formato) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanEntidad entidad = null;
@@ -549,8 +539,8 @@ public class MysqlOrdenDao {
 				entidad.setEstado(rs.getString(4));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -563,14 +553,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return entidad;
 	}
 
-	public BeanUsuario buscarUsuarioSolicitantePorMto(BeanMto mto) {
+	public BeanUsuario buscarUsuarioSolicitantePorMto(BeanMto mto) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanUsuario usuario = null;
@@ -591,8 +580,8 @@ public class MysqlOrdenDao {
 				usuario.setUsuarioSol(rs.getString(3));
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs != null) {
@@ -605,7 +594,6 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -614,7 +602,7 @@ public class MysqlOrdenDao {
 
 	//digesa
 
-	public BeanDgs015 buscarDgs015PorMto(BeanMto mto) {
+	public BeanDgs015 buscarDgs015PorMto(BeanMto mto) throws DAOExcepcion {
 		PreparedStatement st1 = null;
 		PreparedStatement st2 = null;
 		ResultSet rs1 = null;
@@ -655,8 +643,8 @@ public class MysqlOrdenDao {
 				dgs015.setListaDgs015Producto(listaDgs015Producto);
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (rs1 != null) {
@@ -675,14 +663,13 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return dgs015;
 	}
 
-	public void modificarDgs015(BeanDgs015 dgs015, ArrayList<BeanDgs015Producto> listaDgs015Producto) {
+	public void modificarDgs015(BeanDgs015 dgs015, ArrayList<BeanDgs015Producto> listaDgs015Producto) throws DAOExcepcion {
 		CallableStatement st1 = null;
 		CallableStatement st2 = null;
 
@@ -716,8 +703,8 @@ public class MysqlOrdenDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -730,7 +717,6 @@ public class MysqlOrdenDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
