@@ -21,14 +21,14 @@ namespace Financiera.WebService.Servidor
     public class ServicioCda : System.Web.Services.WebService
     {
         [WebMethod(MessageName = "GenerarCda")]
-        public CdaType generarCda(string codigoEmpresa, double montopago)
+        public CdaType generarCda(string codigoEntidad, string codigoEmpresa, double montopago)
         {
             String outCda;
             DateTime outFechaGeneracion;
             TimeSpan outHoraGeneracion;
 
             CdaQueriesTableAdapter dsFQTA = new CdaQueriesTableAdapter();
-            dsFQTA.usp_GeneraCda(new Decimal(montopago), codigoEmpresa, out outCda, out outFechaGeneracion, out outHoraGeneracion);
+            dsFQTA.usp_GeneraCda(new Decimal(montopago), codigoEntidad, codigoEmpresa, out outCda, out outFechaGeneracion, out outHoraGeneracion);
             CdaType response = new CdaType();
             response.cda = outCda;
             response.fechaGeneracion = outFechaGeneracion.Add(outHoraGeneracion);

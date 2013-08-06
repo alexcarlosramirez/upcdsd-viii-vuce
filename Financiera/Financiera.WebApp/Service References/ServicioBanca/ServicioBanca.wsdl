@@ -22,7 +22,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="usuarioId" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="codigoEmpresa" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="rucEmpresa" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="listarBancosPorUsuario">

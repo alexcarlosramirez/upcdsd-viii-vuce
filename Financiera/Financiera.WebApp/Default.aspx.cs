@@ -27,7 +27,6 @@ namespace Financiera.WebApp
                 Session["UsuarioId"] = UsuarioType.usuarioId;
                 Session["UsuarioCodigo"] = UsuarioType.codigo;
                 Session["CodigoEmpresa"] = UsuarioType.codigoEmpresa;
-                Session["RucEmpresa"] = UsuarioType.rucEmpresa;
                 Response.Redirect("asp_cuenta/Consulta.aspx");
             }
         }

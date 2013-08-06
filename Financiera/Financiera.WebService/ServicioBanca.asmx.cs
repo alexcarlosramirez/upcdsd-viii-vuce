@@ -30,7 +30,6 @@ namespace Financiera.WebService.Servidor
                 usuarioType.usuarioId = Int32.Parse(UsuarioDt.Rows[0]["usuario_id"].ToString());
                 usuarioType.codigo = UsuarioDt.Rows[0]["codigo"].ToString();
                 usuarioType.codigoEmpresa = UsuarioDt.Rows[0]["codigo_empresa"].ToString();
-                usuarioType.rucEmpresa = UsuarioDt.Rows[0]["ruc_empresa"].ToString();
                 return usuarioType;
             }
             else
@@ -92,7 +91,6 @@ namespace Financiera.WebService.Servidor
         private int usuarioIdVal;
         private string codigoVal;
         private string codigoEmpresaVal;
-        private string rucEmpresaVal;
 
         public UsuarioType()
         {
@@ -114,12 +112,6 @@ namespace Financiera.WebService.Servidor
         {
             get { return codigoEmpresaVal; }
             set { codigoEmpresaVal = value; }
-        }
-
-        public string rucEmpresa
-        {
-            get { return rucEmpresaVal; }
-            set { rucEmpresaVal = value; }
         }
     }
 
