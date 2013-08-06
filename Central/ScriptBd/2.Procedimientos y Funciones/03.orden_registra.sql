@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS `sce_central_db`.`orden_registra`;
 
 -- --------------------------------------------------------------------------------
 -- Routine DDL
--- Note: Crea la orden, su mto (versión) inicial, registra en la tabla tce, calcula la tasa a pagar e inicia los registros del formato
+-- Note: Crea la orden, su mto (versiÃ³n) inicial, registra en la tabla tce, calcula la tasa a pagar e inicia los registros del formato
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
