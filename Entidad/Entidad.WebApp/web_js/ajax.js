@@ -20,44 +20,63 @@ function enviarDatosFormato() {
 	divResultado = document.getElementById('resultado');
 	divFormulario = document.getElementById('formulario');
 	divResultado.innerHTML = '<div class="centro"><img class="animacion" src="././web_imagenes/anim.gif"></div>';
-
-	// valores de las cajas de texto
-	id_expediente = document.frmempleado.id_expediente.value;
-	nu_suce = document.frmempleado.nu_suce.value;
-	nu_orden = document.frmempleado.nu_orden.value;
-	l_estado_pago = document.frmempleado.l_estado_pago.value;
-	nu_expediente = document.frmempleado.nu_expediente.value;
-	nu_dr = document.frmempleado.nu_dr.value;
-	nu_operacion = document.frmempleado.nu_operacion.value;
-
-	// suel=document.frmempleado.sueldo.value;
-
 	// instanciamos el objetoAjax
 	ajax = objetoAjax();
+
+	// valores de las cajas de texto
+  var nu_operacion = document.frmExpediente.nu_operacion.value;
+  var id_expediente = document.frmExpediente.id_expediente.value;
+  var nu_suce = document.frmExpediente.nu_suce.value;
+  var nu_orden = document.frmExpediente.nu_orden.value;
+  var l_estado_pago = document.frmExpediente.l_estado_pago.value;
+  var nu_expediente = document.frmExpediente.nu_expediente.value;
+  var nu_dr_entidad = document.frmExpediente.nu_dr_entidad.value;
+
 	// usando del medoto POST
 	// archivo que realizará la operacion ->actualizacion.php
-	ajax.open("POST", "actualizacion.php", true);
+	ajax.open("POST", "actualizacion.php");
 	ajax.onreadystatechange = function() {
 		if (ajax.readyState == 4) {
 			// mostrar los nuevos registros en esta capa
-			divResultado.innerHTML = ajax.responseText
+			divResultado.innerHTML = ajax.responseText;
 			// una vez actualizacion ocultamos formulario
 			divFormulario.style.display = "none";
-
 		}
 	}
+
 	// muy importante este encabezado ya que hacemos uso de un formulario
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  if (nu_operacion == "1") {
+    alert("ext" + nu_operacion);
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    ajax.send(
+      "nu_operacion=" + nu_operacion +
+      "&id_expediente=" + id_expediente +
+      "&nu_suce=" + nu_suce +
+      "&nu_orden=" + nu_orden +
+      "&l_estado_pago=" + l_estado_pago +
+      "&nu_expediente=" + nu_expediente +
+      "&nu_expediente=" + nu_expediente);
+  } else {
+    alert(nu_operacion);
+    var file = document.getElementById('adjunto_dr').files[0];
+    formData.append("adjunto_dr", file);
+
+    ajax.setRequestHeader("Cache-Control", "no-cache");
+    ajax.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    ajax.setRequestHeader("Content-Type", "multipart/form-data");
+    ajax.setRequestHeader("X-File-Name", file.fileName);
+    ajax.setRequestHeader("X-File-Size", file.fileSize);
+    ajax.setRequestHeader("X-File-Type", file.type);
+    ajax.send(
+      "nu_operacion=" + nu_operacion +
+      "&id_expediente=" + id_expediente +
+      "&nu_suce=" + nu_suce +
+      "&nu_orden=" + nu_orden +
+      "&l_estado_pago=" + l_estado_pago +
+      "&nu_expediente=" + nu_expediente);
+  }
 	// enviando los valores
 
-	ajax.send(
-    "id_expediente=" + id_expediente +
-    "&nu_suce=" + nu_suce +
-    "&nu_orden=" + nu_orden +
-    "&l_estado_pago=" + l_estado_pago +
-    "&nu_expediente=" + nu_expediente +
-    "&nu_dr=" + nu_dr +
-    "&nu_operacion=" + nu_operacion)
 }
 
 function pedirDatos(id_expediente, nu_operacion) {
@@ -79,123 +98,5 @@ function pedirDatos(id_expediente, nu_operacion) {
 	// como hacemos uso del metodo POST
 	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// enviando el codigo del empleado
-	ajax.send("id_expediente=" + id_expediente + "&nu_operacion=" + nu_operacion)
-}
-
-function pedirDatosAgregar() {
-	// donde se mostrará el formulario con los datos
-	divFormulario = document.getElementById('f_agregar');
-	// instanciamos el objetoAjax
-	ajax = objetoAjax();
-	// uso del medotod POST
-	ajax.open("POST", "agregar.php");
-	ajax.onreadystatechange = function() {
-		if (ajax.readyState == 4) {
-			// mostrar resultados en esta capa
-			formulario.style.display = "none";
-			divFormulario.innerHTML = ajax.responseText
-			divFormulario.style.display = "block";
-		}
-	}
-	// como hacemos uso del metodo POST
-	// ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	// enviando el codigo del empleado
-	ajax.send()
-}
-
-function enviarDatosProcesado() {
-	// donde se mostrará lo resultados
-	divResultado = document.getElementById('resultado');
-	divFormulario = document.getElementById('formulario');
-	divResultado.innerHTML = '<img src="././web_imagenes/anim.gif">';
-
-	// valores de las cajas de texto
-	no_fiscalia = document.frmempleado.no_fiscalia.value;
-	fe_hora = document.frmempleado.fe_hora.value;
-	no_procesado = document.frmempleado.no_procesado.value;
-	co_dni = document.frmempleado.co_dni.value;
-	tx_situacion = document.frmempleado.tx_situacion.value;
-	fe_ho_resolucion = document.frmempleado.fe_ho_resolucion.value;
-	tx_delito = document.frmempleado.tx_delito.value;
-	l_activo = document.frmempleado.l_activo.value;
-	no_juez = document.frmempleado.no_juez.value;
-
-	// suel=document.frmempleado.sueldo.value;
-
-	// instanciamos el objetoAjax
-	ajax = objetoAjax();
-	// usando del medoto POST
-	// archivo que realizará la operacion ->actualizacion.php
-	ajax.open("POST", "agregado.php", true);
-	ajax.onreadystatechange = function() {
-		if (ajax.readyState == 4) {
-			// mostrar los nuevos registros en esta capa
-			divResultado.innerHTML = ajax.responseText
-			// una vez actualizacion ocultamos formulario
-			divFormulario.style.display = "none";
-
-		}
-	}
-	// muy importante este encabezado ya que hacemos uso de un formulario
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// enviando los valores
-
-	ajax.send("&no_fiscalia=" + no_fiscalia + "&fe_hora=" + fe_hora
-			+ "&no_procesado=" + no_procesado + "&co_dni=" + co_dni
-			+ "&tx_situacion=" + tx_situacion + "&fe_ho_resolucion="
-			+ fe_ho_resolucion + "&tx_delito=" + tx_delito + "&l_activo="
-			+ l_activo + "&no_juez=" + no_juez)
-}
-
-function pedirDatosJuez() {
-	// donde se mostrará el formulario con los datos
-	divFormulario = document.getElementById('f_juez');
-	// instanciamos el objetoAjax
-	ajax = objetoAjax();
-	// uso del medotod POST
-	ajax.open("POST", "turno_juez.php");
-	ajax.onreadystatechange = function() {
-		if (ajax.readyState == 4) {
-			// mostrar resultados en esta capa
-			formulario.style.display = "none";
-			divFormulario.innerHTML = ajax.responseText
-			divFormulario.style.display = "block";
-		}
-	}
-	// como hacemos uso del metodo POST
-	// ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	// enviando el codigo del empleado
-	ajax.send()
-}
-
-function enviarDatosJuez() {
-	// donde se mostrará lo resultados
-	divResultado = document.getElementById('resultado');
-	divFormulario = document.getElementById('formulario');
-	divFormulario = document.getElementById('f_juez');
-	divResultado.innerHTML = '<img src="././web_imagenes/anim.gif">';
-
-	// valores de las cajas de texto
-	co_juez = document.frmjuez.co_juez.value;
-	fe_programacion = document.frmjuez.fe_programacion.value;
-
-	// instanciamos el objetoAjax
-	ajax = objetoAjax();
-	// usando del medoto POST
-	// archivo que realizará la operacion ->actualizacion.php
-	ajax.open("POST", "turno_juez_asignado.php", true);
-	ajax.onreadystatechange = function() {
-		if (ajax.readyState == 4) {
-			// mostrar los nuevos registros en esta capa
-			divResultado.innerHTML = ajax.responseText
-			// una vez actualizacion ocultamos formulario
-			divFormulario.style.display = "none";
-
-		}
-	}
-	// muy importante este encabezado ya que hacemos uso de un formulario
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	//enviando los valores
-
-	ajax.send("&co_juez=" + co_juez + "&fe_programacion=" + fe_programacion)
+	ajax.send("id_expediente=" + id_expediente + "&nu_operacion=" + nu_operacion);
 }

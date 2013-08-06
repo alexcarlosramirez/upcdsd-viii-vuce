@@ -43,6 +43,22 @@ class cEntidad
 		}
 	}
 
+	//inserta un nuevo empleado en la base de datos
+	// actualizar un nuevo empleado en la base de datos
+	function actualizar_dr ($id_expediente,$nu_dr_entidad,$l_estado_pago)
+	{
+		$con = new DBManager;
+		if($con->conectar()==true)
+		{
+			$query = "UPDATE t_expediente SET nu_dr_entidad ='$nu_dr_entidad', l_estado_pago = '$l_estado_pago' WHERE id_expediente=$id_expediente";
+			$result = mysql_query($query);
+			if (!$result)
+				return false;
+			else
+				return true;
+		}
+	}
+
 	// consulta empleado por su codigo
 	function consultarid($id_expediente)
 	{

@@ -28,12 +28,12 @@ class ServicioCeCliente
     }
   }
 
-  function enviarDrAprobacion($formato, $nu_suce, $nu_dr, $nombreArchivo, $adjuntoArchivo)
+  function enviarDrAprobacion($formato, $nu_suce, $dr_entidad, $nombreArchivo, $adjuntoArchivo)
   {
     try
     {
       $request = array(
-                "mensaje" => array("formato"=>"$formato", "suce"=>$nu_suce, "dr"=>$nu_dr),
+                "mensaje" => array("formato"=>"$formato", "suce"=>$nu_suce, "drEntidad"=>$nu_dr),
                 "usuario" => array("ruc"=>"EXTC001","usuarioSol"=>"-"),
                 "tipoDr" => 1,
                 "nombreArchivoAdjunto" => "$nombreArchivo",
@@ -49,12 +49,12 @@ class ServicioCeCliente
     }
   }
 
-  function enviarDrDenegacion($formato, $nu_suce, $nu_dr, $nombreArchivo, $adjuntoArchivo)
+  function enviarDrDenegacion($formato, $nu_suce, $dr_entidad, $nombreArchivo, $adjuntoArchivo)
   {
     try
     {
       $request = array(
-                "mensaje" => array("formato"=>"$formato", "suce"=>$nu_suce, "dr"=>$nu_dr),
+                "mensaje" => array("formato"=>"$formato", "suce"=>$nu_suce, "drEntidad"=>$nu_dr),
                 "usuario" => array("ruc"=>"EXTC001","usuarioSol"=>"-"),
                 "tipoDr" => 2,
                 "nombreArchivoAdjunto" => "$nombreArchivo",
