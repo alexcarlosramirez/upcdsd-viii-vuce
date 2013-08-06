@@ -2,15 +2,27 @@
 include_once('clases/cEntidad.php');
 include_once('ws_cliente/ServicioCe.php');
 //variables POST
+print_r($_POST);
 
+$nu_operacion=$_POST['nu_operacion'];
 $id_expediente=$_POST['id_expediente'];
 $nu_suce=$_POST['nu_suce'];
 $nu_orden=$_POST['nu_orden'];
 $l_estado_pago=$_POST['l_estado_pago'];
-$nu_operacion=$_POST['nu_operacion'];
 // Variables para la operacion del número de expediente
-$nu_expediente=$_POST['nu_expediente'];
-// Variables para el número de expediente
+$nu_expediente=null;
+// Variables para la operacion del número de dr
+$nu_dr_entidad=null;
+$adjuntoArchivo=null;
+if ($nu_operacion == 1)
+{
+  $nu_expediente = $_POST['nu_expediente'];
+}
+else
+{
+  $nu_dr_entidad = $_POST['nu_dr_entidad'];
+  $adjuntoArchivo = null;
+}
 // $nu_dr=null$_POST['nu_dr'];
 // $nombreArchivo=null;
 // $adjuntoArchivo=null;
@@ -28,12 +40,12 @@ switch ($nu_operacion)
       $mensaje = "Expediente: <span class=\"Estilo5\">".$nu_expediente."</span> - Operacion: Actualizar";
       break;
     case 2:
-      $resultado = $objExpediente->aprobar($id_expediente,$nu_dr,$adjuntoArchivo);
-      $mensaje = "DR: <span class=\"Estilo5\">".$nu_dr." - Operacion: Aprobar";
+      $resultado = $objExpediente->actualizar_dr($id_expediente,$nu_dr_entidad,"E");
+      $mensaje = "DR: <span class=\"Estilo5\">".$nu_dr_entidad." - Operacion: Aprobar";
       break;
     case 3:
-      $resultado = $objExpediente->denegar($id_expediente,$nu_dr,$adjuntoArchivo);
-      $mensaje = "DR: <span class=\"Estilo5\">".$nu_dr."</span> - Operacion: Denegar";
+      $resultado = $objExpediente->actualizar_dr($id_expediente,$nu_dr_entidad,"F");
+      $mensaje = "DR: <span class=\"Estilo5\">".$nu_dr_entidad."</span> - Operacion: Denegar";
       break;
 }
 
@@ -49,11 +61,11 @@ if ($resultado==true)
       $mensaje = "Expediente: <span class=\"Estilo5\">".$nu_expediente."</span> - Operacion: Transmisi&oacute;n";
       break;
     case 2:
-      $resultado = $cliente->enviarDrAprobacion("DGS015", $nu_suce, $nu_dr, $nombreArchivo, $adjuntoArchivo);
+      $resultado = $cliente->enviarDrAprobacion("DGS015", $nu_suce, $nu_dr_entidad, $nombreArchivo, $adjuntoArchivo);
       $mensaje = "DR: <span class=\"Estilo5\">".$nu_dr." - Operacion: Transmisi&oacute;n";
       break;
     case 3:
-      $resultado = $cliente->enviarDrDenegacion("DGS015", $nu_suce, $nu_dr, $nombreArchivo, $adjuntoArchivo);
+      $resultado = $cliente->enviarDrDenegacion("DGS015", $nu_suce, $nu_dr_entidad, $nombreArchivo, $adjuntoArchivo);
       $mensaje = "DR: <span class=\"Estilo5\">".$nu_dr."</span> - Operacion: Transmisi&oacute;n";
       break;
   }

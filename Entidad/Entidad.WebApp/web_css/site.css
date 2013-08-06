@@ -49,3 +49,11 @@ a {
 	text-decoration: underline;
 	cursor: pointer;
 }
+
+input[readonly="readonly"] {
+  background-color: #DDDDDD;
+}
+
+.invisible {
+  display: none;
+}
