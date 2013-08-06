@@ -130,15 +130,19 @@ namespace Financiera.WebApp.ServicioCda {
     public partial class GenerarCda {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://financiera.dsd.net/cda/", Order=0)]
-        public string codigoEmpresa;
+        public string codigoEntidad;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://financiera.dsd.net/cda/", Order=1)]
+        public string codigoEmpresa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://financiera.dsd.net/cda/", Order=2)]
         public double montopago;
         
         public GenerarCda() {
         }
         
-        public GenerarCda(string codigoEmpresa, double montopago) {
+        public GenerarCda(string codigoEntidad, string codigoEmpresa, double montopago) {
+            this.codigoEntidad = codigoEntidad;
             this.codigoEmpresa = codigoEmpresa;
             this.montopago = montopago;
         }
@@ -288,8 +292,9 @@ namespace Financiera.WebApp.ServicioCda {
             return base.Channel.generarCda(request);
         }
         
-        public Financiera.WebApp.ServicioCda.CdaType generarCda(string codigoEmpresa, double montopago) {
+        public Financiera.WebApp.ServicioCda.CdaType generarCda(string codigoEntidad, string codigoEmpresa, double montopago) {
             Financiera.WebApp.ServicioCda.GenerarCda inValue = new Financiera.WebApp.ServicioCda.GenerarCda();
+            inValue.codigoEntidad = codigoEntidad;
             inValue.codigoEmpresa = codigoEmpresa;
             inValue.montopago = montopago;
             Financiera.WebApp.ServicioCda.GenerarCda1 retVal = ((Financiera.WebApp.ServicioCda.ServicioCdaSoap)(this)).generarCda(inValue);

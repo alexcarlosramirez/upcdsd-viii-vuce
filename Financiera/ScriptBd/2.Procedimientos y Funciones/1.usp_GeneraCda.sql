@@ -7,7 +7,8 @@ go
 
 create procedure usp_GeneraCda
 @monto_pago decimal(18,2),
-@codigo_empresa varchar(2),
+@codigo_entidad varchar(2),
+@codigo_empresa varchar(11),
 @cda varchar(20) output,
 @fecha_generacion date output,
 @hora_generacion time output
@@ -18,7 +19,7 @@ as
 	declare @fecha_hoy datetime;
 	select @seq = (valor + 1) from secuencia where secuencia_id = 1;
 	select @fecha_hoy = getdate();
-	select @cda = '0-'+@codigo_empresa+'-'+right('000000000000000' + cast(@seq AS varchar(15)), 15), @fecha_generacion = @fecha_hoy, @hora_generacion = @fecha_hoy;
-	insert into cda (cda, monto_pago,fecha_gerenacion,hora_generacion,estado) values (@cda, @monto_pago, @fecha_generacion, @hora_generacion, 1);
+	select @cda = '0-'+@codigo_entidad+'-'+right('000000000000000' + cast(@seq AS varchar(15)), 15), @fecha_generacion = @fecha_hoy, @hora_generacion = @fecha_hoy;
+	insert into cda (cda, codigo_empresa, monto_pago, fecha_gerenacion, hora_generacion, estado) values (@cda, @codigo_empresa, @monto_pago, @fecha_generacion, @hora_generacion, 1);
 	update secuencia set valor = @seq where secuencia_id = 1;
 go

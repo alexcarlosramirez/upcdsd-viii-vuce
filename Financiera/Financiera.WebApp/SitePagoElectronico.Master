@@ -17,7 +17,7 @@
                     <td class="CabeceraTexto">SISTEMA FINANCIERO</td>
                     <td style="width: 150px" align="left">
                         <%=Session["UsuarioCodigo"]%><br />
-                        <%=Session["UsuarioId"]%>
+                        <%=Session["CodigoEmpresa"]%>
                     </td>
                 </tr>
             </table>

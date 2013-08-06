@@ -30,9 +30,6 @@ namespace Financiera.WebApp.ServicioBanca {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string codigoEmpresaField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string rucEmpresaField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -78,19 +75,6 @@ namespace Financiera.WebApp.ServicioBanca {
                 if ((object.ReferenceEquals(this.codigoEmpresaField, value) != true)) {
                     this.codigoEmpresaField = value;
                     this.RaisePropertyChanged("codigoEmpresa");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string rucEmpresa {
-            get {
-                return this.rucEmpresaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.rucEmpresaField, value) != true)) {
-                    this.rucEmpresaField = value;
-                    this.RaisePropertyChanged("rucEmpresa");
                 }
             }
         }
