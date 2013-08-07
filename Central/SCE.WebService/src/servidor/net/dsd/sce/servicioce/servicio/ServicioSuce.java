@@ -22,7 +22,8 @@ import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanSuce;
 import net.dsd.sce.bean.digesa.BeanDgs015;
 import net.dsd.sce.bean.digesa.BeanDgs015Producto;
-import net.dsd.sce.servicio.MysqlSuceDao;
+import net.dsd.sce.dao.MysqlSuceDao;
+import net.dsd.sce.excepcion.DAOExcepcion;
 
 public class ServicioSuce {
 	private MysqlSuceDao mysqlSuceDao;
@@ -42,7 +43,7 @@ public class ServicioSuce {
 			request.setOrden(orden.getOrden());
 			request.setSuce(suce.getSuce());
 			request.setEntidadFormatoRequestChoice_type0(formatoType);
-			request.setEstadoPago("S");
+			request.setEstadoPago("C");//Pendiente de respuesta de la entidad
 			if (adjunto != null) {
 				AdjuntoType adjuntoType = convertirAdjuntoSceEnAdjunto(adjunto);
 				request.setAdjunto(adjuntoType);
@@ -57,11 +58,11 @@ public class ServicioSuce {
 		}
 	}
 
-	public BeanSuce generarSuce(BeanOrden orden) {
+	public BeanSuce generarSuce(BeanOrden orden) throws DAOExcepcion {
 		return mysqlSuceDao.generarSuce(orden);
 	}
 
-	public void modificarSuce(BeanSuce suce) {
+	public void modificarSuce(BeanSuce suce) throws DAOExcepcion {
 		mysqlSuceDao.modificarSuce(suce);
 	}
 

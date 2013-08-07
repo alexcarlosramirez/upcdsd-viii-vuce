@@ -38,6 +38,7 @@
         <complexType>
             <sequence>
                 <element name="mensaje" type="tns:MensajeType"/>
+                <element name="drEntidad" type="string"/>
                 <element name="tipoDr" type="int"/>
                 <element name="nombreArchivoAdjunto" nillable="true" type="string"/>
                 <element name="adjunto" nillable="true" type="base64Binary"/>

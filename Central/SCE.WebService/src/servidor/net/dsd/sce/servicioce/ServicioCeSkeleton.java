@@ -241,50 +241,61 @@ public class ServicioCeSkeleton {
 	 */
 
 	public TransmitirResponse transmitirNroExpediente(TransmitirNroExpedienteRequest tramiteSuceRequest) {
-		System.out.println("======================");
-		System.out.println("Inicio: transmitirNroExpediente");
+		try {
+			System.out.println("======================");
+			System.out.println("Inicio: transmitirNroExpediente");
 
-		MensajeType mensajeType = tramiteSuceRequest.getMensaje();
+			MensajeType mensajeType = tramiteSuceRequest.getMensaje();
 
-		//1: Se recupera la SUCE
-		BeanSuce suce = new BeanSuce();
-		suce.setSuce(mensajeType.getSuce());
-		suce.setNroExpediente(mensajeType.getNumeroExpediente());
+			//1: Se recupera la SUCE
+			BeanSuce suce = new BeanSuce();
+			suce.setSuce(mensajeType.getSuce());
+			suce.setNroExpediente(mensajeType.getNumeroExpediente());
 
-		//2: Se actualiza la SUCE
-		ServicioSuce servicioSuce = new ServicioSuce();
-		servicioSuce.modificarSuce(suce);
+			//2: Se actualiza la SUCE
+			ServicioSuce servicioSuce = new ServicioSuce();
+			servicioSuce.modificarSuce(suce);
 
-		// 2.1: Registrar estado traza 6: Suce generada
-		BeanTraza traza = new BeanTraza();
-		traza.setEstadoTraza(6);
-		traza.setDe(2);
-		traza.setPara(3);
+			// 2.1: Registrar estado traza 6: Suce generada
+			BeanTraza traza = new BeanTraza();
+			traza.setEstadoTraza(6);
+			traza.setDe(2);
+			traza.setPara(3);
 
-		BeanFormato formato = new BeanFormato();
-		formato.setFormato(mensajeType.getFormato());
+			BeanFormato formato = new BeanFormato();
+			formato.setFormato(mensajeType.getFormato());
 
-		ServicioOrden servicioOrden = new ServicioOrden();
-		BeanOrden orden = servicioOrden.buscarOrdenPorSuce(suce.getSuce());
-		orden = servicioOrden.buscarOrdenPorOrdenId(orden.getOrdenId(), formato);
-		BeanTce tce = servicioOrden.buscarTcePorOrdenId(orden.getOrdenId());
-		BeanMto mto = servicioOrden.buscarMtoVigentePorOrdenId(orden.getOrdenId());
-		servicioOrden.registrarTraza(tce, mto, null, null, traza);
+			ServicioOrden servicioOrden = new ServicioOrden();
+			BeanOrden orden = servicioOrden.buscarOrdenPorSuce(suce.getSuce());
+			orden = servicioOrden.buscarOrdenPorOrdenId(orden.getOrdenId(), formato);
+			BeanTce tce = servicioOrden.buscarTcePorOrdenId(orden.getOrdenId());
+			BeanMto mto = servicioOrden.buscarMtoVigentePorOrdenId(orden.getOrdenId());
+			servicioOrden.registrarTraza(tce, mto, null, null, traza);
 
-		//3: Transmitir Nro de Expediente a Usuario
-		//TODO Transmitir Nro de Expediente a Usuario
+			//3: Transmitir Nro de Expediente a Usuario
+			//TODO Transmitir Nro de Expediente a Usuario
 
-		System.out.println("Fin");
-		System.out.println("======================");
+			System.out.println("Fin");
+			System.out.println("======================");
 
-		TransmitirResponse res = new TransmitirResponse();
-		res.setCodigo("OK");
-		res.setTexto("Exito");
-		return res;
+			TransmitirResponse res = new TransmitirResponse();
+			res.setCodigo("OK");
+			res.setTexto("Exito");
+			return res;
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			TransmitirResponse res = new TransmitirResponse();
+			res.setCodigo("ERR");
+			res.setTexto("Error");
+			return res;
+		}
 	}
 
 	public TransmitirResponse transmitirDr(TransmitirDrRequest tramiteDrRequest) {
 		System.out.println("transmitirDr");
+		System.out.println(tramiteDrRequest.getDrEntidad());
+		System.out.println((ConvertirdorBean.convertirDhEnBis(tramiteDrRequest.getAdjunto())!=null)?"null":"Hay adjunto");
 		TransmitirResponse res = new TransmitirResponse();
 		res.setCodigo("OK");
 		res.setTexto("Exito");

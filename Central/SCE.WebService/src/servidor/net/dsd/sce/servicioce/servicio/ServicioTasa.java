@@ -8,7 +8,8 @@ import net.dsd.sce.bean.BeanEntidad;
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanTasa;
 import net.dsd.sce.bean.BeanUsuario;
-import net.dsd.sce.servicio.MysqlTasaDao;
+import net.dsd.sce.dao.MysqlTasaDao;
+import net.dsd.sce.excepcion.DAOExcepcion;
 
 import org.apache.axis2.client.Options;
 import org.apache.axis2.transport.http.HTTPConstants;
@@ -45,11 +46,11 @@ public class ServicioTasa {
 		}
 	}
 
-	public void asignarTasa(BeanOrden orden, BeanTasa tasa) {
+	public void asignarTasa(BeanOrden orden, BeanTasa tasa) throws DAOExcepcion {
 		mysqlTasaDao.asignarTasa(orden, tasa);
 	}
 
-	public void pagarTasa(BeanTasa tasa) {
+	public void pagarTasa(BeanTasa tasa) throws DAOExcepcion {
 		mysqlTasaDao.pagarTasa(tasa);
 	}
 }
