@@ -44,7 +44,7 @@
         //creating the operations
         org.apache.axis2.description.AxisOperation __operation;
 
-        _operations = new org.apache.axis2.description.AxisOperation[3];
+        _operations = new org.apache.axis2.description.AxisOperation[4];
         
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
@@ -73,13 +73,25 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/", "transmitirOrden"));
+            __operation.setName(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/", "transmitirDr"));
 	    _service.addOperation(__operation);
 	    
 
 	    
 	    
             _operations[2]=__operation;
+            
+        
+                   __operation = new org.apache.axis2.description.OutInAxisOperation();
+                
+
+            __operation.setName(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/", "transmitirOrden"));
+	    _service.addOperation(__operation);
+	    
+
+	    
+	    
+            _operations[3]=__operation;
             
         
         }
@@ -154,7 +166,7 @@
                      * Auto generated method signature
                      * 
                      * @see net.dsd.sce.servicioce.ServicioCe#transmitirNroExpediente
-                     * @param transmitirNroExpedienteRequest2
+                     * @param transmitirNroExpedienteRequest3
                     
                      */
 
@@ -162,7 +174,7 @@
 
                             public  net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse transmitirNroExpediente(
 
-                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirNroExpedienteRequest transmitirNroExpedienteRequest2)
+                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirNroExpedienteRequest transmitirNroExpedienteRequest3)
                         
 
                     throws java.rmi.RemoteException
@@ -189,7 +201,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    transmitirNroExpedienteRequest2,
+                                                    transmitirNroExpedienteRequest3,
                                                     optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirNroExpediente")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirNroExpediente"));
@@ -276,12 +288,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see net.dsd.sce.servicioce.ServicioCe#starttransmitirNroExpediente
-                    * @param transmitirNroExpedienteRequest2
+                    * @param transmitirNroExpedienteRequest3
                 
                 */
                 public  void starttransmitirNroExpediente(
 
-                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirNroExpedienteRequest transmitirNroExpedienteRequest2,
+                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirNroExpedienteRequest transmitirNroExpedienteRequest3,
 
                   final net.dsd.sce.servicioce.ServicioCeCallbackHandler callback)
 
@@ -306,7 +318,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    transmitirNroExpedienteRequest2,
+                                                    transmitirNroExpedienteRequest3,
                                                     optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirNroExpediente")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirNroExpediente"));
@@ -423,7 +435,7 @@
                      * Auto generated method signature
                      * 
                      * @see net.dsd.sce.servicioce.ServicioCe#transmitirPago
-                     * @param transmitirPagoRequest4
+                     * @param transmitirPagoRequest5
                     
                      */
 
@@ -431,7 +443,7 @@
 
                             public  net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse transmitirPago(
 
-                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest transmitirPagoRequest4)
+                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest transmitirPagoRequest5)
                         
 
                     throws java.rmi.RemoteException
@@ -458,7 +470,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    transmitirPagoRequest4,
+                                                    transmitirPagoRequest5,
                                                     optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirPago")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirPago"));
@@ -545,12 +557,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see net.dsd.sce.servicioce.ServicioCe#starttransmitirPago
-                    * @param transmitirPagoRequest4
+                    * @param transmitirPagoRequest5
                 
                 */
                 public  void starttransmitirPago(
 
-                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest transmitirPagoRequest4,
+                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest transmitirPagoRequest5,
 
                   final net.dsd.sce.servicioce.ServicioCeCallbackHandler callback)
 
@@ -575,7 +587,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    transmitirPagoRequest4,
+                                                    transmitirPagoRequest5,
                                                     optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirPago")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirPago"));
@@ -691,16 +703,16 @@
                     /**
                      * Auto generated method signature
                      * 
-                     * @see net.dsd.sce.servicioce.ServicioCe#transmitirOrden
-                     * @param transmitirOrdenRequest6
+                     * @see net.dsd.sce.servicioce.ServicioCe#transmitirDr
+                     * @param transmitirDrRequest7
                     
                      */
 
                     
 
-                            public  net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse transmitirOrden(
+                            public  net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse transmitirDr(
 
-                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequest transmitirOrdenRequest6)
+                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest transmitirDrRequest7)
                         
 
                     throws java.rmi.RemoteException
@@ -709,6 +721,275 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
+              _operationClient.getOptions().setAction("http://sce.dsd.net/ServicioCe/transmitirDr");
+              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+              
+              
+                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
+              
+
+              // create a message context
+              _messageContext = new org.apache.axis2.context.MessageContext();
+
+              
+
+              // create SOAP envelope with that payload
+              org.apache.axiom.soap.SOAPEnvelope env = null;
+                    
+                                                    
+                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                                                    transmitirDrRequest7,
+                                                    optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                                    "transmitirDr")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                                    "transmitirDr"));
+                                                
+        //adding SOAP soap_headers
+         _serviceClient.addHeadersToEnvelope(env);
+        // set the message context with that soap envelope
+        _messageContext.setEnvelope(env);
+
+        // add the message contxt to the operation client
+        _operationClient.addMessageContext(_messageContext);
+
+        //execute the operation client
+        _operationClient.execute(true);
+
+         
+               org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
+                                           org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
+                org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+                
+                
+                                java.lang.Object object = fromOM(
+                                             _returnEnv.getBody().getFirstElement() ,
+                                             net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse.class,
+                                              getEnvelopeNamespaces(_returnEnv));
+
+                               
+                                        return (net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse)object;
+                                   
+         }catch(org.apache.axis2.AxisFault f){
+
+            org.apache.axiom.om.OMElement faultElt = f.getDetail();
+            if (faultElt!=null){
+                if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"TransmitirDr"))){
+                    //make the fault by reflection
+                    try{
+                        java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"TransmitirDr"));
+                        java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+                        java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
+                        java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
+                        //message class
+                        java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"TransmitirDr"));
+                        java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+                        java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+                                   new java.lang.Class[]{messageClass});
+                        m.invoke(ex,new java.lang.Object[]{messageObject});
+                        
+
+                        throw new java.rmi.RemoteException(ex.getMessage(), ex);
+                    }catch(java.lang.ClassCastException e){
+                       // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    } catch (java.lang.ClassNotFoundException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }catch (java.lang.NoSuchMethodException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    } catch (java.lang.reflect.InvocationTargetException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }  catch (java.lang.IllegalAccessException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }   catch (java.lang.InstantiationException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }
+                }else{
+                    throw f;
+                }
+            }else{
+                throw f;
+            }
+            } finally {
+                if (_messageContext.getTransportOut() != null) {
+                      _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+                }
+            }
+        }
+            
+                /**
+                * Auto generated method signature for Asynchronous Invocations
+                * 
+                * @see net.dsd.sce.servicioce.ServicioCe#starttransmitirDr
+                    * @param transmitirDrRequest7
+                
+                */
+                public  void starttransmitirDr(
+
+                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest transmitirDrRequest7,
+
+                  final net.dsd.sce.servicioce.ServicioCeCallbackHandler callback)
+
+                throws java.rmi.RemoteException{
+
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
+             _operationClient.getOptions().setAction("http://sce.dsd.net/ServicioCe/transmitirDr");
+             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+              
+              
+                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
+              
+
+
+              // create SOAP envelope with that payload
+              org.apache.axiom.soap.SOAPEnvelope env=null;
+              final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+
+                    
+                                    //Style is Doc.
+                                    
+                                                    
+                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                                                    transmitirDrRequest7,
+                                                    optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                                    "transmitirDr")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
+                                                    "transmitirDr"));
+                                                
+        // adding SOAP soap_headers
+         _serviceClient.addHeadersToEnvelope(env);
+        // create message context with that soap envelope
+        _messageContext.setEnvelope(env);
+
+        // add the message context to the operation client
+        _operationClient.addMessageContext(_messageContext);
+
+
+                    
+                        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
+                            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+                            try {
+                                org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
+                                
+                                        java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
+                                                                         net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse.class,
+                                                                         getEnvelopeNamespaces(resultEnv));
+                                        callback.receiveResulttransmitirDr(
+                                        (net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse)object);
+                                        
+                            } catch (org.apache.axis2.AxisFault e) {
+                                callback.receiveErrortransmitirDr(e);
+                            }
+                            }
+
+                            public void onError(java.lang.Exception error) {
+								if (error instanceof org.apache.axis2.AxisFault) {
+									org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
+									org.apache.axiom.om.OMElement faultElt = f.getDetail();
+									if (faultElt!=null){
+										if (faultExceptionNameMap.containsKey(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"TransmitirDr"))){
+											//make the fault by reflection
+											try{
+													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"TransmitirDr"));
+													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+													java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
+                                                    java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
+													//message class
+													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"TransmitirDr"));
+														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+															new java.lang.Class[]{messageClass});
+													m.invoke(ex,new java.lang.Object[]{messageObject});
+													
+					
+										            callback.receiveErrortransmitirDr(new java.rmi.RemoteException(ex.getMessage(), ex));
+                                            } catch(java.lang.ClassCastException e){
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            } catch (java.lang.ClassNotFoundException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            } catch (java.lang.NoSuchMethodException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            } catch (java.lang.reflect.InvocationTargetException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            } catch (java.lang.IllegalAccessException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            } catch (java.lang.InstantiationException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            } catch (org.apache.axis2.AxisFault e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrortransmitirDr(f);
+                                            }
+									    } else {
+										    callback.receiveErrortransmitirDr(f);
+									    }
+									} else {
+									    callback.receiveErrortransmitirDr(f);
+									}
+								} else {
+								    callback.receiveErrortransmitirDr(error);
+								}
+                            }
+
+                            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
+                                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
+                                onError(fault);
+                            }
+
+                            public void onComplete() {
+                                try {
+                                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+                                } catch (org.apache.axis2.AxisFault axisFault) {
+                                    callback.receiveErrortransmitirDr(axisFault);
+                                }
+                            }
+                });
+                        
+
+          org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
+        if ( _operations[2].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+           _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
+          _operations[2].setMessageReceiver(
+                    _callbackReceiver);
+        }
+
+           //execute the operation client
+           _operationClient.execute(false);
+
+                    }
+                
+                    /**
+                     * Auto generated method signature
+                     * 
+                     * @see net.dsd.sce.servicioce.ServicioCe#transmitirOrden
+                     * @param transmitirOrdenRequest9
+                    
+                     */
+
+                    
+
+                            public  net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse transmitirOrden(
+
+                            net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequest transmitirOrdenRequest9)
+                        
+
+                    throws java.rmi.RemoteException
+                    
+                    {
+              org.apache.axis2.context.MessageContext _messageContext = null;
+              try{
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
               _operationClient.getOptions().setAction("http://sce.dsd.net/ServicioCe/transmitirOrden");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -727,7 +1008,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    transmitirOrdenRequest6,
+                                                    transmitirOrdenRequest9,
                                                     optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirOrden")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirOrden"));
@@ -814,18 +1095,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see net.dsd.sce.servicioce.ServicioCe#starttransmitirOrden
-                    * @param transmitirOrdenRequest6
+                    * @param transmitirOrdenRequest9
                 
                 */
                 public  void starttransmitirOrden(
 
-                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequest transmitirOrdenRequest6,
+                 net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequest transmitirOrdenRequest9,
 
                   final net.dsd.sce.servicioce.ServicioCeCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
              _operationClient.getOptions().setAction("http://sce.dsd.net/ServicioCe/transmitirOrden");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -844,7 +1125,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    transmitirOrdenRequest6,
+                                                    transmitirOrdenRequest9,
                                                     optimizeContent(new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirOrden")), new javax.xml.namespace.QName("http://sce.dsd.net/ServicioCe/",
                                                     "transmitirOrden"));
@@ -946,9 +1227,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[2].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[3].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[2].setMessageReceiver(
+          _operations[3].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -989,687 +1270,12 @@
         return false;
     }
      //http://localhost:8888/SCE/services/ServicioCe/
-        public static class Dgs016Type
-        implements org.apache.axis2.databinding.ADBBean{
-        /* This type was generated from the piece of schema that had
-                name = Dgs016Type
-                Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
-                */
-            
-
-                        /**
-                        * field for TipoProducto
-                        */
-
-                        
-                                    protected int localTipoProducto ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return int
-                           */
-                           public  int getTipoProducto(){
-                               return localTipoProducto;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param TipoProducto
-                               */
-                               public void setTipoProducto(int param){
-                            
-                                            this.localTipoProducto=param;
-                                    
-
-                               }
-                            
-
-                        /**
-                        * field for PaisProcedencia
-                        */
-
-                        
-                                    protected java.lang.String localPaisProcedencia ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.String
-                           */
-                           public  java.lang.String getPaisProcedencia(){
-                               return localPaisProcedencia;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param PaisProcedencia
-                               */
-                               public void setPaisProcedencia(java.lang.String param){
-                            
-                                            this.localPaisProcedencia=param;
-                                    
-
-                               }
-                            
-
-                        /**
-                        * field for ListaProducto
-                        * This was an Array!
-                        */
-
-                        
-                                    protected Dgs016ProductoType[] localListaProducto ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localListaProductoTracker = false ;
-
-                           public boolean isListaProductoSpecified(){
-                               return localListaProductoTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return Dgs016ProductoType[]
-                           */
-                           public  Dgs016ProductoType[] getListaProducto(){
-                               return localListaProducto;
-                           }
-
-                           
-                        
-
-
-                               
-                              /**
-                               * validate the array for ListaProducto
-                               */
-                              protected void validateListaProducto(Dgs016ProductoType[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param ListaProducto
-                              */
-                              public void setListaProducto(Dgs016ProductoType[] param){
-                              
-                                   validateListaProducto(param);
-
-                               localListaProductoTracker = param != null;
-                                      
-                                      this.localListaProducto=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param Dgs016ProductoType
-                             */
-                             public void addListaProducto(Dgs016ProductoType param){
-                                   if (localListaProducto == null){
-                                   localListaProducto = new Dgs016ProductoType[]{};
-                                   }
-
-                            
-                                 //update the setting tracker
-                                localListaProductoTracker = true;
-                            
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(localListaProducto);
-                               list.add(param);
-                               this.localListaProducto =
-                             (Dgs016ProductoType[])list.toArray(
-                            new Dgs016ProductoType[list.size()]);
-
-                             }
-                             
-
-     
-     
-        /**
-        *
-        * @param parentQName
-        * @param factory
-        * @return org.apache.axiom.om.OMElement
-        */
-       public org.apache.axiom.om.OMElement getOMElement (
-               final javax.xml.namespace.QName parentQName,
-               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
-
-
-        
-               org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-               return factory.createOMElement(dataSource,parentQName);
-            
-        }
-
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter)
-                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-                           serialize(parentQName,xmlWriter,false);
-         }
-
-         public void serialize(final javax.xml.namespace.QName parentQName,
-                               javax.xml.stream.XMLStreamWriter xmlWriter,
-                               boolean serializeType)
-            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
-
-
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
-                
-
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
-
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://sce.dsd.net/TransmitirDigesaRequest");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":Dgs016Type",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "Dgs016Type",
-                           xmlWriter);
-                   }
-
-               
-                   }
-               
-                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "tipoProducto", xmlWriter);
-                             
-                                               if (localTipoProducto==java.lang.Integer.MIN_VALUE) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("tipoProducto cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoProducto));
-                                               }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "paisProcedencia", xmlWriter);
-                             
-
-                                          if (localPaisProcedencia==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("paisProcedencia cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localPaisProcedencia);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                              if (localListaProductoTracker){
-                                       if (localListaProducto!=null){
-                                            for (int i = 0;i < localListaProducto.length;i++){
-                                                if (localListaProducto[i] != null){
-                                                 localListaProducto[i].serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","listaProducto"),
-                                                           xmlWriter);
-                                                } else {
-                                                   
-                                                        // we don't have to do any thing since minOccures is zero
-                                                    
-                                                }
-
-                                            }
-                                     } else {
-                                        
-                                               throw new org.apache.axis2.databinding.ADBException("listaProducto cannot be null!!");
-                                        
-                                    }
-                                 }
-                    xmlWriter.writeEndElement();
-               
-
-        }
-
-        private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
-            }
-            return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
-        }
-
-        /**
-         * Utility method to write an element start tag.
-         */
-        private void writeStartElement(java.lang.String prefix, java.lang.String namespace, java.lang.String localPart,
-                                       javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
-            if (writerPrefix != null) {
-                xmlWriter.writeStartElement(namespace, localPart);
-            } else {
-                if (namespace.length() == 0) {
-                    prefix = "";
-                } else if (prefix == null) {
-                    prefix = generatePrefix(namespace);
-                }
-
-                xmlWriter.writeStartElement(prefix, localPart, namespace);
-                xmlWriter.writeNamespace(prefix, namespace);
-                xmlWriter.setPrefix(prefix, namespace);
-            }
-        }
-        
-        /**
-         * Util method to write an attribute with the ns prefix
-         */
-        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
-            if (xmlWriter.getPrefix(namespace) == null) {
-                xmlWriter.writeNamespace(prefix, namespace);
-                xmlWriter.setPrefix(prefix, namespace);
-            }
-            xmlWriter.writeAttribute(namespace,attName,attValue);
-        }
-
-        /**
-         * Util method to write an attribute without the ns prefix
-         */
-        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
-                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
-            if (namespace.equals("")) {
-                xmlWriter.writeAttribute(attName,attValue);
-            } else {
-                registerPrefix(xmlWriter, namespace);
-                xmlWriter.writeAttribute(namespace,attName,attValue);
-            }
-        }
-
-
-           /**
-             * Util method to write an attribute without the ns prefix
-             */
-            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
-                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-                java.lang.String attributeNamespace = qname.getNamespaceURI();
-                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
-                if (attributePrefix == null) {
-                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-                }
-                java.lang.String attributeValue;
-                if (attributePrefix.trim().length() > 0) {
-                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
-                } else {
-                    attributeValue = qname.getLocalPart();
-                }
-
-                if (namespace.equals("")) {
-                    xmlWriter.writeAttribute(attName, attributeValue);
-                } else {
-                    registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
-                }
-            }
-        /**
-         *  method to handle Qnames
-         */
-
-        private void writeQName(javax.xml.namespace.QName qname,
-                                javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-            java.lang.String namespaceURI = qname.getNamespaceURI();
-            if (namespaceURI != null) {
-                java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
-                if (prefix == null) {
-                    prefix = generatePrefix(namespaceURI);
-                    xmlWriter.writeNamespace(prefix, namespaceURI);
-                    xmlWriter.setPrefix(prefix,namespaceURI);
-                }
-
-                if (prefix.trim().length() > 0){
-                    xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
-                } else {
-                    // i.e this is the default namespace
-                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
-                }
-
-            } else {
-                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
-            }
-        }
-
-        private void writeQNames(javax.xml.namespace.QName[] qnames,
-                                 javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-
-            if (qnames != null) {
-                // we have to store this data until last moment since it is not possible to write any
-                // namespace data after writing the charactor data
-                java.lang.StringBuffer stringToWrite = new java.lang.StringBuffer();
-                java.lang.String namespaceURI = null;
-                java.lang.String prefix = null;
-
-                for (int i = 0; i < qnames.length; i++) {
-                    if (i > 0) {
-                        stringToWrite.append(" ");
-                    }
-                    namespaceURI = qnames[i].getNamespaceURI();
-                    if (namespaceURI != null) {
-                        prefix = xmlWriter.getPrefix(namespaceURI);
-                        if ((prefix == null) || (prefix.length() == 0)) {
-                            prefix = generatePrefix(namespaceURI);
-                            xmlWriter.writeNamespace(prefix, namespaceURI);
-                            xmlWriter.setPrefix(prefix,namespaceURI);
-                        }
-
-                        if (prefix.trim().length() > 0){
-                            stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
-                        } else {
-                            stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
-                        }
-                    } else {
-                        stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
-                    }
-                }
-                xmlWriter.writeCharacters(stringToWrite.toString());
-            }
-
-        }
-
-
-        /**
-         * Register a namespace prefix
-         */
-        private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter, java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
-            java.lang.String prefix = xmlWriter.getPrefix(namespace);
-            if (prefix == null) {
-                prefix = generatePrefix(namespace);
-                javax.xml.namespace.NamespaceContext nsContext = xmlWriter.getNamespaceContext();
-                while (true) {
-                    java.lang.String uri = nsContext.getNamespaceURI(prefix);
-                    if (uri == null || uri.length() == 0) {
-                        break;
-                    }
-                    prefix = org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
-                }
-                xmlWriter.writeNamespace(prefix, namespace);
-                xmlWriter.setPrefix(prefix, namespace);
-            }
-            return prefix;
-        }
-
-
-  
-        /**
-        * databinding method to get an XML representation of this object
-        *
-        */
-        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
-                    throws org.apache.axis2.databinding.ADBException{
-
-
-        
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
-
-                
-                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "tipoProducto"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoProducto));
-                            
-                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "paisProcedencia"));
-                                 
-                                        if (localPaisProcedencia != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPaisProcedencia));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("paisProcedencia cannot be null!!");
-                                        }
-                                     if (localListaProductoTracker){
-                             if (localListaProducto!=null) {
-                                 for (int i = 0;i < localListaProducto.length;i++){
-
-                                    if (localListaProducto[i] != null){
-                                         elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                          "listaProducto"));
-                                         elementList.add(localListaProducto[i]);
-                                    } else {
-                                        
-                                                // nothing to do
-                                            
-                                    }
-
-                                 }
-                             } else {
-                                 
-                                        throw new org.apache.axis2.databinding.ADBException("listaProducto cannot be null!!");
-                                    
-                             }
-
-                        }
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
-
-        }
-
-  
-
-     /**
-      *  Factory class that keeps the parse method
-      */
-    public static class Factory{
-
-        
-        
-
-        /**
-        * static method to create the object
-        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
-        * Postcondition: If this object is an element, the reader is positioned at its end element
-        *                If this object is a complex type, the reader is positioned at the end element of its outer element
-        */
-        public static Dgs016Type parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            Dgs016Type object =
-                new Dgs016Type();
-
-            int event;
-            java.lang.String nillableValue = null;
-            java.lang.String prefix ="";
-            java.lang.String namespaceuri ="";
-            try {
-                
-                while (!reader.isStartElement() && !reader.isEndElement())
-                    reader.next();
-
-                
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"Dgs016Type".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Dgs016Type)ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
-
-                
-                // Note all attributes that were handled. Used to differ normal attributes
-                // from anyAttributes.
-                java.util.Vector handledAttributes = new java.util.Vector();
-                
-
-                
-                    
-                    reader.next();
-                
-                        java.util.ArrayList list3 = new java.util.ArrayList();
-                    
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","tipoProducto").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"tipoProducto" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setTipoProducto(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","paisProcedencia").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"paisProcedencia" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setPaisProcedencia(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","listaProducto").equals(reader.getName())){
-                                
-                                    
-                                    
-                                    // Process the array and step past its final element's end.
-                                    list3.add(Dgs016ProductoType.Factory.parse(reader));
-                                                                
-                                                        //loop until we find a start element that is not part of this array
-                                                        boolean loopDone3 = false;
-                                                        while(!loopDone3){
-                                                            // We should be at the end element, but make sure
-                                                            while (!reader.isEndElement())
-                                                                reader.next();
-                                                            // Step out of this element
-                                                            reader.next();
-                                                            // Step to next element event.
-                                                            while (!reader.isStartElement() && !reader.isEndElement())
-                                                                reader.next();
-                                                            if (reader.isEndElement()){
-                                                                //two continuous end elements means we are exiting the xml structure
-                                                                loopDone3 = true;
-                                                            } else {
-                                                                if (new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","listaProducto").equals(reader.getName())){
-                                                                    list3.add(Dgs016ProductoType.Factory.parse(reader));
-                                                                        
-                                                                }else{
-                                                                    loopDone3 = true;
-                                                                }
-                                                            }
-                                                        }
-                                                        // call the converter utility  to convert and set the array
-                                                        
-                                                        object.setListaProducto((Dgs016ProductoType[])
-                                                            org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                                Dgs016ProductoType.class,
-                                                                list3));
-                                                            
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
-                                reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
-
-
-
-            } catch (javax.xml.stream.XMLStreamException e) {
-                throw new java.lang.Exception(e);
-            }
-
-            return object;
-        }
-
-        }//end of factory class
-
-        
-
-        }
-           
-    
         public static class UsuarioType
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had
                 name = UsuarioType
                 Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
+                Namespace Prefix = ns2
                 */
             
 
@@ -1835,7 +1441,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2185,7 +1791,7 @@
         /* This type was generated from the piece of schema that had
                 name = TransmitirOrdenRequestChoice_type0
                 Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
+                Namespace Prefix = ns2
                 */
             
             /** Whenever a new property is set ensure all others are unset
@@ -2195,7 +1801,7 @@
             
                    localFormatoDgs015Tracker = false;
                 
-                   localFormatoDgs016Tracker = false;
+                   localFormatoFrm001Tracker = false;
                 
             }
         
@@ -2245,44 +1851,44 @@
                             
 
                         /**
-                        * field for FormatoDgs016
+                        * field for FormatoFrm001
                         */
 
                         
-                                    protected Dgs016Type localFormatoDgs016 ;
+                                    protected Frm001Type localFormatoFrm001 ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localFormatoDgs016Tracker = false ;
+                           protected boolean localFormatoFrm001Tracker = false ;
 
-                           public boolean isFormatoDgs016Specified(){
-                               return localFormatoDgs016Tracker;
+                           public boolean isFormatoFrm001Specified(){
+                               return localFormatoFrm001Tracker;
                            }
 
                            
 
                            /**
                            * Auto generated getter method
-                           * @return Dgs016Type
+                           * @return Frm001Type
                            */
-                           public  Dgs016Type getFormatoDgs016(){
-                               return localFormatoDgs016;
+                           public  Frm001Type getFormatoFrm001(){
+                               return localFormatoFrm001;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param FormatoDgs016
+                               * @param param FormatoFrm001
                                */
-                               public void setFormatoDgs016(Dgs016Type param){
+                               public void setFormatoFrm001(Frm001Type param){
                             
                                 clearAllSettingTrackers();
-                            localFormatoDgs016Tracker = param != null;
+                            localFormatoFrm001Tracker = param != null;
                                    
-                                            this.localFormatoDgs016=param;
+                                            this.localFormatoFrm001=param;
                                     
 
                                }
@@ -2347,11 +1953,11 @@
                                             }
                                            localFormatoDgs015.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","formatoDgs015"),
                                                xmlWriter);
-                                        } if (localFormatoDgs016Tracker){
-                                            if (localFormatoDgs016==null){
-                                                 throw new org.apache.axis2.databinding.ADBException("formatoDgs016 cannot be null!!");
+                                        } if (localFormatoFrm001Tracker){
+                                            if (localFormatoFrm001==null){
+                                                 throw new org.apache.axis2.databinding.ADBException("formatoFrm001 cannot be null!!");
                                             }
-                                           localFormatoDgs016.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","formatoDgs016"),
+                                           localFormatoFrm001.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","formatoFrm001"),
                                                xmlWriter);
                                         }
 
@@ -2359,7 +1965,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -2545,15 +2151,15 @@
                                          throw new org.apache.axis2.databinding.ADBException("formatoDgs015 cannot be null!!");
                                     }
                                     elementList.add(localFormatoDgs015);
-                                } if (localFormatoDgs016Tracker){
+                                } if (localFormatoFrm001Tracker){
                             elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "formatoDgs016"));
+                                                                      "formatoFrm001"));
                             
                             
-                                    if (localFormatoDgs016==null){
-                                         throw new org.apache.axis2.databinding.ADBException("formatoDgs016 cannot be null!!");
+                                    if (localFormatoFrm001==null){
+                                         throw new org.apache.axis2.databinding.ADBException("formatoFrm001 cannot be null!!");
                                     }
-                                    elementList.add(localFormatoDgs016);
+                                    elementList.add(localFormatoFrm001);
                                 }
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
@@ -2611,9 +2217,9 @@
                                 
                                         else
                                     
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","formatoDgs016").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","formatoFrm001").equals(reader.getName())){
                                 
-                                                object.setFormatoDgs016(Dgs016Type.Factory.parse(reader));
+                                                object.setFormatoFrm001(Frm001Type.Factory.parse(reader));
                                               
                                         reader.next();
                                     
@@ -2642,7 +2248,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://sce.dsd.net/TransmitirDigesaRequest",
                 "TransmitirPagoRequest",
-                "ns7");
+                "ns2");
 
             
 
@@ -2851,7 +2457,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -3227,160 +2833,191 @@
         }
            
     
-        public static class Dgs016ProductoType
+        public static class TransmitirDrRequest
         implements org.apache.axis2.databinding.ADBBean{
-        /* This type was generated from the piece of schema that had
-                name = Dgs016ProductoType
-                Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
-                */
+        
+                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                "http://sce.dsd.net/TransmitirDigesaRequest",
+                "TransmitirDrRequest",
+                "ns2");
+
             
 
                         /**
-                        * field for Nombre
+                        * field for Mensaje
                         */
 
                         
-                                    protected java.lang.String localNombre ;
+                                    protected MensajeType localMensaje ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String
+                           * @return MensajeType
                            */
-                           public  java.lang.String getNombre(){
-                               return localNombre;
+                           public  MensajeType getMensaje(){
+                               return localMensaje;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Nombre
+                               * @param param Mensaje
                                */
-                               public void setNombre(java.lang.String param){
+                               public void setMensaje(MensajeType param){
                             
-                                            this.localNombre=param;
+                                            this.localMensaje=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for PartidaArancelaria
+                        * field for DrEntidad
                         */
 
                         
-                                    protected java.lang.String localPartidaArancelaria ;
+                                    protected java.lang.String localDrEntidad ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getPartidaArancelaria(){
-                               return localPartidaArancelaria;
+                           public  java.lang.String getDrEntidad(){
+                               return localDrEntidad;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param PartidaArancelaria
+                               * @param param DrEntidad
                                */
-                               public void setPartidaArancelaria(java.lang.String param){
+                               public void setDrEntidad(java.lang.String param){
                             
-                                            this.localPartidaArancelaria=param;
+                                            this.localDrEntidad=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for Cantidad
+                        * field for TipoDr
                         */
 
                         
-                                    protected int localCantidad ;
+                                    protected int localTipoDr ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return int
                            */
-                           public  int getCantidad(){
-                               return localCantidad;
+                           public  int getTipoDr(){
+                               return localTipoDr;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Cantidad
+                               * @param param TipoDr
                                */
-                               public void setCantidad(int param){
+                               public void setTipoDr(int param){
                             
-                                            this.localCantidad=param;
+                                            this.localTipoDr=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for Envase
+                        * field for NombreArchivoAdjunto
                         */
 
                         
-                                    protected java.lang.String localEnvase ;
+                                    protected java.lang.String localNombreArchivoAdjunto ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEnvase(){
-                               return localEnvase;
+                           public  java.lang.String getNombreArchivoAdjunto(){
+                               return localNombreArchivoAdjunto;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Envase
+                               * @param param NombreArchivoAdjunto
                                */
-                               public void setEnvase(java.lang.String param){
+                               public void setNombreArchivoAdjunto(java.lang.String param){
                             
-                                            this.localEnvase=param;
+                                            this.localNombreArchivoAdjunto=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for LugarFabricacion
+                        * field for Adjunto
                         */
 
                         
-                                    protected java.lang.String localLugarFabricacion ;
+                                    protected javax.activation.DataHandler localAdjunto ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String
+                           * @return javax.activation.DataHandler
                            */
-                           public  java.lang.String getLugarFabricacion(){
-                               return localLugarFabricacion;
+                           public  javax.activation.DataHandler getAdjunto(){
+                               return localAdjunto;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param LugarFabricacion
+                               * @param param Adjunto
                                */
-                               public void setLugarFabricacion(java.lang.String param){
+                               public void setAdjunto(javax.activation.DataHandler param){
                             
-                                            this.localLugarFabricacion=param;
+                                            this.localAdjunto=param;
+                                    
+
+                               }
+                            
+
+                        /**
+                        * field for Usuario
+                        */
+
+                        
+                                    protected UsuarioType localUsuario ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return UsuarioType
+                           */
+                           public  UsuarioType getUsuario(){
+                               return localUsuario;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Usuario
+                               */
+                               public void setUsuario(UsuarioType param){
+                            
+                                            this.localUsuario=param;
                                     
 
                                }
@@ -3401,8 +3038,8 @@
 
         
                org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-               return factory.createOMElement(dataSource,parentQName);
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
             
         }
 
@@ -3434,102 +3071,96 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://sce.dsd.net/TransmitirDigesaRequest");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":Dgs016ProductoType",
+                           namespacePrefix+":TransmitirDrRequest",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "Dgs016ProductoType",
+                           "TransmitirDrRequest",
                            xmlWriter);
                    }
 
                
                    }
                
+                                            if (localMensaje==null){
+                                                 throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
+                                            }
+                                           localMensaje.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","mensaje"),
+                                               xmlWriter);
+                                        
                                     namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "nombre", xmlWriter);
+                                    writeStartElement(null, namespace, "drEntidad", xmlWriter);
                              
 
-                                          if (localNombre==null){
+                                          if (localDrEntidad==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("nombre cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("drEntidad cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localNombre);
+                                                   xmlWriter.writeCharacters(localDrEntidad);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
                              
                                     namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "partidaArancelaria", xmlWriter);
+                                    writeStartElement(null, namespace, "tipoDr", xmlWriter);
                              
-
-                                          if (localPartidaArancelaria==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("partidaArancelaria cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localPartidaArancelaria);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "cantidad", xmlWriter);
-                             
-                                               if (localCantidad==java.lang.Integer.MIN_VALUE) {
+                                               if (localTipoDr==java.lang.Integer.MIN_VALUE) {
                                            
-                                                         throw new org.apache.axis2.databinding.ADBException("cantidad cannot be null!!");
+                                                         throw new org.apache.axis2.databinding.ADBException("tipoDr cannot be null!!");
                                                       
                                                } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCantidad));
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoDr));
                                                }
                                     
                                    xmlWriter.writeEndElement();
                              
                                     namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "envase", xmlWriter);
+                                    writeStartElement(null, namespace, "nombreArchivoAdjunto", xmlWriter);
                              
 
-                                          if (localEnvase==null){
+                                          if (localNombreArchivoAdjunto==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("envase cannot be null!!");
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localEnvase);
+                                                   xmlWriter.writeCharacters(localNombreArchivoAdjunto);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
                              
                                     namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "lugarFabricacion", xmlWriter);
+                                    writeStartElement(null, namespace, "adjunto", xmlWriter);
                              
-
-                                          if (localLugarFabricacion==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("lugarFabricacion cannot be null!!");
-                                                  
-                                          }else{
-
                                         
-                                                   xmlWriter.writeCharacters(localLugarFabricacion);
-                                            
-                                          }
-                                    
+                                    if (localAdjunto!=null)  {
+                                       try {
+                                           org.apache.axiom.util.stax.XMLStreamWriterUtils.writeDataHandler(xmlWriter, localAdjunto, null, true);
+                                       } catch (java.io.IOException ex) {
+                                           throw new javax.xml.stream.XMLStreamException("Unable to read data handler for adjunto", ex);
+                                       }
+                                    } else {
+                                         
+                                             writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                         
+                                    }
+                                 
                                    xmlWriter.writeEndElement();
                              
+                                            if (localUsuario==null){
+                                                 throw new org.apache.axis2.databinding.ADBException("usuario cannot be null!!");
+                                            }
+                                           localUsuario.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","usuario"),
+                                               xmlWriter);
+                                        
                     xmlWriter.writeEndElement();
                
 
@@ -3537,7 +3168,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -3715,48 +3346,50 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
+                            elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "mensaje"));
+                            
+                            
+                                    if (localMensaje==null){
+                                         throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
+                                    }
+                                    elementList.add(localMensaje);
+                                
                                       elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "nombre"));
+                                                                      "drEntidad"));
                                  
-                                        if (localNombre != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localNombre));
+                                        if (localDrEntidad != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDrEntidad));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("nombre cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("drEntidad cannot be null!!");
                                         }
                                     
                                       elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "partidaArancelaria"));
-                                 
-                                        if (localPartidaArancelaria != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPartidaArancelaria));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("partidaArancelaria cannot be null!!");
-                                        }
-                                    
-                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "cantidad"));
+                                                                      "tipoDr"));
                                  
                                 elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCantidad));
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoDr));
                             
                                       elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "envase"));
+                                                                      "nombreArchivoAdjunto"));
                                  
-                                        if (localEnvase != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEnvase));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("envase cannot be null!!");
-                                        }
+                                         elementList.add(localNombreArchivoAdjunto==null?null:
+                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localNombreArchivoAdjunto));
                                     
                                       elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "lugarFabricacion"));
-                                 
-                                        if (localLugarFabricacion != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localLugarFabricacion));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("lugarFabricacion cannot be null!!");
-                                        }
-                                    
+                                        "adjunto"));
+                                
+                            elementList.add(localAdjunto);
+                        
+                            elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "usuario"));
+                            
+                            
+                                    if (localUsuario==null){
+                                         throw new org.apache.axis2.databinding.ADBException("usuario cannot be null!!");
+                                    }
+                                    elementList.add(localUsuario);
+                                
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -3781,9 +3414,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static Dgs016ProductoType parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            Dgs016ProductoType object =
-                new Dgs016ProductoType();
+        public static TransmitirDrRequest parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            TransmitirDrRequest object =
+                new TransmitirDrRequest();
 
             int event;
             java.lang.String nillableValue = null;
@@ -3807,10 +3440,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"Dgs016ProductoType".equals(type)){
+                            if (!"TransmitirDrRequest".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Dgs016ProductoType)ExtensionMapper.getTypeObject(
+                                return (TransmitirDrRequest)ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -3835,17 +3468,33 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","nombre").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","mensaje").equals(reader.getName())){
+                                
+                                                object.setMensaje(MensajeType.Factory.parse(reader));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","drEntidad").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"nombre" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"drEntidad" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setNombre(
+                                              object.setDrEntidad(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
@@ -3860,42 +3509,17 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","partidaArancelaria").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","tipoDr").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"partidaArancelaria" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"tipoDr" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setPartidaArancelaria(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","cantidad").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"cantidad" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setCantidad(
+                                              object.setTipoDr(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
                                               
                                         reader.next();
@@ -3910,19 +3534,23 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","envase").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","nombreArchivoAdjunto").equals(reader.getName())){
                                 
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"envase" +"  cannot be null");
-                                    }
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEnvase(
+                                              object.setNombreArchivoAdjunto(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
+                                            
+                                       } else {
+                                           
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
                                         reader.next();
                                     
                               }  // End of if for expected property start element
@@ -3935,18 +3563,33 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","lugarFabricacion").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","adjunto").equals(reader.getName())){
                                 
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"lugarFabricacion" +"  cannot be null");
-                                    }
+                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                        if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                             object.setAdjunto(null);
+                                             reader.next();
+                                        } else {
                                     
-
-                                    java.lang.String content = reader.getElementText();
+                                            object.setAdjunto(org.apache.axiom.util.stax.XMLStreamReaderUtils.getDataHandlerFromElement(reader));
                                     
-                                              object.setLugarFabricacion(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                        }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","usuario").equals(reader.getName())){
+                                
+                                                object.setUsuario(UsuarioType.Factory.parse(reader));
                                               
                                         reader.next();
                                     
@@ -3987,7 +3630,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://sce.dsd.net/TransmitirDigesaRequest",
                 "TransmitirNroExpedienteRequest",
-                "ns7");
+                "ns2");
 
             
 
@@ -4129,7 +3772,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -4462,7 +4105,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://sce.dsd.net/TransmitirResponse",
                 "TransmitirResponse",
-                "ns6");
+                "ns1");
 
             
 
@@ -4628,7 +4271,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirResponse")){
-                return "ns6";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -4979,7 +4622,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://sce.dsd.net/TransmitirDigesaRequest",
                 "TransmitirOrdenRequest",
-                "ns7");
+                "ns2");
 
             
 
@@ -5252,7 +4895,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -5670,16 +5313,6 @@
               
                   if (
                   "http://sce.dsd.net/TransmitirDigesaRequest".equals(namespaceURI) &&
-                  "Dgs016Type".equals(typeName)){
-                   
-                            return  Dgs016Type.Factory.parse(reader);
-                        
-
-                  }
-
-              
-                  if (
-                  "http://sce.dsd.net/TransmitirDigesaRequest".equals(namespaceURI) &&
                   "UsuarioType".equals(typeName)){
                    
                             return  UsuarioType.Factory.parse(reader);
@@ -5690,9 +5323,9 @@
               
                   if (
                   "http://sce.dsd.net/TransmitirDigesaRequest".equals(namespaceURI) &&
-                  "Dgs016ProductoType".equals(typeName)){
+                  "Frm001Type".equals(typeName)){
                    
-                            return  Dgs016ProductoType.Factory.parse(reader);
+                            return  Frm001Type.Factory.parse(reader);
                         
 
                   }
@@ -5738,7 +5371,7 @@
         /* This type was generated from the piece of schema that had
                 name = MensajeType
                 Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
+                Namespace Prefix = ns2
                 */
             
 
@@ -6081,7 +5714,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -6573,12 +6206,528 @@
         }
            
     
+        public static class Frm001Type
+        implements org.apache.axis2.databinding.ADBBean{
+        /* This type was generated from the piece of schema that had
+                name = Frm001Type
+                Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
+                Namespace Prefix = ns2
+                */
+            
+
+                        /**
+                        * field for TipoMercaderia
+                        */
+
+                        
+                                    protected java.lang.String localTipoMercaderia ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getTipoMercaderia(){
+                               return localTipoMercaderia;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param TipoMercaderia
+                               */
+                               public void setTipoMercaderia(java.lang.String param){
+                            
+                                            this.localTipoMercaderia=param;
+                                    
+
+                               }
+                            
+
+                        /**
+                        * field for DetalleMercaderia
+                        */
+
+                        
+                                    protected java.lang.String localDetalleMercaderia ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getDetalleMercaderia(){
+                               return localDetalleMercaderia;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param DetalleMercaderia
+                               */
+                               public void setDetalleMercaderia(java.lang.String param){
+                            
+                                            this.localDetalleMercaderia=param;
+                                    
+
+                               }
+                            
+
+     
+     
+        /**
+        *
+        * @param parentQName
+        * @param factory
+        * @return org.apache.axiom.om.OMElement
+        */
+       public org.apache.axiom.om.OMElement getOMElement (
+               final javax.xml.namespace.QName parentQName,
+               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+
+
+        
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
+               return factory.createOMElement(dataSource,parentQName);
+            
+        }
+
+         public void serialize(final javax.xml.namespace.QName parentQName,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter)
+                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
+                           serialize(parentQName,xmlWriter,false);
+         }
+
+         public void serialize(final javax.xml.namespace.QName parentQName,
+                               javax.xml.stream.XMLStreamWriter xmlWriter,
+                               boolean serializeType)
+            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
+            
+                
+
+
+                java.lang.String prefix = null;
+                java.lang.String namespace = null;
+                
+
+                    prefix = parentQName.getPrefix();
+                    namespace = parentQName.getNamespaceURI();
+                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+                
+                  if (serializeType){
+               
+
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://sce.dsd.net/TransmitirDigesaRequest");
+                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
+                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                           namespacePrefix+":Frm001Type",
+                           xmlWriter);
+                   } else {
+                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                           "Frm001Type",
+                           xmlWriter);
+                   }
+
+               
+                   }
+               
+                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
+                                    writeStartElement(null, namespace, "tipoMercaderia", xmlWriter);
+                             
+
+                                          if (localTipoMercaderia==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("tipoMercaderia cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localTipoMercaderia);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
+                                    writeStartElement(null, namespace, "detalleMercaderia", xmlWriter);
+                             
+
+                                          if (localDetalleMercaderia==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("detalleMercaderia cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localDetalleMercaderia);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                    xmlWriter.writeEndElement();
+               
+
+        }
+
+        private static java.lang.String generatePrefix(java.lang.String namespace) {
+            if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
+                return "ns2";
+            }
+            return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
+        }
+
+        /**
+         * Utility method to write an element start tag.
+         */
+        private void writeStartElement(java.lang.String prefix, java.lang.String namespace, java.lang.String localPart,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+            if (writerPrefix != null) {
+                xmlWriter.writeStartElement(namespace, localPart);
+            } else {
+                if (namespace.length() == 0) {
+                    prefix = "";
+                } else if (prefix == null) {
+                    prefix = generatePrefix(namespace);
+                }
+
+                xmlWriter.writeStartElement(prefix, localPart, namespace);
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+        }
+        
+        /**
+         * Util method to write an attribute with the ns prefix
+         */
+        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
+                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+            if (xmlWriter.getPrefix(namespace) == null) {
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
+        }
+
+        /**
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
+                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName,attValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
+            }
+        }
+
+
+           /**
+             * Util method to write an attribute without the ns prefix
+             */
+            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+                java.lang.String attributeNamespace = qname.getNamespaceURI();
+                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+                if (attributePrefix == null) {
+                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+                }
+                java.lang.String attributeValue;
+                if (attributePrefix.trim().length() > 0) {
+                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
+                } else {
+                    attributeValue = qname.getLocalPart();
+                }
+
+                if (namespace.equals("")) {
+                    xmlWriter.writeAttribute(attName, attributeValue);
+                } else {
+                    registerPrefix(xmlWriter, namespace);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
+                }
+            }
+        /**
+         *  method to handle Qnames
+         */
+
+        private void writeQName(javax.xml.namespace.QName qname,
+                                javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+            java.lang.String namespaceURI = qname.getNamespaceURI();
+            if (namespaceURI != null) {
+                java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
+                if (prefix == null) {
+                    prefix = generatePrefix(namespaceURI);
+                    xmlWriter.writeNamespace(prefix, namespaceURI);
+                    xmlWriter.setPrefix(prefix,namespaceURI);
+                }
+
+                if (prefix.trim().length() > 0){
+                    xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+                } else {
+                    // i.e this is the default namespace
+                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+                }
+
+            } else {
+                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+            }
+        }
+
+        private void writeQNames(javax.xml.namespace.QName[] qnames,
+                                 javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            if (qnames != null) {
+                // we have to store this data until last moment since it is not possible to write any
+                // namespace data after writing the charactor data
+                java.lang.StringBuffer stringToWrite = new java.lang.StringBuffer();
+                java.lang.String namespaceURI = null;
+                java.lang.String prefix = null;
+
+                for (int i = 0; i < qnames.length; i++) {
+                    if (i > 0) {
+                        stringToWrite.append(" ");
+                    }
+                    namespaceURI = qnames[i].getNamespaceURI();
+                    if (namespaceURI != null) {
+                        prefix = xmlWriter.getPrefix(namespaceURI);
+                        if ((prefix == null) || (prefix.length() == 0)) {
+                            prefix = generatePrefix(namespaceURI);
+                            xmlWriter.writeNamespace(prefix, namespaceURI);
+                            xmlWriter.setPrefix(prefix,namespaceURI);
+                        }
+
+                        if (prefix.trim().length() > 0){
+                            stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                        } else {
+                            stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                        }
+                    } else {
+                        stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                    }
+                }
+                xmlWriter.writeCharacters(stringToWrite.toString());
+            }
+
+        }
+
+
+        /**
+         * Register a namespace prefix
+         */
+        private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter, java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+            java.lang.String prefix = xmlWriter.getPrefix(namespace);
+            if (prefix == null) {
+                prefix = generatePrefix(namespace);
+                javax.xml.namespace.NamespaceContext nsContext = xmlWriter.getNamespaceContext();
+                while (true) {
+                    java.lang.String uri = nsContext.getNamespaceURI(prefix);
+                    if (uri == null || uri.length() == 0) {
+                        break;
+                    }
+                    prefix = org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
+                }
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+            return prefix;
+        }
+
+
+  
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                 java.util.ArrayList elementList = new java.util.ArrayList();
+                 java.util.ArrayList attribList = new java.util.ArrayList();
+
+                
+                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "tipoMercaderia"));
+                                 
+                                        if (localTipoMercaderia != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoMercaderia));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("tipoMercaderia cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "detalleMercaderia"));
+                                 
+                                        if (localDetalleMercaderia != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDetalleMercaderia));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("detalleMercaderia cannot be null!!");
+                                        }
+                                    
+
+                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+            
+            
+
+        }
+
+  
+
+     /**
+      *  Factory class that keeps the parse method
+      */
+    public static class Factory{
+
+        
+        
+
+        /**
+        * static method to create the object
+        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+        * Postcondition: If this object is an element, the reader is positioned at its end element
+        *                If this object is a complex type, the reader is positioned at the end element of its outer element
+        */
+        public static Frm001Type parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Frm001Type object =
+                new Frm001Type();
+
+            int event;
+            java.lang.String nillableValue = null;
+            java.lang.String prefix ="";
+            java.lang.String namespaceuri ="";
+            try {
+                
+                while (!reader.isStartElement() && !reader.isEndElement())
+                    reader.next();
+
+                
+                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
+                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
+                        "type");
+                  if (fullTypeName!=null){
+                    java.lang.String nsPrefix = null;
+                    if (fullTypeName.indexOf(":") > -1){
+                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
+                    }
+                    nsPrefix = nsPrefix==null?"":nsPrefix;
+
+                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
+                    
+                            if (!"Frm001Type".equals(type)){
+                                //find namespace for the prefix
+                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
+                                return (Frm001Type)ExtensionMapper.getTypeObject(
+                                     nsUri,type,reader);
+                              }
+                        
+
+                  }
+                
+
+                }
+
+                
+
+                
+                // Note all attributes that were handled. Used to differ normal attributes
+                // from anyAttributes.
+                java.util.Vector handledAttributes = new java.util.Vector();
+                
+
+                
+                    
+                    reader.next();
+                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","tipoMercaderia").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"tipoMercaderia" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setTipoMercaderia(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","detalleMercaderia").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"detalleMercaderia" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setDetalleMercaderia(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
+                            while (!reader.isStartElement() && !reader.isEndElement())
+                                reader.next();
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
+
+
+
+            } catch (javax.xml.stream.XMLStreamException e) {
+                throw new java.lang.Exception(e);
+            }
+
+            return object;
+        }
+
+        }//end of factory class
+
+        
+
+        }
+           
+    
         public static class Dgs015ProductoType
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had
                 name = Dgs015ProductoType
                 Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
+                Namespace Prefix = ns2
                 */
             
 
@@ -6835,7 +6984,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -7250,7 +7399,7 @@
         /* This type was generated from the piece of schema that had
                 name = Dgs015Type
                 Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns7
+                Namespace Prefix = ns2
                 */
             
 
@@ -7461,7 +7610,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns7";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -7880,6 +8029,20 @@
 
             }
         
+            private  org.apache.axiom.om.OMElement  toOM(net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
             private  org.apache.axiom.om.OMElement  toOM(net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequest param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -7924,6 +8087,27 @@
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
                                                             emptyEnvelope.getBody().addChild(param.getOMElement(net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest.MY_QNAME,factory));
+                                                            return emptyEnvelope;
+                                                        } catch(org.apache.axis2.databinding.ADBException e){
+                                                            throw org.apache.axis2.AxisFault.makeFault(e);
+                                                        }
+                                                
+
+                                        }
+                                
+                             
+                             /* methods to provide back word compatibility */
+
+                             
+                                    
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                                        throws org.apache.axis2.AxisFault{
+
+                                             
+                                                    try{
+
+                                                            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -7991,6 +8175,20 @@
                 if (net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest.class.equals(type)){
                 
                            return net.dsd.sce.servicioce.ServicioCeStub.TransmitirPagoRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse.class.equals(type)){
+                
+                           return net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest.class.equals(type)){
+                
+                           return net.dsd.sce.servicioce.ServicioCeStub.TransmitirDrRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

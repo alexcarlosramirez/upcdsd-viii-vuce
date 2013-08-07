@@ -8,6 +8,8 @@
 
             
                 package net.dsd.sce.transmitirresponse;
+
+import net.dsd.sce.transmitirdigesarequest.ExtensionMapper;
             
 
             /**
@@ -21,7 +23,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://sce.dsd.net/TransmitirResponse",
                 "TransmitirResponse",
-                "ns3");
+                "ns1");
 
             
 
@@ -187,7 +189,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirResponse")){
-                return "ns3";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }

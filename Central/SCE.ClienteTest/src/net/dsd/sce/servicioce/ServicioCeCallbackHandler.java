@@ -77,6 +77,22 @@
             }
                 
            /**
+            * auto generated Axis2 call back method for transmitirDr method
+            * override this method for handling normal response from transmitirDr operation
+            */
+           public void receiveResulttransmitirDr(
+                    net.dsd.sce.servicioce.ServicioCeStub.TransmitirResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from transmitirDr operation
+           */
+            public void receiveErrortransmitirDr(java.lang.Exception e) {
+            }
+                
+           /**
             * auto generated Axis2 call back method for transmitirOrden method
             * override this method for handling normal response from transmitirOrden operation
             */
