@@ -3,7 +3,6 @@ package net.dsd.sce.dao;
 import java.io.ByteArrayInputStream;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,26 +21,20 @@ import net.dsd.sce.bean.BeanTraza;
 import net.dsd.sce.bean.BeanUsuario;
 import net.dsd.sce.bean.digesa.BeanDgs015;
 import net.dsd.sce.bean.digesa.BeanDgs015Producto;
+import net.dsd.sce.conexion.ConexionBD;
 import net.dsd.sce.excepcion.DAOExcepcion;
 
 import org.apache.commons.io.IOUtils;
 
 public class MysqlOrdenDao {
 
-	private Connection con = null;
-
-	private String url = "jdbc:mysql://localhost:3306/sce_central_db";
-	private String user = "root";
-	private String password = "root";
-
 	public BeanOrden registrarOrden(String formato, BeanMto outMto, BeanFormatoEntidad outFormatoEntidad, BeanTce outTce) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 		BeanOrden returnOrden = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL orden_registra(?,?,?,?,?,?)");
 			st1.setString(1, formato);
@@ -90,12 +83,11 @@ public class MysqlOrdenDao {
 	}
 
 	public void transmitirOrden(BeanOrden orden, BeanMto mto, BeanFormatoEntidad formatoEntidad, BeanTasa outTasa) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL orden_transmite(?,?,?,?)");
 			st1.setInt(1, orden.getOrdenId());
@@ -131,12 +123,11 @@ public class MysqlOrdenDao {
 	}
 
 	public void registrarAdjuntoPorMto(BeanMto mto, BeanAdjunto adjunto) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL adjunto_registra_x_orden(?,?,?,?)");
 			st1.setInt(1, mto.getOrdenId());
@@ -174,12 +165,11 @@ public class MysqlOrdenDao {
 	}
 
 	private void registrarUsuarioFormato(int usuarioFormatoTipo, BeanMto mto, BeanUsuario usuario) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL usuario_formato_registra(?,?,?,?,?,?)");
 			st1.setInt(1, usuarioFormatoTipo);
@@ -216,11 +206,10 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanTraza registrarTraza(BeanTce tce, BeanMto mto, BeanSdr sdr, BeanUsuario usuario, BeanTraza traza) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL traza_registra(?,?,?,?,?,?,?,?,?,?)");
 			st1.setInt(1, tce.getTceId());
@@ -280,14 +269,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanOrden buscarOrdenPorCda(String cda) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanOrden orden = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select o.orden_id from orden o, tce t, tasa s, tce_tasa ts where o.orden_id = t.orden_id and t.tce_id = ts.tce_id and ts.tasa_id = s.tasa_id and cda = ?");
 			st1.setString(1, cda);
@@ -318,14 +306,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanOrden buscarOrdenPorSuce(long suce) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanOrden orden = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select o.orden_id from orden o, tce t, suce s where o.orden_id = t.orden_id AND t.suce_id = s.suce_id and s.suce = ?");
 			st1.setLong(1, suce);
@@ -356,14 +343,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanOrden buscarOrdenPorOrdenId(int ordenId, BeanFormato outFormato) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanOrden orden = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select o.orden_id, o.orden, o.fecha_registro, o.bloqueada, o.cerrada, f.formato from orden o, tce t, formato f where f.formato_id = t.formato_id and t.orden_id = o.orden_id and o.orden_id = ?");
 			st1.setInt(1, ordenId);
@@ -397,14 +383,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanTce buscarTcePorOrdenId(int ordenId) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanTce tce = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select tce_id, tupa_id, formato_id, orden_id, suce_id, fecha_registro, estado from tce where orden_id = ?");
 			st1.setInt(1, ordenId);
@@ -440,14 +425,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanMto buscarMtoVigentePorOrdenId(int ordenId) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanMto mto = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select orden_id, mto from mto where orden_id = ? and vigente = 'S' and etapa_tramite = 1");
 			st1.setInt(1, ordenId);
@@ -479,14 +463,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanAdjunto buscarAdjuntoPorMto(BeanMto mto) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanAdjunto adjunto = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select nombre_archivo, archivo from adjunto where orden_id = ? and mto = ?");
 			st1.setInt(1, mto.getOrdenId());
@@ -519,14 +502,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanEntidad buscarEntidadPorFormato(String formato) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanEntidad entidad = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select e.entidad_id, e.entidad, e.codigo_financiera, e.estado from entidad e, formato f where e.entidad_id = f.entidad_id and f.formato = ?");
 			st1.setString(1, formato);
@@ -560,14 +542,13 @@ public class MysqlOrdenDao {
 	}
 
 	public BeanUsuario buscarUsuarioSolicitantePorMto(BeanMto mto) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		ResultSet rs = null;
 		BeanUsuario usuario = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareStatement("select usuario_id, ruc, usuario_sol from usuario_formato where orden_id = ? and mto = ?");
 			st1.setInt(1, mto.getOrdenId());
@@ -603,6 +584,7 @@ public class MysqlOrdenDao {
 	//digesa
 
 	public BeanDgs015 buscarDgs015PorMto(BeanMto mto) throws DAOExcepcion {
+		Connection con = null;
 		PreparedStatement st1 = null;
 		PreparedStatement st2 = null;
 		ResultSet rs1 = null;
@@ -610,9 +592,7 @@ public class MysqlOrdenDao {
 		BeanDgs015 dgs015 = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			//formato entidad
 			st1 = con.prepareStatement("select dgs015_id, dgs_tipo_producto from dgs015 where orden_id = ? and mto = ?");
@@ -670,13 +650,12 @@ public class MysqlOrdenDao {
 	}
 
 	public void modificarDgs015(BeanDgs015 dgs015, ArrayList<BeanDgs015Producto> listaDgs015Producto) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 		CallableStatement st2 = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL dgs015_modifica(?,?)");
 			st1.setInt(1, dgs015.getFormatoEntidadId());
