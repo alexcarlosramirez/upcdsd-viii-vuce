@@ -27,6 +27,7 @@ BEGIN
            @v_FormatoId:=formato_id
       from tupa_formato
      where formato_id = (select formato_id from formato where formato = p_Formato);
+	select @v_EntidadId:=entidad_id from formato where formato_id = @v_FormatoId;
 
     -- obteniendo el siguiente orden e insertar en orden y 
     BEGIN
@@ -42,7 +43,6 @@ BEGIN
 
     -- Insertar en la tabla del tce
     BEGIN
-	    select @v_EntidadId:=entidad_id from formato where formato_id = @v_FormatoId;
         insert into tce (tupa_id, formato_id, orden_id, entidad_id, fecha_registro, estado)
                  values (@v_TupaId, @v_FormatoId, p_orden_id, @v_EntidadId, @v_FechaHoy, 'A');
         select tce_id into p_tce_id from tce where orden_id = p_orden_id;

@@ -18,10 +18,10 @@ public class MysqlFicticiaDao {
 		try {
 			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
-			st1 = con.prepareCall("CALL dgs015_modifica(?,?,?)");
+			st1 = con.prepareCall("CALL frm001_modifica(?,?,?)");
 			st1.setInt(1, frm001.getFormatoEntidadId());
 			st1.setString(2, frm001.getTipoMercaderia());
-			st1.setString(2, frm001.getDetalleMercaderia());
+			st1.setString(3, frm001.getDetalleMercaderia());
 			st1.execute();
 			con.commit();
 		} catch (Exception ex) {

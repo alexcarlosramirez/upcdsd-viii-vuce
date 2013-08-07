@@ -8,6 +8,7 @@ import javax.activation.FileDataSource;
 import net.dsd.sce.servicioce.ServicioCeStub;
 import net.dsd.sce.servicioce.ServicioCeStub.Dgs015ProductoType;
 import net.dsd.sce.servicioce.ServicioCeStub.Dgs015Type;
+import net.dsd.sce.servicioce.ServicioCeStub.Frm001Type;
 import net.dsd.sce.servicioce.ServicioCeStub.MensajeType;
 import net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequest;
 import net.dsd.sce.servicioce.ServicioCeStub.TransmitirOrdenRequestChoice_type0;
@@ -17,9 +18,13 @@ import net.dsd.sce.servicioce.ServicioCeStub.UsuarioType;
 public class PruebaCe {
 
 	public static void main(String[] args) {
+		probarFrm001();
+	}
+
+	private static void probarDgs015 () {
 		try {
 			//carga del binario
-			File file = new File("c:/archivo.pptx");
+			File file = new File("c:/img.png");
 			DataHandler dh = new DataHandler(new FileDataSource(file));
 			//
 
@@ -61,6 +66,38 @@ public class PruebaCe {
 			transmitirOrdenRequest.setUsuario(usuarioType);
 			transmitirOrdenRequest.setNombreArchivoAdjunto(file.getName());
 			transmitirOrdenRequest.setAdjunto(dh);
+
+			ServicioCeStub stup = new ServicioCeStub();
+			TransmitirResponse res = stup.transmitirOrden(transmitirOrdenRequest);
+			System.out.println(res.getCodigo());
+			System.out.println(res.getTexto());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void probarFrm001 () {
+		try {
+			MensajeType mensaje = new MensajeType();
+			mensaje.setFormato("FRM001");
+
+			Frm001Type frm001 = new Frm001Type();
+			frm001.setTipoMercaderia("fdgdfgdfgdfg");
+			frm001.setDetalleMercaderia("asdasda");
+
+			TransmitirOrdenRequestChoice_type0 x = new TransmitirOrdenRequestChoice_type0();
+			x.setFormatoFrm001(frm001);
+
+			UsuarioType usuarioType = new UsuarioType();
+			//usuarioType.setRuc("20130801001");
+			//usuarioType.setUsuarioSol("AMERICO");
+			usuarioType.setRuc("10451149411");
+			usuarioType.setUsuarioSol("45114941");
+
+			TransmitirOrdenRequest transmitirOrdenRequest = new TransmitirOrdenRequest();
+			transmitirOrdenRequest.setMensaje(mensaje);
+			transmitirOrdenRequest.setTransmitirOrdenRequestChoice_type0(x);
+			transmitirOrdenRequest.setUsuario(usuarioType);
 
 			ServicioCeStub stup = new ServicioCeStub();
 			TransmitirResponse res = stup.transmitirOrden(transmitirOrdenRequest);
