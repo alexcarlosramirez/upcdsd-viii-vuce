@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="David Rodríguez">
+    <meta name="author" content="David Rodríguez">	
+	
+	 <title>Tienda Móvil</title>
+	 
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.css">
+	<link rel="stylesheet" href="themes/tema1.css">
+	
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery.mobile-1.3.0.js"></script>
+	<script type="text/javascript" src="js/cordova-2.5.0.js" charset="utf-8" ></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		function iniciar() {			
+			document.addEventListener("deviceready", dispositivoListo, false);			
+		}
+		
+		function dispositivoListo() {
+			$.ajaxSetup({ cache: false });
+			
+			var idProd = window.localStorage.getItem("idProd");
+			
+			console.log("debug 1");
+			
+			/*$.getJSON("http://10.11.9.170:8081/trastienda2012/rest/productos/producto/"+idProd, null, function(data){
+				
+				console.log("debug 2: " + data.length);				
+				
+				console.log("debug 3: " + data.nombre);
+				console.log("debug 4: " + data.precio);
+				
+				$("#txt_nombre").val(data.nombre);
+				$("#txt_precio").val(data.precio);
+			});*/
+		}
+		
+	    function actualizarProducto(){
+	    		
+	    	$.ajaxSetup({ cache: false });
+	    	
+	    	var idProd = window.localStorage.getItem("idProd");	    	    	
+	    	
+	    	console.log("debug 1: " + idProd);
+	    	
+	    	var txt_nombre    = $("#txt_nombre").val();
+	    	var txt_precio    = $("#txt_precio").val();
+
+	    	/*$.ajax({
+	    		type: "PUT",
+	    	    url: "http://192.168.115.20:8080/trastienda2012/rest/productos/"+idProd+"/"+txt_nombre+"/"+txt_precio,	    	    
+  	    	    dataType: "json",
+	    	    success: function(data, textStatus, jqXHR) {
+	    	        
+	    	    	console.log("debug 2: " + data);
+	    	    	console.log("debug 3: " + textStatus);
+	    	    	console.log("debug 4: " + jqXHR);
+	    	    	
+	    	    	if ( data.estado == "CORRECTO" ) {
+						navigator.notification.alert('Se modificó correctamente', null, 'Tienda Móvil',  'Cerrar');
+					} else if ( data.estado == "FALLIDO" ) {
+						navigator.notification.alert('Hubo un error, inténtelo nuevamente', null, 'Tienda Móvil',  'Cerrar');
+					}
+	    	    },
+	    	    error: function(request, status, errorThrown){
+	    	    	alert(status + ", " + errorThrown);
+	    	    }*/
+	    	});
+	    }*/
+	</script>
+</head>
+<body onload="iniciar()">
+
+	<div data-role="page">
+	
+		<div data-role="header" data-position="fixed">		
+			<h1>SCE Móvil</h1>
+		</div>
+		
+		<div data-role="content">
+				 		
+	 		<label for="txt_nombre">Nombre:</label>
+			<input type="text" name="txt_nombre" id="txt_nombre" />
+			
+			<label for="txt_precio">Precio:</label>
+			<input type="text" name="txt_precio" id="txt_precio" />
+			
+			<!-- <a data-role="button" data-inline="true" data-align="true" onclick="actualizarProducto()">Modificar</a> -->
+			<a data-role="button" href="sce_buscar.html" data-inline="true" rel= "external">Regresar</a>
+
+		</div>	
+		
+		<div data-role="footer" data-position="fixed">
+			<h1>Derechos Reservados - SCE &copy; 2013</h1>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Gustavo La Cruz">
+		<meta name="author" content="Gustavo La Cruz">
+		<title>SCE Móvil - Nuevo formato</title>
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.css">
+		<link rel="stylesheet" href="themes/jquery.mobile-1.3.1.css">
+		<link rel="stylesheet" href="css/mobileapp.css">
+		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery.mobile-1.3.0.js"></script>
+		<script type="text/javascript" src="js/cordova-2.5.0.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/mobileapp-comun.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/mobileapp-nuevo.js" charset="utf-8"></script>
+	</head>
+	<body onload="cNuevo.iniciar()">
+		<div data-role="page" id="myPage">
+			<div data-role="header" data-theme="a" data-position="fixed">
+				<select data-position="inline" data-mini="true" data-placeholder="true" class="ui-btn-left" data-corners="false" id="lstEntidad" name="lstEntidad" onchange="cNuevo.buscarListaFormatos()">
+				</select>
+				<h1 data-position="inline">Nuevo formato</h1>
+				<a data-position="inline" data-mini="true" class="ui-btn-right" data-icon="plus" data-iconpos="right" onclick="cNuevo.nuevaSolicitud()">Nuevo</a>
+			</div>
+			<div data-role="content" data-theme="c">
+				<fieldset data-role="controlgroup" id="lstFormatos" data-mini="true">
+				</fieldset>
+			</div>
+			<div data-role="footer" data-theme="a" data-position="fixed">
+				<h1>Derechos Reservados - SCE &copy; 2013</h1>
+			</div>
+		</div>
+	</body>
+</html>
