@@ -1,4 +1,4 @@
-package net.dsd.sce.servicioce.servicio;
+package net.dsd.sce.servicio;
 
 import java.io.IOException;
 import java.util.ArrayList;

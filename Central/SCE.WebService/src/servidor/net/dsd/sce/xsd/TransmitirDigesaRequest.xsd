@@ -6,7 +6,7 @@
 	<include schemaLocation="./objetos/Cabecera.xsd"></include>
 	<include schemaLocation="./objetos/Usuario.xsd"></include>
 	<include schemaLocation="./formato/Dgs015.xsd"></include>
-	<include schemaLocation="./formato/Dgs016.xsd"></include>
+	<include schemaLocation="./formato/Frm001.xsd"></include>
 
 	<!-- Orden -->
 
@@ -16,7 +16,7 @@
 				<element name="mensaje" type="tns:MensajeType"></element>
 				<choice>
 					<element name="formatoDgs015" type="tns:Dgs015Type"></element>
-					<element name="formatoDgs016" type="tns:Dgs016Type"></element>
+					<element name="formatoFrm001" type="tns:Frm001Type"></element>
 				</choice>
 				<element name="nombreArchivoAdjunto" type="string" nillable="true"></element>
 				<element name="adjunto" type="base64Binary" nillable="true"></element>

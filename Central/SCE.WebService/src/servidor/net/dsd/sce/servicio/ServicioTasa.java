@@ -1,4 +1,4 @@
-package net.dsd.sce.servicioce.servicio;
+package net.dsd.sce.servicio;
 
 import net.dsd.financiera.cda.ServicioCdaStub;
 import net.dsd.financiera.cda.ServicioCdaStub.CdaType;

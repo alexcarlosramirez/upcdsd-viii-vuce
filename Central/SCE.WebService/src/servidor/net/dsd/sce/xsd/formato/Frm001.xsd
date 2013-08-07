@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://sce.dsd.net/TransmitirDigesaRequest"
+	xmlns:tns="http://sce.dsd.net/TransmitirDigesaRequest"
+	elementFormDefault="qualified">
+
+	<complexType name="Frm001Type">
+		<sequence>
+			<element name="tipoMercaderia" type="string"></element>
+			<element name="detalleMercaderia" type="string"></element>
+		</sequence>
+	</complexType>
+</schema>

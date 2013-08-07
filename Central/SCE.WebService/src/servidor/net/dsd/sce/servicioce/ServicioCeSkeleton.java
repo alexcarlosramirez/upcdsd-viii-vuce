@@ -25,11 +25,15 @@ import net.dsd.sce.bean.BeanTraza;
 import net.dsd.sce.bean.BeanUsuario;
 import net.dsd.sce.bean.digesa.BeanDgs015;
 import net.dsd.sce.bean.digesa.BeanDgs015Producto;
-import net.dsd.sce.servicioce.servicio.ServicioOrden;
-import net.dsd.sce.servicioce.servicio.ServicioSuce;
-import net.dsd.sce.servicioce.servicio.ServicioTasa;
+import net.dsd.sce.bean.ficticia.BeanFrm001;
+import net.dsd.sce.servicio.ServicioOrden;
+import net.dsd.sce.servicio.ServicioSuce;
+import net.dsd.sce.servicio.ServicioTasa;
+import net.dsd.sce.servicio.entidades.ServicioDigesa;
+import net.dsd.sce.servicio.entidades.ServicioFicticia;
 import net.dsd.sce.transmitirdigesarequest.Dgs015ProductoType;
 import net.dsd.sce.transmitirdigesarequest.Dgs015Type;
+import net.dsd.sce.transmitirdigesarequest.Frm001Type;
 import net.dsd.sce.transmitirdigesarequest.MensajeType;
 import net.dsd.sce.transmitirdigesarequest.TransmitirDrRequest;
 import net.dsd.sce.transmitirdigesarequest.TransmitirNroExpedienteRequest;
@@ -87,7 +91,13 @@ public class ServicioCeSkeleton {
 
 			// 3: Completar del formato
 			if (formato.getFormato().equals("DGS015")) {
-				servicioOrden.modificarDgs015((BeanDgs015) formatoEntidad);
+				BeanDgs015 dgs015 = (BeanDgs015) formatoEntidad;
+				ServicioDigesa servicioDigesa = new ServicioDigesa();
+				servicioDigesa.modificarDgs015(dgs015, dgs015.getListaDgs015Producto());
+			} else if (formato.getFormato().equals("FRM001")) {
+				BeanFrm001 frm001 = (BeanFrm001) formatoEntidad;
+				ServicioFicticia servicioFicticia = new ServicioFicticia(); 
+				servicioFicticia.modificarFrm001(frm001);
 			}
 
 			// 4: Se transmite de forma interna, esto es debido a que por este medio no hay pendiente de envio
@@ -330,6 +340,12 @@ class ConvertirdorBean {
 			}
 			dgs015.setListaDgs015Producto(listaDgs015Producto);
 			return dgs015;
+		} else if (formato.equals("FRM001")) {
+			Frm001Type frm001Type = formatoEntidadOrigen.getFormatoFrm001();
+			BeanFrm001 frm001 = new BeanFrm001();
+			frm001.setTipoMercaderia(frm001Type.getTipoMercaderia());
+			frm001.setDetalleMercaderia(frm001Type.getDetalleMercaderia());
+			return frm001;
 		} else {
 			return null;
 		}

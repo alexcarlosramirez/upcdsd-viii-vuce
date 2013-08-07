@@ -1,6 +1,6 @@
 
 /**
- * Dgs016Type.java
+ * TransmitirNroExpedienteRequest.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:34:40 IST)
@@ -11,158 +11,79 @@
             
 
             /**
-            *  Dgs016Type bean class
+            *  TransmitirNroExpedienteRequest bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class Dgs016Type
+        public  class TransmitirNroExpedienteRequest
         implements org.apache.axis2.databinding.ADBBean{
-        /* This type was generated from the piece of schema that had
-                name = Dgs016Type
-                Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
-                Namespace Prefix = ns4
-                */
+        
+                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                "http://sce.dsd.net/TransmitirDigesaRequest",
+                "TransmitirNroExpedienteRequest",
+                "ns2");
+
             
 
                         /**
-                        * field for TipoProducto
+                        * field for Mensaje
                         */
 
                         
-                                    protected int localTipoProducto ;
+                                    protected net.dsd.sce.transmitirdigesarequest.MensajeType localMensaje ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return int
+                           * @return net.dsd.sce.transmitirdigesarequest.MensajeType
                            */
-                           public  int getTipoProducto(){
-                               return localTipoProducto;
+                           public  net.dsd.sce.transmitirdigesarequest.MensajeType getMensaje(){
+                               return localMensaje;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param TipoProducto
+                               * @param param Mensaje
                                */
-                               public void setTipoProducto(int param){
+                               public void setMensaje(net.dsd.sce.transmitirdigesarequest.MensajeType param){
                             
-                                            this.localTipoProducto=param;
+                                            this.localMensaje=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for PaisProcedencia
+                        * field for Usuario
                         */
 
                         
-                                    protected java.lang.String localPaisProcedencia ;
+                                    protected net.dsd.sce.transmitirdigesarequest.UsuarioType localUsuario ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String
+                           * @return net.dsd.sce.transmitirdigesarequest.UsuarioType
                            */
-                           public  java.lang.String getPaisProcedencia(){
-                               return localPaisProcedencia;
+                           public  net.dsd.sce.transmitirdigesarequest.UsuarioType getUsuario(){
+                               return localUsuario;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param PaisProcedencia
+                               * @param param Usuario
                                */
-                               public void setPaisProcedencia(java.lang.String param){
+                               public void setUsuario(net.dsd.sce.transmitirdigesarequest.UsuarioType param){
                             
-                                            this.localPaisProcedencia=param;
+                                            this.localUsuario=param;
                                     
 
                                }
                             
-
-                        /**
-                        * field for ListaProducto
-                        * This was an Array!
-                        */
-
-                        
-                                    protected net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[] localListaProducto ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localListaProductoTracker = false ;
-
-                           public boolean isListaProductoSpecified(){
-                               return localListaProductoTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[]
-                           */
-                           public  net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[] getListaProducto(){
-                               return localListaProducto;
-                           }
-
-                           
-                        
-
-
-                               
-                              /**
-                               * validate the array for ListaProducto
-                               */
-                              protected void validateListaProducto(net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param ListaProducto
-                              */
-                              public void setListaProducto(net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[] param){
-                              
-                                   validateListaProducto(param);
-
-                               localListaProductoTracker = param != null;
-                                      
-                                      this.localListaProducto=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType
-                             */
-                             public void addListaProducto(net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType param){
-                                   if (localListaProducto == null){
-                                   localListaProducto = new net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[]{};
-                                   }
-
-                            
-                                 //update the setting tracker
-                                localListaProductoTracker = true;
-                            
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(localListaProducto);
-                               list.add(param);
-                               this.localListaProducto =
-                             (net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[])list.toArray(
-                            new net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[list.size()]);
-
-                             }
-                             
 
      
      
@@ -179,8 +100,8 @@
 
         
                org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-               return factory.createOMElement(dataSource,parentQName);
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
             
         }
 
@@ -212,66 +133,29 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://sce.dsd.net/TransmitirDigesaRequest");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":Dgs016Type",
+                           namespacePrefix+":TransmitirNroExpedienteRequest",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "Dgs016Type",
+                           "TransmitirNroExpedienteRequest",
                            xmlWriter);
                    }
 
                
                    }
                
-                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "tipoProducto", xmlWriter);
-                             
-                                               if (localTipoProducto==java.lang.Integer.MIN_VALUE) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("tipoProducto cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoProducto));
-                                               }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
-                                    writeStartElement(null, namespace, "paisProcedencia", xmlWriter);
-                             
-
-                                          if (localPaisProcedencia==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("paisProcedencia cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localPaisProcedencia);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                              if (localListaProductoTracker){
-                                       if (localListaProducto!=null){
-                                            for (int i = 0;i < localListaProducto.length;i++){
-                                                if (localListaProducto[i] != null){
-                                                 localListaProducto[i].serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","listaProducto"),
-                                                           xmlWriter);
-                                                } else {
-                                                   
-                                                        // we don't have to do any thing since minOccures is zero
-                                                    
-                                                }
-
+                                            if (localMensaje==null){
+                                                 throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
                                             }
-                                     } else {
+                                           localMensaje.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","mensaje"),
+                                               xmlWriter);
                                         
-                                               throw new org.apache.axis2.databinding.ADBException("listaProducto cannot be null!!");
+                                            if (localUsuario==null){
+                                                 throw new org.apache.axis2.databinding.ADBException("usuario cannot be null!!");
+                                            }
+                                           localUsuario.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","usuario"),
+                                               xmlWriter);
                                         
-                                    }
-                                 }
                     xmlWriter.writeEndElement();
                
 
@@ -279,7 +163,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://sce.dsd.net/TransmitirDigesaRequest")){
-                return "ns4";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -457,42 +341,24 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
-                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "tipoProducto"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoProducto));
+                            elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "mensaje"));
                             
-                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "paisProcedencia"));
-                                 
-                                        if (localPaisProcedencia != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPaisProcedencia));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("paisProcedencia cannot be null!!");
-                                        }
-                                     if (localListaProductoTracker){
-                             if (localListaProducto!=null) {
-                                 for (int i = 0;i < localListaProducto.length;i++){
-
-                                    if (localListaProducto[i] != null){
-                                         elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                          "listaProducto"));
-                                         elementList.add(localListaProducto[i]);
-                                    } else {
-                                        
-                                                // nothing to do
-                                            
+                            
+                                    if (localMensaje==null){
+                                         throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
                                     }
-
-                                 }
-                             } else {
-                                 
-                                        throw new org.apache.axis2.databinding.ADBException("listaProducto cannot be null!!");
-                                    
-                             }
-
-                        }
+                                    elementList.add(localMensaje);
+                                
+                            elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "usuario"));
+                            
+                            
+                                    if (localUsuario==null){
+                                         throw new org.apache.axis2.databinding.ADBException("usuario cannot be null!!");
+                                    }
+                                    elementList.add(localUsuario);
+                                
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -517,9 +383,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static Dgs016Type parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            Dgs016Type object =
-                new Dgs016Type();
+        public static TransmitirNroExpedienteRequest parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            TransmitirNroExpedienteRequest object =
+                new TransmitirNroExpedienteRequest();
 
             int event;
             java.lang.String nillableValue = null;
@@ -543,10 +409,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"Dgs016Type".equals(type)){
+                            if (!"TransmitirNroExpedienteRequest".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (Dgs016Type)net.dsd.sce.transmitirdigesarequest.ExtensionMapper.getTypeObject(
+                                return (TransmitirNroExpedienteRequest)net.dsd.sce.transmitirdigesarequest.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -568,23 +434,12 @@
                     
                     reader.next();
                 
-                        java.util.ArrayList list3 = new java.util.ArrayList();
-                    
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","tipoProducto").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","mensaje").equals(reader.getName())){
                                 
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"tipoProducto" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setTipoProducto(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                                object.setMensaje(net.dsd.sce.transmitirdigesarequest.MensajeType.Factory.parse(reader));
                                               
                                         reader.next();
                                     
@@ -598,18 +453,9 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","paisProcedencia").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","usuario").equals(reader.getName())){
                                 
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"paisProcedencia" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setPaisProcedencia(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                                object.setUsuario(net.dsd.sce.transmitirdigesarequest.UsuarioType.Factory.parse(reader));
                                               
                                         reader.next();
                                     
@@ -619,53 +465,7 @@
                                     // A start element we are not expecting indicates an invalid parameter was passed
                                     throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
                                 }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","listaProducto").equals(reader.getName())){
-                                
-                                    
-                                    
-                                    // Process the array and step past its final element's end.
-                                    list3.add(net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType.Factory.parse(reader));
-                                                                
-                                                        //loop until we find a start element that is not part of this array
-                                                        boolean loopDone3 = false;
-                                                        while(!loopDone3){
-                                                            // We should be at the end element, but make sure
-                                                            while (!reader.isEndElement())
-                                                                reader.next();
-                                                            // Step out of this element
-                                                            reader.next();
-                                                            // Step to next element event.
-                                                            while (!reader.isStartElement() && !reader.isEndElement())
-                                                                reader.next();
-                                                            if (reader.isEndElement()){
-                                                                //two continuous end elements means we are exiting the xml structure
-                                                                loopDone3 = true;
-                                                            } else {
-                                                                if (new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","listaProducto").equals(reader.getName())){
-                                                                    list3.add(net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType.Factory.parse(reader));
-                                                                        
-                                                                }else{
-                                                                    loopDone3 = true;
-                                                                }
-                                                            }
-                                                        }
-                                                        // call the converter utility  to convert and set the array
-                                                        
-                                                        object.setListaProducto((net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType[])
-                                                            org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                                net.dsd.sce.transmitirdigesarequest.Dgs016ProductoType.class,
-                                                                list3));
-                                                            
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                  
+                              
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             
