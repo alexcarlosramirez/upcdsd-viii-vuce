@@ -389,6 +389,38 @@ references dgs015_dr (dgs015_dr_id);
 
 -- ================================
 
+-- drop table if exists frm001;
+create table if not exists frm001 (
+	frm001_id int not null auto_increment,
+	orden_id int,
+	mto int,
+	tipo_mercaderia varchar(100),
+	detalle_mercaderia varchar(500),
+	constraint pk_frm001 primary key (frm001_id)
+);
+
+alter table frm001
+add constraint fk_frm001_mto
+foreign key (orden_id, mto)
+references mto (orden_id, mto);
+
+-- drop table if exists frm001_dr;
+create table if not exists frm001_dr (
+	frm001_dr_id int not null auto_increment,
+	dr_id int,
+	sdr int,
+	tipo_mercaderia varchar(100),
+	detalle_mercaderia varchar(500),
+	constraint pk_frm001_dr primary key (frm001_dr_id)
+);
+
+alter table frm001_dr
+add constraint fk_frm001_dr_sdr
+foreign key (dr_id, sdr)
+references sdr (dr_id, sdr);
+
+-- ================================
+
 insert into secuencia values (1,'ORDEN',0);
 insert into secuencia values (2,'SUCE',0);
 insert into secuencia values (3,'DR',0);

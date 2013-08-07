@@ -1,6 +1,6 @@
 
 /**
- * TransmitirNroExpedienteRequest.java
+ * Frm001Type.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:34:40 IST)
@@ -11,75 +11,74 @@
             
 
             /**
-            *  TransmitirNroExpedienteRequest bean class
+            *  Frm001Type bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class TransmitirNroExpedienteRequest
+        public  class Frm001Type
         implements org.apache.axis2.databinding.ADBBean{
-        
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://sce.dsd.net/TransmitirDigesaRequest",
-                "TransmitirNroExpedienteRequest",
-                "ns2");
-
+        /* This type was generated from the piece of schema that had
+                name = Frm001Type
+                Namespace URI = http://sce.dsd.net/TransmitirDigesaRequest
+                Namespace Prefix = ns2
+                */
             
 
                         /**
-                        * field for Mensaje
+                        * field for TipoMercaderia
                         */
 
                         
-                                    protected net.dsd.sce.transmitirdigesarequest.MensajeType localMensaje ;
+                                    protected java.lang.String localTipoMercaderia ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return net.dsd.sce.transmitirdigesarequest.MensajeType
+                           * @return java.lang.String
                            */
-                           public  net.dsd.sce.transmitirdigesarequest.MensajeType getMensaje(){
-                               return localMensaje;
+                           public  java.lang.String getTipoMercaderia(){
+                               return localTipoMercaderia;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Mensaje
+                               * @param param TipoMercaderia
                                */
-                               public void setMensaje(net.dsd.sce.transmitirdigesarequest.MensajeType param){
+                               public void setTipoMercaderia(java.lang.String param){
                             
-                                            this.localMensaje=param;
+                                            this.localTipoMercaderia=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for Usuario
+                        * field for DetalleMercaderia
                         */
 
                         
-                                    protected net.dsd.sce.transmitirdigesarequest.UsuarioType localUsuario ;
+                                    protected java.lang.String localDetalleMercaderia ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return net.dsd.sce.transmitirdigesarequest.UsuarioType
+                           * @return java.lang.String
                            */
-                           public  net.dsd.sce.transmitirdigesarequest.UsuarioType getUsuario(){
-                               return localUsuario;
+                           public  java.lang.String getDetalleMercaderia(){
+                               return localDetalleMercaderia;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Usuario
+                               * @param param DetalleMercaderia
                                */
-                               public void setUsuario(net.dsd.sce.transmitirdigesarequest.UsuarioType param){
+                               public void setDetalleMercaderia(java.lang.String param){
                             
-                                            this.localUsuario=param;
+                                            this.localDetalleMercaderia=param;
                                     
 
                                }
@@ -100,8 +99,8 @@
 
         
                org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-               return factory.createOMElement(dataSource,MY_QNAME);
+                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
+               return factory.createOMElement(dataSource,parentQName);
             
         }
 
@@ -133,29 +132,53 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://sce.dsd.net/TransmitirDigesaRequest");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":TransmitirNroExpedienteRequest",
+                           namespacePrefix+":Frm001Type",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "TransmitirNroExpedienteRequest",
+                           "Frm001Type",
                            xmlWriter);
                    }
 
                
                    }
                
-                                            if (localMensaje==null){
-                                                 throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
-                                            }
-                                           localMensaje.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","mensaje"),
-                                               xmlWriter);
+                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
+                                    writeStartElement(null, namespace, "tipoMercaderia", xmlWriter);
+                             
+
+                                          if (localTipoMercaderia==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("tipoMercaderia cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                            if (localUsuario==null){
-                                                 throw new org.apache.axis2.databinding.ADBException("usuario cannot be null!!");
-                                            }
-                                           localUsuario.serialize(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","usuario"),
-                                               xmlWriter);
+                                                   xmlWriter.writeCharacters(localTipoMercaderia);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "http://sce.dsd.net/TransmitirDigesaRequest";
+                                    writeStartElement(null, namespace, "detalleMercaderia", xmlWriter);
+                             
+
+                                          if (localDetalleMercaderia==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("detalleMercaderia cannot be null!!");
+                                                  
+                                          }else{
+
                                         
+                                                   xmlWriter.writeCharacters(localDetalleMercaderia);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -341,24 +364,24 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
-                            elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "mensaje"));
-                            
-                            
-                                    if (localMensaje==null){
-                                         throw new org.apache.axis2.databinding.ADBException("mensaje cannot be null!!");
-                                    }
-                                    elementList.add(localMensaje);
-                                
-                            elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
-                                                                      "usuario"));
-                            
-                            
-                                    if (localUsuario==null){
-                                         throw new org.apache.axis2.databinding.ADBException("usuario cannot be null!!");
-                                    }
-                                    elementList.add(localUsuario);
-                                
+                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "tipoMercaderia"));
+                                 
+                                        if (localTipoMercaderia != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTipoMercaderia));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("tipoMercaderia cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest",
+                                                                      "detalleMercaderia"));
+                                 
+                                        if (localDetalleMercaderia != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDetalleMercaderia));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("detalleMercaderia cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -383,9 +406,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static TransmitirNroExpedienteRequest parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            TransmitirNroExpedienteRequest object =
-                new TransmitirNroExpedienteRequest();
+        public static Frm001Type parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Frm001Type object =
+                new Frm001Type();
 
             int event;
             java.lang.String nillableValue = null;
@@ -409,10 +432,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"TransmitirNroExpedienteRequest".equals(type)){
+                            if (!"Frm001Type".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (TransmitirNroExpedienteRequest)net.dsd.sce.transmitirdigesarequest.ExtensionMapper.getTypeObject(
+                                return (Frm001Type)net.dsd.sce.transmitirdigesarequest.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -437,9 +460,18 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","mensaje").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","tipoMercaderia").equals(reader.getName())){
                                 
-                                                object.setMensaje(net.dsd.sce.transmitirdigesarequest.MensajeType.Factory.parse(reader));
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"tipoMercaderia" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setTipoMercaderia(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
                                     
@@ -453,9 +485,18 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","usuario").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://sce.dsd.net/TransmitirDigesaRequest","detalleMercaderia").equals(reader.getName())){
                                 
-                                                object.setUsuario(net.dsd.sce.transmitirdigesarequest.UsuarioType.Factory.parse(reader));
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"detalleMercaderia" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setDetalleMercaderia(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
                                     
