@@ -2,28 +2,22 @@ package net.dsd.sce.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import net.dsd.sce.bean.BeanOrden;
 import net.dsd.sce.bean.BeanSuce;
+import net.dsd.sce.conexion.ConexionBD;
+import net.dsd.sce.excepcion.DAOExcepcion;
 
 public class MysqlSuceDao {
 
-	private Connection con = null;
-
-	private String url = "jdbc:mysql://localhost:3306/sce_central_db";
-	private String user = "root";
-	private String password = "root";
-
-	public BeanSuce generarSuce(BeanOrden orden) {
+	public BeanSuce generarSuce(BeanOrden orden) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 		BeanSuce suce = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL suce_registra(?,?,?)");
 			st1.setInt(1, orden.getOrdenId());
@@ -42,8 +36,8 @@ public class MysqlSuceDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -53,20 +47,18 @@ public class MysqlSuceDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
 		return suce;
 	}
 
-	public void modificarSuce(BeanSuce suce) {
+	public void modificarSuce(BeanSuce suce) throws DAOExcepcion {
+		Connection con = null;
 		CallableStatement st1 = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			//Registra la tasa
-			con = DriverManager.getConnection(url, user, password);
+			con = ConexionBD.obtenerConexion();
 			con.setAutoCommit(false);
 			st1 = con.prepareCall("CALL suce_modifica(?,?)");
 			st1.setLong(1, suce.getSuce());
@@ -81,8 +73,8 @@ public class MysqlSuceDao {
 					e.printStackTrace();
 				}
 			}
-			System.out.println(ex.getMessage());
 			ex.printStackTrace();
+			throw new DAOExcepcion(ex.getMessage());
 		} finally {
 			try {
 				if (st1 != null) {
@@ -92,7 +84,6 @@ public class MysqlSuceDao {
 					con.close();
 				}
 			} catch (SQLException ex) {
-				System.out.println(ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
